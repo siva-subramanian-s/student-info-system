@@ -1,36 +1,36 @@
 import React from "react";
-import "./loginstyle_stud.css";
+import "./loginstyle.css";
 
-function Login() {
+function StudentLogin() {
     return (
       // student
       <div className="Login">
        <div class="login_user">
-    <div class="login_container">
+      <div class="login_container">
       <div class="wrapper">
-        <div class="title"><span>Admin Login</span></div>
+        <div class="title"><span>Student Login</span></div>
         <form action="#">
           <div class="row">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Admin" minLength={7} required/>
+            <input type="text" placeholder="Roll no." minLength={7} required />
           </div>
           <div class="row">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" minlenght={8} required/>
+            <input type="password" placeholder="Password" minLength={8} required/>
           </div>
           
           <div class="row button">
-            <input type="submit" value="Login"/>
+            <input type="submit" value="Login" />
           </div>
          
         </form>
       </div>
     </div>
-  </div>
+    </div>
   </div>
 
 
      
     );
   }
-export default Login;
+export default StudentLogin;

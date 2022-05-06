@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Card from "./Card";
 import items from "./Card_items";
-import "./styles.module.css"
+import "./styles.css"
 function createCard(props) {
     return(
       <Card

@@ -1,11 +1,14 @@
 import React from "react";
-// import Logincard from "./components/logincard/Logincard.js";
+import Logincard from "./components/logincard/Logincard.js";
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/home/home";
 // import Login from "./components/login/login";
 // import Staff from "./components/staff/staff";
 import News from "./components/card/news.js";
 import About from "./components/about/about.js";
+import StudentLogin from "./components/login/student_login.js";
+import StaffLogin from "./components/login/staff_login";
+import AdminLogin from "./components/login/admin_login";
 // import Attendance from "./components/attendance/attendance.js";
 
 function App() {
@@ -13,7 +16,10 @@ function App() {
       <Router>
         <Routes>
           <Route  path="/" exact element={<Home/>}/>
-          {/* <Route path="/Login-card" element={<Logincard/>} /> */}
+          <Route path="/Login_card" element={<Logincard/>} />
+          <Route path="/login-Student" element={<StudentLogin/>}/>
+          <Route path="/login-Staff" element={<StaffLogin/>}/>
+          <Route path="/login-Admin" element={<AdminLogin/>}/>
           {/* <Route path="/login" element={<Login/>} /> */}
           {/* <Route path="/Staff" element={<Staff/>}/> */}
           <Route path="/News" element={<News/>} />
