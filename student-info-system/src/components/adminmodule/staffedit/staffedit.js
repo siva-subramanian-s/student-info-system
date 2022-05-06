@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staff Dashboard</title>
-    <link rel="stylesheet" href="staff.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-        <link rel="stylesheet" href="/admin/admin_style.css">
-</head>
-<body>
-  <div id="admin_header"><h1>ADMIN DASHBOARD</h1></div>
+import React from "react";
+import "./staff.css";
+function Staffedit() {
+    return (
+        <div className="staffedit">
+            <div id="admin_header"><h1>ADMIN DASHBOARD</h1></div>
     <div class="admin-wrapper">
-       <input type="checkbox" id="btn" hidden>
+       <input type="checkbox" id="btn" hidden/>
        <label for="btn" class="admin-menu-btn">
        <i class="fas fa-bars"></i>
        <i class="fas fa-times"></i>
@@ -22,12 +15,12 @@
              Side Menu
           </div>
           <ul class="admin-list-items">
-             <li><a href="/admin/admin2_dashboard.html"><i class="fas fa-home"></i>Home</a></li>
-             <li><a href="/students/student.html"><i class="fas fa-sliders-h"></i>Students edit</a></li>
-             <li><a href="staff.html"><i class="fas fa-address-book"></i>Staffs edit </a></li>
-             <li><a href="/subjects/subjects.html"><i class="fas fa-cog"></i>Subjects edit</a></li>
-             <li><a href="/changePWD/changePwd.html"><i class="fas fa-stream"></i>Change Password</a></li>
-             <li><a href="#"><i class="fas fa-user"></i>Log out</a></li>
+             <li><a href="/admin-dashboard"><i class="fas fa-home"></i>Home</a></li>
+             <li><a href="/admin-student-edit"><i className="fas fa-sliders-h"></i>Students edit</a></li>
+               <li><a href="/admin-staff-edit"><i className="fas fa-address-book"></i>Staffs edit </a></li>
+               <li><a href="/admin-subjects-edit"><i className="fas fa-cog"></i>Subjects edit</a></li>
+               <li><a href="/change-password"><i className="fas fa-stream"></i>Change Password</a></li>
+               <li><a href="/"><i className="fas fa-user"></i>Log out</a></li>
              
              
           </ul>
@@ -36,49 +29,44 @@
     
     <div class="admin-wrapper1">
         <div class="admin-container">
-            <!-- container -->
             <div class="admin-simple-cards">
-              <!-- simple card content -->
               <div class="admin-items">
-                <!-- first item -->
                 <h4>ADD STAFF</h4>
                 <div class="admin-cards-content">
-                  <!-- cards content -->
                   <form>
                     <select id="input_reg" name="staff_name">
                       <option value="">name1</option>
                      </select> 
-                    <input id="input_sub_add" type="submit" value="ADD">
+                    <input id="input_sub_add" type="submit" value="ADD"/>
                 </form>
                 </div>
               </div>
               <div class="admin-items">
-                <!-- second item -->
                 <h4>DELETE STAFF</h4>
                 <div class="admin-cards-content">
                   <form>
                     <select id="input_reg" name="staff_name">
                       <option value="">name1</option>
                      </select>
-                      <input id="input_sub_del" type="submit" value="DELETE">
+                      <input id="input_sub_del" type="submit" value="DELETE" />
                   </form>
                 </div>
               </div>
               <div class="admin-items">
-                <!-- third item -->
                 <h4>CHANGE STAFF PASSWORD</h4>
                 <div class="admin-cards-content">
                     <form>
                       <select id="input_reg" name="staff_name">
                         <option value="">name1</option>
                        </select>
-                        <input id="input_sub_alter" type="submit" value="CHANGE PASSWORD">
+                        <input id="input_sub_alter" type="submit" value="CHANGE PASSWORD"/>
                     </form>
                 </div>
               </div>
             </div>
           </div>
    </div>
-
-</body>
-</html>
+        </div>
+    );
+}
+export default Staffedit;

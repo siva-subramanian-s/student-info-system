@@ -5,10 +5,13 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 } */
+.admin,.subjectedit{
+  text-align: center;
+}
 .admin-wrapper{
   height: 100%;
   width: 300px;
-  position: relative;
+  position: absolute;
 }
 .admin-wrapper .admin-menu-btn{
   position: absolute;
@@ -97,7 +100,7 @@
   font-weight: 500;
   height: 100%;
   width: 100%;
-  display: block;
+  /* display: block; */
 }
 #sidebar .admin-list-items li a i{
   margin-right: 20px;
@@ -152,18 +155,18 @@
 }
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-*{
+/* *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-}
-body{
+} */
+/* body{
   height: 100%;
   width: 100%;
   text-align: center;
   background: #f2f2f2;
-}
+} */
 .admin-wrapper1{
   display: grid;
   margin: 200px 90px auto;
