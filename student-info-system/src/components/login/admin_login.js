@@ -20,7 +20,7 @@ function AdminLogin() {
           </div>
           
           <div className="row button">
-          <link to="/Admin-dashboard"><input type="submit" value="Login" /></link>
+          <a href="/Admin-dashboard"><input type="submit" value="Login" /></a>
           </div>
          
         </form>

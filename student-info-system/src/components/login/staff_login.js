@@ -20,7 +20,7 @@ function StaffLogin() {
           </div>
           
           <div class="row button">
-            <link to="/Classes"><input type="submit" value="Login" /></link>
+          <a href="/Admin-dashboard"><input type="submit" value="Login" /></a>
           </div>
          
         </form>
