@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;1,200;1,300&display=swap");
+* {
+  margin: 0;
+}
+:root {
+  --primary-btn: #3273dc;
+  --blue-color: #3298dc;
+  --grey-color: #d6d6d6;
+  --red-color: #dd4b46;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* globals */
+.admin-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* simple cards */
+.admin-simple-cards {
+  margin-top: 0rem;
+  display: flex;
+  justify-content: space-between;
+}
+.admin-admin-items {
+  width: calc(33% - 1rem);
+  border-radius: 5px;
+}
+.admin-items h4 {
+  border-bottom: 1px solid var(--grey-color);
+  padding: 15px;
+  background-color: #f7f7f7;
+  color: #000;
+  border-radius: 5px;
+}
+.admin-items:nth-child(1) {
+  color: var(--blue-color);
+  border: 2px solid var(--blue-color);
+}
+.admin-items:nth-child(2) {
+  color: #6e6e6e;
+  border: 2px solid var(--red-color);
+}
+.admin-items:nth-child(3) {
+  color: var(--red-color);
+  border: 2px solid var(--grey-color);
+}
+.admin-cards-content {
+  padding: 15px;
+}
+.admin-cards-content h3 {
+  margin-bottom: 0.8rem;
+}
+
+#input_reg{
+    margin-top: 1.5em;
+    width:100%;
+    height: 10%;
+    padding: 2px;
+    border-radius: 5px;
+    border: 2px solid gray;
+
+}
+
+#input_sub_add{
+    margin-top: 3.5em;
+    width:60%;
+    height: 10%;
+    padding: 2px;
+    border-radius: 5px;
+    border: 2px solid blue;
+    cursor: pointer;
+}
+#input_sub_del{
+    margin-top: 3.5em;
+    width:60%;
+    height: 10%;
+    padding: 2px;
+    border-radius: 5px;
+    border: 2px solid red;
+    cursor: pointer;
+}
+#input_sub_alter{
+    margin-top: 3.5em;
+    width:60%;
+    height: 10%;
+    padding: 2px;
+    border-radius: 5px;
+    border: 2px solid grey;
+    cursor: pointer;
+}
+#input_sub_add:hover{
+    background-color: blue;
+    color: white;
+}
+#input_sub_del:hover{
+    background-color: red;
+    color: white;
+}
+#input_sub_alter:hover{
+    background-color: grey;
+    color: white;
+}
