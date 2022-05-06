@@ -1,23 +1,42 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import Newsletter from "./newsletter";
-import items from "./newsitems";
-import "./style_news.css"
-
-function createCard(props) {
-    return (
-        <Newsletter
-            key={props.key}
-            desc={props.desc}
-            link={props.link} />
-    );
-}
+import "./news.css"
 
 function News() {
-    return (
+    return(
         <div className="news">
-            {items.map(createCard)}
+            <div class="news_container">
+  <div class="news_card">
+    <div class="circle">
+      <h2>01</h2>
+    </div>
+    <div class="news_content">
+      <p>Series Test III for 2nd Year is Scheduled from 01.02.22</p>
+      <a href="#">Attachment</a>
+    </div>
+  </div>
+  <div class="news_card">
+    <div class="circle">
+      <h2>02</h2>
+    </div>
+    <div class="news_content">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum voluptates ea officia totam magni
+        natus recusandae.</p>
+      <a href="#">Read More</a>
+    </div>
+  </div>
+  <div class="news_card">
+    <div class="circle">
+      <h2>03</h2>
+    </div>
+    <div class="news_content">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum voluptates ea officia totam magni
+        natus recusandae.</p>
+      <a href="#">Read More</a>
+    </div>
+  </div>
+</div>
         </div>
     );
 }
+
 export default News;

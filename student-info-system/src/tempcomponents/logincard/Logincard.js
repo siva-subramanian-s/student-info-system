@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Card from "./Card";
 import items from "./Card_items";
-import "./styles.css"
+import "./styles.module.css"
 function createCard(props) {
     return(
       <Card
@@ -15,7 +15,7 @@ function createCard(props) {
   
   function Logincard() {
     return (
-      <div className="App">
+      <div className="login">
         {items.map(createCard)}
       </div>
     );

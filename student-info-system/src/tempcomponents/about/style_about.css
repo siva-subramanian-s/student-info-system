@@ -1,4 +1,4 @@
-body {
+.About {
   margin: 0px;  
   background: hsl(0, 0%, 98%);
   padding: 2rem;
@@ -6,8 +6,7 @@ body {
   font-size: 15px;
 }
 
-/* main container */
-.container {
+.about-container {
   width: 100%;
   max-width: 1440px;
   min-width: 375px;
@@ -41,7 +40,7 @@ body {
   margin: 2% 16%; 
 }
 
-#card-container {
+#about-card-container {
   width: 100%;
   display: flex;
   flex-flow: row wrap;
@@ -50,7 +49,7 @@ body {
   padding-bottom: 2rem;
 }
 
-#card-container div{
+#about-card-container div{
   flex-grow: 1;
   flex-basis: calc(100% / 4);
   align-self: center;
@@ -64,7 +63,7 @@ body {
 }
 
 /* Card features */
-.card {
+.about-card {
   height: auto;
   padding: 2rem;
   margin: 1rem;
@@ -73,18 +72,18 @@ body {
 }
 
 /* Card Heading */
-.card h2 {
+.about-card h2 {
   font-size: 1.5rem;
 }
 
 /*  Card Description */
-.card p {
+.about-card p {
   font-size: 1rem;
   margin: 2rem auto 2rem auto;
   text-align: left;
 }
 
-.card img {
+.about-card img {
   display: block;
   margin-left: auto;
   margin-right: 0;
@@ -96,20 +95,20 @@ body {
 
 
 /* Card Boundary color */
-#card-1 {
+#about-card-1 {
   border-top: 5px solid hsl(180, 62%, 55%);
   align-self: center;
 }
 
-#card-2 {
+#about-card-2 {
   border-top: 5px solid hsl(0, 78%, 62%);
 }
 
-#card-3 {
+#about-card-3 {
   border-top: 5px solid hsl(34, 97%, 64%);
 }
 
-#card-4 {
+#about-card-4 {
   border-top: 5px solid hsl(212, 86%, 64%);
   align-self: center;
 }
@@ -149,12 +148,12 @@ footer p a {
 
 /* Small Screens */
 @media (max-width: 900px) {
-  .container {
+  .about-container {
     justify-items: center;
     justify-content: center;
   }
 
-  #card-container {
+  #about-card-container {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
@@ -164,13 +163,13 @@ footer p a {
     font-size: 1.5rem;
   }
   
-  .card, #body-header{
+  .about-card, #body-header{
     width: 70vw;
     height: auto;
     border: none;
   }
 
-  #card-1, #card-3 {
+  #about-card-1, #about-card-3 {
     align-self: auto;
   }
 }
