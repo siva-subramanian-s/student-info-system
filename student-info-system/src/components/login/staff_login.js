@@ -20,7 +20,7 @@ function StaffLogin() {
           </div>
           
           <div class="row button">
-            <link to="/Classes"><input type="submit" value="Login" /></link>
+            {/* <link to="/Classes"><input type="submit" value="Login" /></link> */}
           </div>
          
         </form>
