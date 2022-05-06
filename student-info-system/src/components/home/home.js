@@ -9,7 +9,7 @@ function Home() {
       <nav class="navbar">
         <a href="#"><img class="logo" src={logo} alt="spacex logo" /></a>
         <ul id="ul-navigation" class="nav-ul" data-visible="false">
-          <li class="nav-li"><a href="#">Home</a></li>
+          <li class="nav-li"><a href="/">Home</a></li>
           <li class="nav-li"><a href="/card">Newsletter</a></li>
           <li class="nav-li"><a href="/login">Sign In</a></li>
           <li class="nav-li"><a href="/about">About</a></li>
