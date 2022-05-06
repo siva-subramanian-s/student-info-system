@@ -9,14 +9,14 @@
   padding: 0 20px;
   margin: 170px auto;
 }
-.wrapper{
+.login_wrapper{
   font-family:poppins;
   width: 100%;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
 }
-.wrapper .title{
+.login_wrapper .title{
   height: 90px;
   background: #1674a0;
   border-radius: 5px 5px 0 0;
@@ -27,15 +27,15 @@
   align-items: center;
   justify-content: center;
 }
-.wrapper form{
+.login_wrapper .login_form{
   padding:  50px;
 }
-.wrapper form .row{
+.login_wrapper .login_form .row{
   height: 45px;
   margin-bottom: 15px;
   position: relative;
 }
-.wrapper form .row input{
+.login_wrapper .login_form .row input{
   height: 100%;
   width: 80%;
   outline: none;
@@ -46,14 +46,14 @@
   font-size: 16px;
   transition: all 0.3s ease;
 }
-form .row input:focus{
+.login_form .row input:focus{
   border-color:#1674a0;
   box-shadow: inset 0px 0px 2px 2px rgba(30, 128, 199, 0.25);
 }
-form .row input::placeholder{
+.login_form .row input::placeholder{
   color: #999;
 }
-.wrapper form .row i{
+.login_wrapper .login_form .row i{
   position: absolute;
   width: 47px;
   height: 100%;
@@ -67,18 +67,18 @@ form .row input::placeholder{
   justify-content: center;
   
 }
-.wrapper form .pass{
+.login_wrapper .login_form .pass{
   margin: -8px 0 20px 0;
 }
-.wrapper form .pass a{
+.login_wrapper .login_form .pass a{
   color: #1674a0;
   font-size: 17px;
   text-decoration: none;
 }
-.wrapper form .pass a:hover{
+.login_wrapper .login_form .pass a:hover{
   text-decoration: underline;
 }
-.wrapper form .button input{
+.login_wrapper .login_form .button input{
   color: #fff;
   font-size: 20px;
   font-weight: 500;
@@ -89,7 +89,7 @@ form .row input::placeholder{
   border: 1px solid #1674a0;
   cursor: pointer;
 }
-form .button input:hover{
+.login_form .button input:hover{
   background: #364c56;
 }
 

@@ -7,9 +7,9 @@ function StaffLogin() {
       <div className="Login">
        <div class="login_user">
     <div class="login_container">
-      <div class="wrapper">
+      <div class="login_wrapper">
         <div class="title"><span>Staff Login</span></div>
-        <form action="#">
+        <form action="#" className="login_form">
           <div class="row">
             <i class="fas fa-user"></i>
             <input type="text" placeholder="Staff Name" minLength={7} required/>
@@ -20,7 +20,7 @@ function StaffLogin() {
           </div>
           
           <div class="row button">
-            <input type="submit" value="Login"/>
+            <link to="/Classes"><input type="submit" value="Login" /></link>
           </div>
          
         </form>

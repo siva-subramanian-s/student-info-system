@@ -5,22 +5,22 @@ function AdminLogin() {
     return (
       // student
       <div className="Login">
-       <div class="login_user">
-    <div class="login_container">
-      <div class="wrapper">
-        <div class="title"><span>Admin Login</span></div>
-        <form action="#">
-          <div class="row">
-            <i class="fas fa-user"></i>
+       <div className="login_user">
+    <div className="login_container">
+      <div className="login_wrapper">
+        <div className="title"><span>Admin Login</span></div>
+        <form action="#" className="login_from">
+          <div className="row">
+            <i className="fas fa-user"></i>
             <input type="text" placeholder="Admin" minLength={7} required/>
           </div>
-          <div class="row">
-            <i class="fas fa-lock"></i>
+          <div className="row">
+            <i className="fas fa-lock"></i>
             <input type="password" placeholder="Password" minlenght={8} required/>
           </div>
           
-          <div class="row button">
-            <input type="submit" value="Login"/>
+          <div className="row button">
+          <link to="/Admin-dashboard"><input type="submit" value="Login" /></link>
           </div>
          
         </form>

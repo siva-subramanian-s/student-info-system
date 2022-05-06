@@ -5,12 +5,12 @@ import "./style_atten.css"
 function Attendance() {
     return (
         <div className="Attendance">
-            <div class="atten-heading">
+            <div className="atten-heading">
                 <center>Attendance Register</center>
             </div>
-            <div class="atten-form_class">
+            <div className="atten-form_class">
                 <form name="atten-User">
-                    <table class="atten-table" center>
+                    <table className="atten-table" center>
                         <tr >
                             <th>Date</th>
                             <th>Subject</th>
@@ -26,19 +26,19 @@ function Attendance() {
                             <td><input id="atten-inputBox" type="number" name="absentees" min="0" max="60"/> </td>
                         </tr>
                     </table><br /><br />
-                        <center><input id="atten-inputBox" type="submit" onclick="submit()"/></center>
+                        <center><input id="atten-inputBox" type="submit"/></center>
                     </form>
                     </div>
-                    <div class="atten-header">
-                        <div class="inner-header flex"></div>
+                    <div className="atten-header">
+                        <div className="inner-header flex"></div>
                         <div>
-                            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" 
+                            <svg className="atten_waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" 
                     shape-rendering="auto" preserveAspectRatio="none"
                              >
                                 <defs>
                                     <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
                                 </defs>
-                                <g class="parallax">
+                                <g className="parallax">
                                     <use xlinHref="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
                                     <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
                                     <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
