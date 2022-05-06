@@ -1,31 +1,5 @@
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
-
-table{
-            
-  width: 60%;
-  margin-left:auto;margin-right: auto;
-  font-family: poppins;
-  font-weight: bold;
-  border-radius: 10px;
-  background-image: linear-gradient(rgb(255, 255, 255),rgba(216, 220, 225, 0.539));
-  padding: 20px;
-}
-th{
-  border: 2px solid beige;
-  height: 2em;
-  border-radius: 10px;
-  font-family: poppins;
-}
-td{
-  padding: 1em 1em;
-}
-#inputBox{
-  width: 120px;
-  height: 20px;
-  border-radius: 5px;
-  border:3px solid white;
-}
-.form_class{
+.atten-form_class{
   width: 100%;
   top:35%;
   z-index: 2;
@@ -34,7 +8,34 @@ td{
   font-family: poppins;
   
 }
-.heading{
+.atten-user table{         
+  width: 60%;
+  margin-left:auto;margin-right: auto;
+  font-family: poppins;
+  font-weight: bold;
+  border-radius: 10px;
+  background-image: linear-gradient(rgb(255, 255, 255),rgba(216, 220, 225, 0.539));
+  padding: 20px;
+}
+.atten-table tr th{
+  border: 2px solid beige;
+  height: 2em;
+  border-radius: 10px;
+  font-family: poppins;
+  color: beige;
+  
+}
+.atten-table td{
+  padding: 1em 1em;
+}
+#atten-inputBox{
+  width: 120px;
+  height: 20px;
+  border-radius: 5px;
+  border:3px solid white;
+}
+
+.atten-heading{
   width:100%;
   top: 10%;
   z-index: 2;
@@ -45,11 +46,8 @@ td{
   color: beige;
   margin: 0 auto;
 }
-body {
-  margin:0;
-}
 
-h1 {
+/* h1 {
   font-family: poppins;
   font-weight:300;
   letter-spacing: 2px;
@@ -60,30 +58,30 @@ p {
   letter-spacing: 1px;
   font-size:14px;
   color: #333333;
-}
+} */
 
-.header {
+.atten-header {
   position:relative;
   text-align:center;
   background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
   color:white;
 }
-.logo {
+/* .logo {
   width:50px;
   fill:white;
   padding-right:15px;
   display:inline-block;
   vertical-align: middle;
-}
+} */
 
-.inner-header {
+.atten-header .inner-header {
   height:65vh;
   width:100%;
   margin: 0;
   padding: 0;
 }
 
-.flex { /*Flexbox for containers*/
+.atten-header .flex { /*Flexbox for containers*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,13 +96,13 @@ p {
   min-height:100px;
   max-height:150px;
 }
-
+/* 
 .content {
   position:relative;
   height:20vh;
   text-align:center;
   background-color: white;
-}
+} */
 
 /* Animation */
 
@@ -141,10 +139,10 @@ p {
     height:40px;
     min-height:40px;
   }
-  .content {
+  /* .content {
     height:30vh;
   }
   h1 {
     font-size:24px;
-  }
+  } */
 }
