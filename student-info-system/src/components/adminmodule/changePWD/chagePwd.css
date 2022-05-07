@@ -26,6 +26,7 @@ a {
 }
 .admin-items {
   border-radius: 5px;
+  margin-left: 2em;
 }
 .admin-items h4 {
   border-bottom: 1px solid var(--grey-color);

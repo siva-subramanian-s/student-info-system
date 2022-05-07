@@ -6,7 +6,7 @@ function Staffedit() {
             <div id="admin_header"><h1>ADMIN DASHBOARD</h1></div>
     <div className="admin-wrapper">
        <input type="checkbox" id="btn" hidden/>
-       <label for="btn" className="admin-menu-btn">
+       <label htmlFor="btn" className="admin-menu-btn">
        <i className="fas fa-bars"></i>
        <i className="fas fa-times"></i>
        </label>
@@ -27,12 +27,12 @@ function Staffedit() {
        </nav>
     </div>
     
-    <div class="admin-wrapper1">
-        <div class="admin-container">
-            <div class="admin-simple-cards">
-              <div class="admin-items">
+    <div className="admin-wrapper1">
+        <div className="admin-container">
+            <div className="admin-simple-cards">
+              <div className="admin-items">
                 <h4>ADD STAFF</h4>
-                <div class="admin-cards-content">
+                <div className="admin-cards-content">
                   <form>
                     <select id="input_reg" name="staff_name">
                       <option value="">name1</option>
@@ -41,9 +41,9 @@ function Staffedit() {
                 </form>
                 </div>
               </div>
-              <div class="admin-items">
+              <div className="admin-items">
                 <h4>DELETE STAFF</h4>
-                <div class="admin-cards-content">
+                <div className="admin-cards-content">
                   <form>
                     <select id="input_reg" name="staff_name">
                       <option value="">name1</option>
@@ -52,9 +52,9 @@ function Staffedit() {
                   </form>
                 </div>
               </div>
-              <div class="admin-items">
+              <div className="admin-items">
                 <h4>CHANGE STAFF PASSWORD</h4>
-                <div class="admin-cards-content">
+                <div className="admin-cards-content">
                     <form>
                       <select id="input_reg" name="staff_name">
                         <option value="">name1</option>
