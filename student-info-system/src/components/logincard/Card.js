@@ -23,7 +23,7 @@ function Card(props) {
 
                 </div>
               </div>
-              <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+              <p class="card__description">Handles Bio-Data And Academic Documents</p>
             </div>
           </a>
         </li>
@@ -40,7 +40,7 @@ function Card(props) {
 
                 </div>
               </div>
-              <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+              <p class="card__description">Manages Attendance and Student Database</p>
             </div>
           </a>
         </li>
@@ -57,7 +57,7 @@ function Card(props) {
 
                 </div>
               </div>
-              <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+              <p class="card__description">Master Of All The Database</p>
             </div>
           </a>
         </li>

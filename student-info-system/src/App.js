@@ -14,7 +14,7 @@ import Studentedit from "./components/adminmodule/studentsedit/studentedit";
 import Staffedit from "./components/adminmodule/staffedit/staffedit";
 import Subjectedit from "./components/adminmodule/subjectsedit/subjectedit";
 import ChangePWD from "./components/adminmodule/changePWD/changepwd";
-import {AuthProvider} from "./components/contexts/authcontext";
+import {AuthProvider} from "./components/contexts/AuthContext";
 import PrivateRoute from "./components/contexts/privateroutes";
 
 import { useState ,useEffect } from 'react';
@@ -40,10 +40,10 @@ function App() {
           <Route path="/Attendance" element={<PrivateRoute/>}>        
             <Route path="/Attendance" element={<Attendance/>}/>
           </Route>
-          {/* <Route path="/Admin-dashboard" element={<PrivateRoute/>}>        
+          <Route path="/Admin-dashboard" element={<PrivateRoute/>}>        
             <Route path="/Admin-dashboard" element={<Admin/>}/>
-          </Route> */}
-          <Route path="/Admin-dashboard" element={<Admin/>}/>
+          </Route>
+          {/* <Route path="/Admin-dashboard" element={<Admin/>}/> */}
           {/* <Route path="/Admin-student-edit" element={<PrivateRoute/>}> */}
             <Route path="/Admin-student-edit" element={<Studentedit/>}/>
           {/* </Route> */}
