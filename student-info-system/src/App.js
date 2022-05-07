@@ -43,7 +43,6 @@ function App() {
   ); 
 }
 
-
 // function connect(){
 
 //   const[newName,setNewName]=useState("");
@@ -86,4 +85,5 @@ function App() {
 // }
 
 // export connect;
+
 export default App;
