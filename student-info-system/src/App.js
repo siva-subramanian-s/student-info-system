@@ -15,6 +15,13 @@ import Staffedit from "./components/adminmodule/staffedit/staffedit";
 import Subjectedit from "./components/adminmodule/subjectsedit/subjectedit";
 import ChangePWD from "./components/adminmodule/changePWD/changepwd";
 
+<<<<<<< HEAD
+=======
+import { useState ,useEffect } from 'react';
+// import './App.css';
+// import {db} from './firebaseConfig';
+// import {collection, getDocs,addDoc } from 'firebase/firestore';
+>>>>>>> e00b05c935b62c4e70da75c21619566727006afc
 
 function App() {
   return (
@@ -40,4 +47,49 @@ function App() {
 }
 
 
+<<<<<<< HEAD
+=======
+// function connect(){
+
+//   const[newName,setNewName]=useState("");
+//   const[newAge,setNewAge]=useState(0);
+//   const [school,setUsers]=useState([]);
+//   const schoolCollectionRef = collection(db,"school"); 
+
+//   const createUser =async() =>{
+
+//     await addDoc(schoolCollectionRef,{Name:newName,Password:newAge});
+//   }
+  
+//   useEffect(()=>{ 
+//     const getUsers= async()=>{
+//       const data=await getDocs(schoolCollectionRef);    
+//       console.log(data);
+//       setUsers(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
+//     };
+//     getUsers();
+//   },[]);
+
+
+//   return (<div className="App"> 
+  
+//     <input placeholder='Name...'onChange={(event)=>{setNewName(event.target.value)}}/>
+//     <input placeholder='Pasword...'onChange={(event)=>{setNewAge(event.target.value)}}/>
+//     <button onClick={createUser}>Create User</button>
+
+//    { school.map((school) => {
+//       return( <div>     
+//         {""}
+//         <h1>String: {school.Name}</h1>
+//         <h2>Function: {school.Password}</h2>
+//       </div>
+//       );
+
+//     })}
+//   </div>
+//   )
+// }
+
+// export connect;
+>>>>>>> e00b05c935b62c4e70da75c21619566727006afc
 export default App;

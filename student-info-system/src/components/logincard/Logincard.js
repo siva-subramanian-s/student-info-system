@@ -15,8 +15,9 @@ function createCard(props) {
   
   function Logincard() {
     return (
-      <div className="login">
-        {items.map(createCard)}
+      <div className="login-card">
+        {/* {items.map(createCard)} */}
+        <Card/>
       </div>
     );
   }
