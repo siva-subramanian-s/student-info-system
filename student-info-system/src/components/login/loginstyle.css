@@ -8,23 +8,26 @@
   max-width: 440px;
   padding: 0 20px;
   margin: 170px auto;
+  font-family: 'Noto Sans JP', sans-serif;
+
 }
 .login_wrapper{
   font-family:poppins;
   width: 100%;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
 }
 .login_wrapper .title{
   height: 90px;
   background: #1674a0;
-  border-radius: 5px 5px 0 0;
+  border-radius: 20px 20px 0 0;
   color: #fff;
   font-size: 30px;
   font-weight: 600;
   display: flex;
   align-items: center;
+  letter-spacing: 3px;
   justify-content: center;
 }
 .login_wrapper .login_form{

@@ -31,14 +31,7 @@ const classes= [
         year: "III-Year",
         link: "/Attendance"
     },
-    {
-        key: 5,
-        desc:"Adivser of The Class",
-        sub: "CLASS ADVISER",
-        pfp: require ("../../src-images/staff/default.png"),
-        year: "III-Year",
-        link: "/Attendance"
-    }
+    
 ];
 
 export default classes;

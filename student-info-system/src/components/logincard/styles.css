@@ -1,15 +1,15 @@
 :root {
-    --surface-color: #fff;
+    --surface-color: #ffffff;
     --curve: 40;
   }
   
-  * {
+  /* * {
     box-sizing: border-box;
-  }
-  
-  body {
+  } */
+  .login-card{
+    margin: 13% 1%;
     font-family: 'Noto Sans JP', sans-serif;
-    background-color: #fef8f8;
+    background-color: transparent;
   }
   
   .cards {
@@ -28,6 +28,8 @@
     border-radius: calc(var(--curve) * 1px);
     overflow: hidden;
     text-decoration: none;
+    box-shadow: 5px 5px 3px 1px rgb(139, 139, 139);
+
   }
   
   .card__image {      

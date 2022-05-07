@@ -19,7 +19,7 @@ function StudentLogin() {
           </div>
           
           <div className="row button">
-          <a href="/Admin-dashboard"><input type="submit" value="Login" /></a>
+            <a href="/bio-data"><input type="submit" value="Login" /></a>
           </div>
         </form>
       </div>

@@ -2,35 +2,33 @@ import React from "react";
 import "./loginstyle.css";
 
 function StaffLogin() {
-    return (
-      // student
-      <div className="Login">
-       <div class="login_user">
-    <div class="login_container">
-      <div class="login_wrapper">
-        <div class="title"><span>Staff Login</span></div>
-        <form action="#" className="login_form">
-          <div class="row">
-            <i class="fas fa-user"></i>
-            <input type="text" placeholder="Staff Name" minLength={7} required/>
+  return (
+   
+    <div className="Login">
+      <div className="login_user">
+        <div className="login_container">
+          <div className="login_wrapper">
+            <div className="title"><span>Staff Login</span></div>
+            <form action="#" className="login_form">
+              <div className="row">
+                <i className="fas fa-user"></i>
+                <input type="text" placeholder="Staff Name" minLength={7} required />
+              </div>
+              <div className="row">
+                <i className="fas fa-lock"></i>
+                <input type="password" placeholder="Password" minLength={8} required />
+              </div>
+              <div className="row button">
+                <a href="/classes"><input type="submit" value="Login" /></a>
+              </div>
+            </form>
           </div>
-          <div class="row">
-            <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" minLength={8} required/>
-          </div>
-          
-          <div class="row button">
-          <a href="/Admin-dashboard"><input type="submit" value="Login" /></a>
-          </div>
-         
-        </form>
+        </div>
       </div>
     </div>
-  </div>
-  </div>
 
 
-     
-    );
-  }
+
+  );
+}
 export default StaffLogin;
