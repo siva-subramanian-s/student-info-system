@@ -6,7 +6,7 @@ import "./home.css";
 function Home() {
   return (<div className="home" >
     <header>
-      <nav class="navbar">
+      <nav className="navbar">
         <a href="/"><img class="logo" src={logo} alt="logo" /></a>
         <ul id="ul-navigation" class="nav-ul" data-visible="false">
           <li class="nav-li"><a href="/">Home</a></li>

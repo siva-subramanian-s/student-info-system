@@ -9,7 +9,7 @@ function Card(props) {
   return (
     <div className="inside-login-card">
 
-      <ul class="cards">
+      <ul className="cards">
         <li>
           <a href="/login-student" class="card">
             <img src={studentlogo} class="card__image" alt="" />

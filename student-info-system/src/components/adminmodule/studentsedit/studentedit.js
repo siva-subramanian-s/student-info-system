@@ -12,7 +12,7 @@ function Studentedit() {
   const[rollno,setNewNo]=useState("");
   const[newPwd,setNewPwd]=useState("");
   const [student,setUsers]=useState([]);
-  const studentCollectionRef = collection(db,"student"); 
+  const studentCollectionRef = collection(db(),"student"); 
 
   const createUser =async() =>{
 
