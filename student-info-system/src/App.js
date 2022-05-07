@@ -15,13 +15,10 @@ import Staffedit from "./components/adminmodule/staffedit/staffedit";
 import Subjectedit from "./components/adminmodule/subjectsedit/subjectedit";
 import ChangePWD from "./components/adminmodule/changePWD/changepwd";
 
-<<<<<<< HEAD
-=======
 import { useState ,useEffect } from 'react';
 // import './App.css';
 // import {db} from './firebaseConfig';
 // import {collection, getDocs,addDoc } from 'firebase/firestore';
->>>>>>> e00b05c935b62c4e70da75c21619566727006afc
 
 function App() {
   return (
@@ -47,8 +44,6 @@ function App() {
 }
 
 
-<<<<<<< HEAD
-=======
 // function connect(){
 
 //   const[newName,setNewName]=useState("");
@@ -91,5 +86,4 @@ function App() {
 // }
 
 // export connect;
->>>>>>> e00b05c935b62c4e70da75c21619566727006afc
 export default App;

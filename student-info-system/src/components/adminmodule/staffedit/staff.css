@@ -59,8 +59,8 @@ a {
 #input_reg{
     margin-top: 1.5em;
     width:100%;
-    height: 10%;
-    padding: 2px;
+    height: 15%;
+    padding: 4px;
     border-radius: 5px;
     border: 2px solid gray;
 
@@ -69,8 +69,8 @@ a {
 #input_sub_add{
     margin-top: 3.5em;
     width:60%;
-    height: 10%;
-    padding: 2px;
+    height: 15%;
+    padding: 4px;
     border-radius: 5px;
     border: 2px solid blue;
     cursor: pointer;
@@ -78,8 +78,8 @@ a {
 #input_sub_del{
     margin-top: 3.5em;
     width:60%;
-    height: 10%;
-    padding: 2px;
+    height: 15%;
+    padding: 4px;
     border-radius: 5px;
     border: 2px solid red;
     cursor: pointer;
@@ -87,8 +87,8 @@ a {
 #input_sub_alter{
     margin-top: 3.5em;
     width:60%;
-    height: 10%;
-    padding: 2px;
+    height: 15%;
+    padding: 4px;
     border-radius: 5px;
     border: 2px solid grey;
     cursor: pointer;
