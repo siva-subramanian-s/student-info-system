@@ -9,10 +9,17 @@ import { useState ,useEffect } from 'react';
 
 function Studentedit() {
 
+<<<<<<< HEAD
+  const[rollno,setNewNo]=useState("");
+  const[newPwd,setNewPwd]=useState("");
+  const [student,setUsers]=useState([]);
+  const studentCollectionRef = collection(db(),"student"); 
+=======
   const[rollno,setNewNo]=useState(""); 
   // const[newPwd,setNewPwd]=useState("");
   const newPwd="cse123";  
   const [message,setMessage]=useState({error: false, msg:" "});
+>>>>>>> 76d13e4a3ef871ffcd54c343de42aebd2ae0df51
 
   const handleSubmit=async(e) => {
     e.preventDefault();
