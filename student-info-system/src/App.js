@@ -16,8 +16,10 @@ import Subjectedit from "./components/adminmodule/subjectsedit/subjectedit";
 import ChangePWD from "./components/adminmodule/changePWD/changepwd";
 import {AuthProvider} from "./components/contexts/AuthContext";
 import PrivateRoute from "./components/contexts/privateroutes";
+import Studentdash from "./components/studentdashboard/studentdash";
 
 import { useState ,useEffect } from 'react';
+import Studentbio_data from "./components/studentdashboard/studentbio_data";
 // import './App.css';
 // import {db} from './firebaseConfig';
 // import {collection, getDocs,addDoc } from 'firebase/firestore';
@@ -58,6 +60,8 @@ function App() {
           </Route>
           <Route path="/News" element={<News/>} />
           <Route path="/about" element={<About/>} />
+          <Route path="/student-dashboard" element={<Studentdash/>} />
+          <Route path="/bio-data" element={<Studentbio_data/>}/>
           {/* <PrivateRoute path="/Attendance" element={<Attendance/>}/> */}
           {/* <PrivateRoute path="/Admin-dashboard" element={<Admin/>}/> */}
           {/* <PrivateRoute path="/Admin-student-edit" element={<Studentedit/>}/> */}

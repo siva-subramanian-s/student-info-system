@@ -99,7 +99,7 @@
   font-weight: 500;
   height: 100%;
   width: 100%;
-  display: block;
+  /* display: block; */
 }
 #sidebar .list-items_stud li a i{
   margin-right: 20px;
