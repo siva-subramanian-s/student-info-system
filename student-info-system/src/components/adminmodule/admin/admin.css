@@ -5,7 +5,7 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 } */
-.admin,.subjectedit{
+.admin,.subjectedit,.changepassword{
   text-align: center;
 }
 .admin-wrapper{
