@@ -40,12 +40,13 @@ function App() {
           <Route path="/Attendance" element={<PrivateRoute/>}>        
             <Route path="/Attendance" element={<Attendance/>}/>
           </Route>
-          <Route path="/Admin-dashboard" element={<PrivateRoute/>}>        
+          {/* <Route path="/Admin-dashboard" element={<PrivateRoute/>}>        
             <Route path="/Admin-dashboard" element={<Admin/>}/>
-          </Route>
-          <Route path="/Admin-student-edit" element={<PrivateRoute/>}>        
+          </Route> */}
+          <Route path="/Admin-dashboard" element={<Admin/>}/>
+          {/* <Route path="/Admin-student-edit" element={<PrivateRoute/>}> */}
             <Route path="/Admin-student-edit" element={<Studentedit/>}/>
-          </Route>
+          {/* </Route> */}
           <Route path="/admin-staff-edit" element={<PrivateRoute/>}>        
             <Route path="/admin-staff-edit" element={<Staffedit/>}/>
           </Route>

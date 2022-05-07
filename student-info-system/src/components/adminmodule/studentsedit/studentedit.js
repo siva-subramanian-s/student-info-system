@@ -3,14 +3,14 @@ import "./studentedit.css";
 
 
 import { useState ,useEffect } from 'react';
+// import './App.css';
 import {db} from '../../../firebaseConfig';
 import {collection, getDocs,addDoc } from 'firebase/firestore';
 
 function Studentedit() {
 
-  const[rollno,setNewNo]=useState("");
-  const [student,setUsers]=useState([]);
-  const studentCollectionRef = collection(db(),"student"); 
+  const[rollno,setNewNo]=useState(""); 
+  // const[newPwd,setNewPwd]=useState("");
   const newPwd="cse123";  
   const [message,setMessage]=useState({error: false, msg:" "});
 
@@ -27,22 +27,6 @@ function Studentedit() {
     }
     console.log(newStudent);
   }
-  // const [student,setUsers]=useState([]);
-  // const studentCollectionRef = collection(db,"student"); 
-
-  // const createUser =async() =>{
-
-  //   await addDoc(studentCollectionRef,{RollNo:rollno,Password:newPwd});
-  // }
-  
-  // useEffect(()=>{ 
-  //   const getUsers= async()=>{
-  //     const data=await getDocs(studentCollectionRef);    
-  //     console.log(data);
-  //     setUsers(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
-  //   };
-  //   getUsers();
-  // },[]);
 
 
     return(
@@ -50,7 +34,7 @@ function Studentedit() {
         <div id="admin_header"><h1>ADMIN DASHBOARD</h1></div>
     <div className="admin-wrapper">
        <input type="checkbox" id="btn" hidden />
-       <label for="btn" className="admin-menu-btn">
+       <label htmlFor="btn" className="admin-menu-btn">
        <i className="fas fa-bars"></i>
        <i className="fas fa-times"></i>
        </label>
