@@ -59,7 +59,7 @@ a {
 #input_reg{
     margin-top: 1.5em;
     width:100%;
-    height: 10%;
+    height: 15%;
     padding: 2px;
     border-radius: 5px;
     border: 2px solid gray;
@@ -69,7 +69,7 @@ a {
 #input_sub_add{
     margin-top: 3.5em;
     width:60%;
-    height: 10%;
+    height: 15%;
     padding: 2px;
     border-radius: 5px;
     border: 2px solid blue;
@@ -78,7 +78,7 @@ a {
 #input_sub_del{
     margin-top: 3.5em;
     width:60%;
-    height: 10%;
+    height: 15%;
     padding: 2px;
     border-radius: 5px;
     border: 2px solid red;
