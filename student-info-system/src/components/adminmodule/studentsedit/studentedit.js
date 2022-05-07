@@ -2,7 +2,33 @@ import React from "react";
 import "./studentedit.css";
 
 
+import { useState ,useEffect } from 'react';
+// import './App.css';
+import {db} from '../../../firebaseConfig';
+import {collection, getDocs,addDoc } from 'firebase/firestore';
+
 function Studentedit() {
+
+  const[rollno,setNewNo]=useState("");
+  const[newPwd,setNewPwd]=useState("");
+  const [student,setUsers]=useState([]);
+  const studentCollectionRef = collection(db,"student"); 
+
+  const createUser =async() =>{
+
+    await addDoc(studentCollectionRef,{RollNo:rollno,Password:newPwd});
+  }
+  
+  useEffect(()=>{ 
+    const getUsers= async()=>{
+      const data=await getDocs(studentCollectionRef);    
+      console.log(data);
+      setUsers(data.docs.map((doc) => ({...doc.data(),id:doc.id})));
+    };
+    getUsers();
+  },[]);
+
+
     return(
         <div className="studentedit">
              <div id="admin_header"><h1>ADMIN DASHBOARD</h1></div>
@@ -36,8 +62,9 @@ function Studentedit() {
                 <h4>ADD STUDENT</h4>
                 <div class="admin-cards-content">
                   <form>
-                    <input id="input_reg" type="text" placeholder="Registered No." />
-                    <input id="input_sub_add" type="submit" value="ADD" />
+                    <input id="input_reg" type="text" placeholder="Registered No." onChange={(event)=>{setNewNo(event.target.value)}}/>
+                    <input id="input_reg" type="text" style="top:2.5em" placeholder='Pasword...'onChange={(event)=>{setNewPwd(event.target.value)}}/>
+                    <input id="input_sub_add" type="submit" onClick={createUser} value="ADD" />
                 </form>
                 </div>
               </div>
@@ -65,5 +92,6 @@ function Studentedit() {
         </div>
     );
 }
+
 
 export default Studentedit;
