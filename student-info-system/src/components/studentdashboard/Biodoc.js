@@ -1,46 +1,58 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import "./stud_doc.css"
 export default function Biodoc() {
-  return (
-    <div>
-        <H1 id="studoc_header">STUDENT RECORDS COLLECTION PAGE</H1>
-    <DIV class="doc_container">
-
-        <H2> ADHAR CARD  </H2>
-        <input type="file" id="myFile" name="filename1" required>
-    </DIV>
-    <DIV class="doc_container">
-        <H2> 10th MARK SHEET</H2>
-        
-            <input type="file" id="myFile" name="filename2" required>
-    </DIV>
-    <DIV class="doc_container">
-
-        <H2> 12TH MARK SHEET</H2>
-       
-            <input type="file" id="myFile" name="filename3" required>
-
-    </DIV>
-    <DIV class="doc_container">
-        <H2> COMMUNITY CERTIFICATE</H2>
-        
-            <input type="file" id="myFile" name="filename4" required>
-
-    </DIV>
-    <DIV class="doc_container">
-        <H2> INCOME CERTIFICATE</H2>
-        
-            <input type="file" id="myFile" name="filename5" required>
-    </DIV>
-    <DIV class="doc_container">
-        <H2> TRANSFER CERTIFICATE</H2>
+    const navigate = useNavigate()
+    const [error, setError] = useState("")
+    const [loading, setLoading] = useState(false)
+    async function handleSubmit(e) {
     
-            <input type="file" id="myFile" name="filename5" required>
-    </DIV> <br/>
-    
-       <button id="studoc_submit">SUBMIT</button>
-        <button id="studoc_submit">RESET</button>
-    </div>
-    <
-  )
+        e.preventDefault();
+        try {
+          setError("");
+          setLoading(true)
+          navigate(-1);
+        } catch {
+          setError("Failed to log in");
+        }
+        setLoading(false)
+        
+      }
+
+    return (
+        <div>
+            <h1 id="studoc_header">STUDENT RECORDS COLLECTION PAGE</h1>
+            <form onSubmit={handleSubmit}>
+            {error && <h2>{error}</h2>}
+                <div className="doc_container">
+                    <h2> ADHAR CARD  </h2>
+                    <input type="file" id="myFile" name="filename1" required />
+                </div>
+                <div className="doc_container">
+                    <h2> 10th MARK SHEET</h2>
+                    <input type="file" id="myFile" name="filename2" required />
+                </div>
+                <div className="doc_container">
+                    <h2> 12TH MARK SHEET</h2>
+                    <input type="file" id="myFile" name="filename3" required />
+                </div>
+                <div className="doc_container">
+                    <h2> COMMUNITY CERTIFICATE</h2>
+                    <input type="file" id="myFile" name="filename4" required />
+                </div>
+                <div className="doc_container">
+                    <h2> INCOME CERTIFICATE</h2>
+                    <input type="file" id="myFile" name="filename5" required />
+                </div>
+                <div className="doc_container">
+                    <h2> TRANSFER CERTIFICATE</h2>
+
+                    <input type="file" id="myFile" name="filename5" required />
+                </div> <br />
+                <button id="studoc_submit" disabled={loading} type='submit'>SUBMIT</button>
+                <button id="studoc_submit" type='reset'>RESET</button>
+            </form>
+        </div>
+
+    )
 }

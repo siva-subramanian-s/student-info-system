@@ -16,7 +16,6 @@ function AdminLogin() {
     try {
       setError("");
       if (regno.current.value==="admin") {
-      console.log("error");
       setLoading(true)
       await login(regno.current.value+"@gmail.com", password.current.value);
       navigate("/Admin-dashboard");
@@ -47,7 +46,7 @@ function AdminLogin() {
                 <input type="password"ref={password} placeholder="Password" minlenght={8} required />
               </div>
               <div className="row button">
-                <input type="submit" value="Login" />
+                <input type="submit" disabled={loading} value="Login" />
               </div>
             </form>
           </div>

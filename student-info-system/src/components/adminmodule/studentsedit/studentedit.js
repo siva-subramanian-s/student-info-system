@@ -1,61 +1,69 @@
 
-import "./studentedit.css";
 import React, { useRef, useState } from "react"
-import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../../contexts/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
+import "./studentedit.css";
 
 function Studentedit() {
 
   const regno = useRef()
   const passwordRef = "gcecse123"
-  const { signup ,resetPassword} = useAuth()
+  const { signup ,resetPassword,logout} = useAuth()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useNavigate()
 
-  async function adminsignup(e) {
-    e.preventDefault()
+  // async function adminsignup(e) {
+  //   e.preventDefault()
 
+
+  //   try {
+  //     setError("")
+  //     setLoading(true)
+  //     await signup(regno.current.value+"@gmail.com", passwordRef)
+      
+  //   } catch {
+  //     setError("Failed to add student")
+  //   }
+
+  //   setLoading(false)
+  // }
+  // async function admindel(e) {
+  //   e.preventDefault()
+  //   try {
+  //     setError("")
+  //     setLoading(true)
+  //     await signup(regno.current.value+"@gmail.com", passwordRef)
+      
+  //   } catch {
+  //     setError("Failed to add student")
+  //   }
+
+  //   setLoading(false)
+  // }
+  // async function adminchgpwd(e) {
+  //   e.preventDefault()
+  //   try {
+  //     setError("")
+  //     setLoading(true)
+  //     await resetPassword(regno.current.value+"@gmail.com")
+      
+  //   } catch {
+  //     setError("Failed to add student")
+  //   }
+
+  //   setLoading(false)
+  // }
+  async function handleLogout() {
+    setError("")
 
     try {
-      setError("")
-      setLoading(true)
-      await signup(regno.current.value+"@gmail.com", passwordRef)
-      
+      await logout()
+      history("/");
     } catch {
-      setError("Failed to add student")
+      setError("Failed to log out")
     }
-
-    setLoading(false)
   }
-  async function admindel(e) {
-    e.preventDefault()
-    try {
-      setError("")
-      setLoading(true)
-      await signup(regno.current.value+"@gmail.com", passwordRef)
-      
-    } catch {
-      setError("Failed to add student")
-    }
-
-    setLoading(false)
-  }
-  async function adminchgpwd(e) {
-    e.preventDefault()
-    try {
-      setError("")
-      setLoading(true)
-      await resetPassword(regno.current.value+"@gmail.com")
-      
-    } catch {
-      setError("Failed to add student")
-    }
-
-    setLoading(false)
-  }
-
 
     return(
         <div className="studentedit">
@@ -76,9 +84,10 @@ function Studentedit() {
                <li><a href="/admin-staff-edit"><i className="fas fa-address-book"></i>Staffs edit </a></li>
                <li><a href="/admin-subjects-edit"><i className="fas fa-cog"></i>Subjects edit</a></li>
                <li><a href="/change-password"><i className="fas fa-stream"></i>Change Password</a></li>
-               <li><a href="/"><i className="fas fa-user"></i>Log out</a></li> 
+             <li><button onClick={handleLogout}><i class="fas fa-user"></i>Log out</button></li>
           </ul>
        </nav>
+       {error && <h2>{error}</h2>}
     </div>
     
     <div className="admin-wrapper1">
@@ -88,7 +97,8 @@ function Studentedit() {
               <div className="admin-items">
                 <h4>ADD STUDENT</h4>
                 <div className="admin-cards-content">
-                  <form onSubmit={adminsignup}>
+
+                  <form >
                     <input id="input_reg" type="text" placeholder="Registered No." ref={regno} />
                     <input id="input_sub_add" type="submit" value="ADD" />
                 </form>
@@ -98,7 +108,7 @@ function Studentedit() {
               <div className="admin-items">
                 <h4>DELETE STUDENT</h4>
                 <div className="admin-cards-content">
-                  <form onSubmit={admindel}>
+                  <form  >
                       <input id="input_reg" type="text" placeholder="Registered No." />
                       <input id="input_sub_del" type="submit" value="DELETE" />
                   </form>
@@ -108,7 +118,7 @@ function Studentedit() {
               <div className="admin-items">
                 <h4>CHANGE STUDENT PASSWORD</h4>
                 <div className="admin-cards-content">
-                    <form onSubmit={adminchgpwd}>
+                    <form >
                         <input id="input_reg" type="text" placeholder="Registered No." />
                         <input id="input_sub_alter" type="submit" value="CHANGE PASSWORD" />
                     </form>

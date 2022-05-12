@@ -1,13 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import "./stud_bio.css"
 export default function Studentbio_data() {
+    const navigate = useNavigate()
+    const [error, setError] = useState("")
+    const [loading, setLoading] = useState(false)
+
+    async function handleSubmit(e) {
+
+        e.preventDefault();
+        try {
+            setError("");
+                setLoading(true)
+                navigate("/student-dashboard");
+        } catch {
+            setError("Failed to log in");
+        }
+        setLoading(false)
+
+    }
     return (
         <div>
             <div id="biodata_body">
+            {error && <h2>{error}</h2>}
+
                 <div className="biodata-container">
                     <div className="stud_bio_header"><header>STUDENT - BIO DATA REGISTRATION</header></div>
 
-                    <form action="#">
+                    <form onSubmit={handleSubmit}>
                         <div className="form first">
                             <div className="details personal">
                                 <span className="title">Personal Details</span>
@@ -83,7 +103,7 @@ export default function Studentbio_data() {
 
                                     <div className="input-field">
                                         <label>Profile Image</label>
-                                        <input type="file" style={{padding: "10px"}} name="prof_img" required />
+                                        <input type="file" style={{ padding: "10px" }} name="prof_img" required />
                                     </div>
 
                                     <div className="input-field">
@@ -196,7 +216,7 @@ export default function Studentbio_data() {
 
                                     <div className="input-field">
                                         <label>Address:</label>
-                                        <textarea name="adress_stud" style={{resize:"none"}} cols="15" rows="10"></textarea>
+                                        <textarea name="adress_stud" style={{ resize: "none" }} cols="15" rows="10"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -229,7 +249,7 @@ export default function Studentbio_data() {
                                         <input type="number" placeholder="Annual income" name="annual_income" required />
                                     </div>
 
-                                    <button id="studbio_submit" className="sumbit">
+                                    <button id="studbio_submit" className="sumbit" disabled={loading}>
                                         <span className="btnText">Submit</span>
                                         <i className="uil uil-navigator"></i>
                                     </button>

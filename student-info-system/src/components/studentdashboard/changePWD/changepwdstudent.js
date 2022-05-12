@@ -1,31 +1,26 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import {useAuth} from "../../contexts/AuthContext"
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 import "./chagePwd.css"
 
-function ChangePWD() {
+function ChangePWDstudent() {
 
-  const [error, setError] = useState("")
-      const Navigate = useNavigate()
-      const { logout } = useAuth()
+  const Navigate = useNavigate();
+   const [error, setError] = useState("")
+   const { logout } = useAuth()
 
-
-      async function handleLogout() {         
+   async function handleLogout() {
       setError("")
       try {
-         console.log("inside ");
          await logout()
          Navigate("/");
       } catch {
-         console.log("logged out successfully catch");
          setError("Failed to log out")
       }
    }
-
     return(
     <div className="changepassword">
-         <div id="admin_header"><h1>ADMIN DASHBOARD</h1></div>
+         <div id="admin_header"><h1>STUDENT DASHBOARD</h1></div>
          <div className="admin-wrapper">
        <input type="checkbox" id="btn" hidden />
        <label htmlFor="btn" className="admin-menu-btn">
@@ -36,14 +31,17 @@ function ChangePWD() {
           <div className="admin-title">
              Side Menu
           </div>
-          <ul className="admin-list-items">
-          <li><a href="/admin-dashboard"><i className="fas fa-home"></i>Home</a></li>
-               <li><a href="/admin-student-edit"><i className="fas fa-sliders-h"></i>Students edit</a></li>
-               <li><a href="/admin-staff-edit"><i className="fas fa-address-book"></i>Staffs edit </a></li>
-               <li><a href="/admin-subjects-edit"><i className="fas fa-cog"></i>Subjects edit</a></li>
-               <li><a href="/change-password"><i className="fas fa-stream"></i>Change Password</a></li>
-                <li><button className="logout-btn" onClick={handleLogout}><i class="fas fa-user"></i>Log out</button></li>          </ul>
+          <ul class="list-items_stud">
+                  <li><a href="/student-dashboard"><i class="fas fa-home"></i>Home</a></li>
+                  <li><a href="/bio-data"><i class="fas fa-sliders-h"></i>Bio Details</a></li>
+                  <li><a href="/student-dashboard/documents"><i class="fas fa-address-book"></i>Documents </a></li>
+                  <li><a href="#"><i class="fas fa-cog"></i>Scholarship details</a></li>
+                  <li><a href="/student-dashboard/change-password"><i class="fas fa-stream"></i>Change Password</a></li>
+                  <li><button onClick={handleLogout}><i class="fas fa-user"></i>Log out</button></li>
+               </ul>
        </nav>
+       {error && <h2>{error}</h2>}
+
     </div>
     
 <div className="admin-wrapper1">
@@ -68,4 +66,4 @@ function ChangePWD() {
     )
 }
 
-export default ChangePWD;
+export default ChangePWDstudent;

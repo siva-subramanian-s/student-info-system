@@ -1,13 +1,14 @@
-
-
 import React, { useRef, useState } from "react"
 import { useAuth } from "../contexts/AuthContext"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate,useLocation } from "react-router-dom"
 import { db } from '../../firebaseConfig';
 import { collection, getDocs, addDoc } from 'firebase/firestore';
 import "./loginstyle.css";
 
 function StudentLogin() {
+  const {setAuth} = useAuth();
+  const location =useLocation();
+  const from = location.state?.from?.pathname || "/";
   const regno = useRef();
   const password = useRef();
   const { login } = useAuth()
@@ -18,13 +19,12 @@ function StudentLogin() {
 
 
   async function handleSubmit(e) {
-    console.log("error");
     e.preventDefault();
     try {
       setError("");
       setLoading(true)
       await login(regno.current.value + "@gmail.com", password.current.value);
-      navigate("/login_card");
+      navigate("/student-dashboard");
     } catch {
       setError("Failed to log in");
     }

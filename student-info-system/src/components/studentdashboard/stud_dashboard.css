@@ -5,10 +5,7 @@
   width: 300px;
   position: relative;
   font-family: sans-serif;
-  margin-left: 0px;
-  
-  
-  
+  margin-left: 0px; 
 }
 .wrapper_stud .menu-btn_stud{
     
@@ -34,7 +31,6 @@
 .wrapper_stud .menu-btn_stud i{
   position: absolute;
   max-width: 200%;
- 
   font-size: 23px;
   transition: all 0.3s ease;
 }
