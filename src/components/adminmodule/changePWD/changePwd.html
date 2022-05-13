@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change PWD</title>
+    <link rel="stylesheet" href="chagePwd.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <link rel="stylesheet" href="/admin/admin_style.css">
+</head>
+<body>
+   <div id="admin_header"><h1>ADMIN DASHBOARD</h1></div>
+    <div class="admin-wrapper">
+       <input type="checkbox" id="btn" hidden>
+       <label for="btn" class="admin-menu-btn">
+       <i class="fas fa-bars"></i>
+       <i class="fas fa-times"></i>
+       </label>
+       <nav id="sidebar">
+          <div class="admin-title">
+             Side Menu
+          </div>
+          <ul class="admin-list-items">
+             <li><a href="/admin2_dashboard.html"><i class="fas fa-home"></i>Home</a></li>
+             <li><a href="/students/student.html"><i class="fas fa-sliders-h"></i>Students edit</a></li>
+             <li><a href="/staff/staff.html"><i class="fas fa-address-book"></i>Staffs edit </a></li>
+             <li><a href="/subjects/subjects.html"><i class="fas fa-cog"></i>Subjects edit</a></li>
+             <li><a href="changePwd.html"><i class="fas fa-stream"></i>Change Password</a></li>
+             <li><a href="#"><i class="fas fa-user"></i>Log out</a></li>
+             
+             
+          </ul>
+       </nav>
+    </div>
+    
+<div class="admin-wrapper1">
+        <div class="admin-container">
+            <!-- container -->
+            <div class="admin-simple-cards">
+              <!-- simple card content -->
+             
+              <div class="admin-items">
+                <!-- first item -->
+                <h4>NEW PASSWORD</h4>
+                <div class="admin-cards-content">
+                  <!-- cards content -->
+                  <form>
+                    <input id="input_reg" type="text" placeholder="Enter Password"> 
+                    <input id="input_reg" type="text" placeholder="Re-Enter Password" style="margin-top: 2.5em;">
+                    <input id="input_sub_add" type="submit" value="CHANGE">
+                </form>
+                </div>
+              </div>
+
+        </div>
+      </div>
+   </div>
+
+</body>
+</html>
