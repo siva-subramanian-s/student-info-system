@@ -8,7 +8,7 @@ import "./loginstyle.css";
 function StudentLogin() {
   const {setAuth} = useAuth();
   const location =useLocation();
-  const from = location.state?.from?.pathname || "/";
+  // const from = location.state?.from?.pathname || "/";
   const regno = useRef();
   const password = useRef();
   const { login } = useAuth()
