@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Attendance</title>
+    <link rel="stylesheet" href="style_atten.css">
+</head>
+<body>
+
+    <div class="heading">
+        <center>Attendance Register</center>
+    </div>
+    <div class="form_class">
+    <form name="User">
+        <table class=""center>
+            <tr >
+                <th>Date</th>
+                <th>Subject</th>
+                <th>Period</th>
+                <th>Year</th>
+                <th>No. of absentees</th>
+            </tr>
+            <tr>
+                <td><input id="inputBox" type="date" name="date" hint="dd-mm-yy"></td>
+                <td><input id="inputBox" type="text" name="subject" placeholder="Subject name"></td>
+                <td><input id="inputBox" type="number" name="period" placeholder="Class No." min="1" max="7"></td>
+                <td><input id="inputBox" type="number" name="year" placeholder="Study Year" min="1" max="4"></td>
+                <td><input id="inputBox" type="number" name="absentees" min="0" max="60"> </td>
+            </tr>
+        </table><br><br>    
+        <center><input id="inputBox" type="submit" onclick="submit()"></center>
+
+    </form>
+    </div>
+    
+    <div class="header">
+        <div class="inner-header flex"></div>
+
+        <!--Waves Container-->
+        <div>
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                </g>
+            </svg>
+        </div>
+        <!--Waves end-->
+    </div>
+
+    <script type="module">
+    
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCugSzgF_J0poowdvJsbutd1ptd67a_QmM",
+          authDomain: "attendance-a6e82.firebaseapp.com",
+          projectId: "attendance-a6e82",
+          storageBucket: "attendance-a6e82.appspot.com",
+          messagingSenderId: "181145177933",
+          appId: "1:181145177933:web:9d7c218144292648d43104",
+          measurementId: "G-QM1B2DK2F0"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        function submit(){
+            firebase.database().ref("User").set({
+                name: document.getElementById("name").value,
+                rollno: document.getElementById("rollno").value
+            
+            })
+        }
+        console.log(name)
+      </script>
+</body>
+</html>
