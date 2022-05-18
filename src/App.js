@@ -19,7 +19,7 @@ import PrivateRoute from "./components/contexts/privateroutes";
 import Studentdash from "./components/studentdashboard/studentdash";
 import Biodoc from "./components/studentdashboard/Biodoc";
 import ChangePWDstudent from "./components/studentdashboard/changePWD/changepwdstudent";
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import Studentbio_data from "./components/studentdashboard/studentbio_data";
 
 

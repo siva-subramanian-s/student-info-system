@@ -5,7 +5,9 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 } */
-
+.admin,.subjectedit,.changepassword{
+  text-align: center;
+}
 .admin-wrapper{
   height: 100%;
   width: 300px;
@@ -34,7 +36,6 @@
 .admin-wrapper .admin-menu-btn i{
   position: absolute;
   font-size: 23px;
-  /* max-width: 200%; */
   transition: all 0.3s ease;
 }
 .admin-wrapper .admin-menu-btn i.fa-times{
@@ -78,8 +79,7 @@
   list-style: none;
 }
 #sidebar .admin-list-items li{
-  /* padding-left:auto; */
-  padding-left: 40px;
+  padding-left:auto;
   line-height: 50px;
   border-top: 1px solid rgba(8, 115, 186, 0.701);
   border-bottom: 1px solid #333;
@@ -104,7 +104,6 @@
 }
 #sidebar .admin-list-items li a i{
   margin-right: 20px;
-  
 }
 #sidebar .admin-list-items .admin-icons{
   width: 100%;
@@ -246,19 +245,4 @@
 }
 #admin_header{
   background-color:#1e90ff;
-  text-align: center;
-}
-.logout-btn{
-  margin-top: 250px;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  color: white;
-  font-size: 20px;
-  border: 2px white solid;
-  padding: 10px;
-  background-color: transparent;
-  border-radius: 10px;
-}
-.logout-btn i{
-  margin-right: 15px;
 }
