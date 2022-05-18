@@ -96,8 +96,8 @@ function About() {
             <div className="footer">
                 <footer>
                     <p className="description-text">
-                        Centralized <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Database System</a>.
-                        To Manage <a href="#">Student Information</a>.
+                        Centralized <a href="https://www.frontendmentor.io?ref=challenge" rel="noreferrer" target="_blank">Database System</a>.
+                        To Manage <a href="/">Student Information</a>.
                     </p>
                 </footer>
             </div>
