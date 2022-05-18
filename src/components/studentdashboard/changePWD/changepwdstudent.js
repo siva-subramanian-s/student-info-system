@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
@@ -32,11 +33,11 @@ function ChangePWDstudent() {
              Side Menu
           </div>
           <ul class="list-items_stud">
-                  <li><a href="/student-dashboard"><i class="fas fa-home"></i>Home</a></li>
-                  <li><a href="/bio-data"><i class="fas fa-sliders-h"></i>Bio Details</a></li>
-                  <li><a href="/student-dashboard/documents"><i class="fas fa-address-book"></i>Documents </a></li>
-                  <li><a href="/"><i class="fas fa-cog"></i>Scholarship details</a></li>
-                  <li><a href="/student-dashboard/change-password"><i class="fas fa-stream"></i>Change Password</a></li>
+                  <li><Link to="/student-dashboard"><i class="fas fa-home"></i>Home</Link></li>
+                  <li><Link to="/bio-data"><i class="fas fa-sliders-h"></i>Bio Details</Link></li>
+                  <li><Link to="/student-dashboard/documents"><i class="fas fa-address-book"></i>Documents </Link></li>
+                  <li><Link to="/"><i class="fas fa-cog"></i>Scholarship details</Link></li>
+                  <li><Link to="/student-dashboard/change-password"><i class="fas fa-stream"></i>Change Password</Link></li>
                   <li><button onClick={handleLogout}><i class="fas fa-user"></i>Log out</button></li>
                </ul>
        </nav>

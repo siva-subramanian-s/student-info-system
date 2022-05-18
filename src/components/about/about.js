@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React from "react";
 import "./about.css";
 function About() {
@@ -49,55 +50,55 @@ function About() {
                 </div>
             </main>
             <div class="wrapper">
-                <a href="https://google.com">
+                <Link to="https://google.com">
                     <div class="icon facebook">
                         <div class="tooltip">
                             Facebook
                         </div>
                         <span><i class="fab fa-facebook-f"></i></span>
                     </div>
-                </a>
+                </Link>
 
-                <a href="https://google.com">
+                <Link to="https://google.com">
                     <div class="icon twitter">
                         <div class="tooltip">
                             Twitter
                         </div>
                         <span><i class="fab fa-twitter"></i></span>
                     </div>
-                </a>
+                </Link>
 
-                <a href="https://google.com">
+                <Link to="https://google.com">
                     <div class="icon instagram">
                         <div class="tooltip">
                             Instagram
                         </div>
                         <span><i class="fab fa-instagram"></i></span>
                     </div>
-                </a>
-                <a href="https://google.com">
+                </Link>
+                <Link to="https://google.com">
                     <div class="icon github">
                         <div class="tooltip">
                             Github
                         </div>
                         <span><i class="fab fa-github"></i></span>
                     </div>
-                </a>
-                <a href="https://google.com">
+                </Link>
+                <Link to="https://google.com">
                     <div class="icon youtube">
                         <div class="tooltip">
                             YouTube
                         </div>
                         <span><i class="fab fa-youtube"></i></span>
                     </div>
-                </a>
+                </Link>
                 
             </div >
             <div className="footer">
                 <footer>
                     <p className="description-text">
-                        Centralized <a href="https://www.frontendmentor.io?ref=challenge" rel="noreferrer" target="_blank">Database System</a>.
-                        To Manage <a href="/">Student Information</a>.
+                        Centralized <Link to="https://www.frontendmentor.io?ref=challenge" rel="noreferrer" target="_blank">Database System</Link>.
+                        To Manage <Link to="/">Student Information</Link>.
                     </p>
                 </footer>
             </div>

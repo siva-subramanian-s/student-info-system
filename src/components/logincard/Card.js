@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
 import React from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 import studentlogo from "../../src-images/images/student.jpg";
 import stafflogo from "../../src-images/images/staff3.jpg";
 import adminlogo from "../../src-images/images/admin3.jpg";
@@ -11,7 +12,7 @@ function Card(props) {
 
       <ul className="cards">
         <li>
-          <a href="/login-student" class="card">
+          <Link to="/login-student" class="card">
             <img src={studentlogo} class="card__image" alt="" />
             <div class="card__overlay">
               <div class="card__header">
@@ -25,10 +26,10 @@ function Card(props) {
               </div>
               <p class="card__description">Handles Bio-Data And Academic Documents</p>
             </div>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/login-staff" class="card">
+          <Link to="/login-staff" class="card">
             <img src={stafflogo} class="card__image" alt="" />
             <div class="card__overlay">
               <div class="card__header">
@@ -42,10 +43,10 @@ function Card(props) {
               </div>
               <p class="card__description">Manages Attendance and Student Database</p>
             </div>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/login-admin" class="card">
+          <Link to="/login-admin" class="card">
             <img src={adminlogo} class="card__image" alt="" />
             <div class="card__overlay">
               <div class="card__header">
@@ -59,7 +60,7 @@ function Card(props) {
               </div>
               <p class="card__description">Master Of All The Database</p>
             </div>
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
@@ -69,11 +70,11 @@ function Card(props) {
 export default Card;
 
 
-{/* <a href={/login-props.link}>
+{/* <Link to={/login-props.link}>
                 <div className="login-card-img">
                     <img src={props.img} alt="Student" />
                 </div>
                 <div className="login-card-content">
                     <h3><p>{props.Name}</p></h3>
                 </div>
-            </a> */}
+            </Link> */}

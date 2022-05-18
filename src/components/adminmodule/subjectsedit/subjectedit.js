@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React from "react";
 import "./subjects.css";
 function Subjectedit() {
@@ -15,12 +16,12 @@ function Subjectedit() {
                         Side Menu
                     </div>
                     <ul class="admin-list-items">
-                        <li><a href="/admin-dashboard"><i class="fas fa-home"></i>Home</a></li>
-                        <li><a href="/admin-student-edit"><i className="fas fa-sliders-h"></i>Students edit</a></li>
-                        <li><a href="/admin-staff-edit"><i className="fas fa-address-book"></i>Staffs edit </a></li>
-                        <li><a href="/admin-subjects-edit"><i className="fas fa-cog"></i>Subjects edit</a></li>
-                        <li><a href="/change-password"><i className="fas fa-stream"></i>Change Password</a></li>
-                        <li><a href="/"><i className="fas fa-user"></i>Log out</a></li>
+                        <li><Link to="/admin-dashboard"><i class="fas fa-home"></i>Home</Link></li>
+                        <li><Link to="/admin-student-edit"><i className="fas fa-sliders-h"></i>Students edit</Link></li>
+                        <li><Link to="/admin-staff-edit"><i className="fas fa-address-book"></i>Staffs edit </Link></li>
+                        <li><Link to="/admin-subjects-edit"><i className="fas fa-cog"></i>Subjects edit</Link></li>
+                        <li><Link to="/change-password"><i className="fas fa-stream"></i>Change Password</Link></li>
+                        <li><Link to="/"><i className="fas fa-user"></i>Log out</Link></li>
                     </ul>
                 </nav>
             </div>

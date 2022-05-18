@@ -1,11 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
+import { Link } from 'react-router-dom';
 
 function Class(props) {
     return (
         <div>
             <div className="staff-card">
-                <a href={props.link}>
+                <Link to={props.link}>
                     <div className="profile">
                         <img src={props.pfp} alt="pfp" />
                     </div>
@@ -17,7 +18,7 @@ function Class(props) {
                         <h3>{props.year}</h3>
                         <h3>CSE</h3>
                     </div>
-                </a>
+                </Link>
             </div>
         </div>
     )

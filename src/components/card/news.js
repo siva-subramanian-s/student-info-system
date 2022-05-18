@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React from "react";
 import "./news.css"
 
@@ -11,7 +12,7 @@ function News() {
     </div>
     <div class="news_content">
       <p>Series Test III for 2nd Year is Scheduled from 01.02.22</p>
-      <a href="/">Attachment</a>
+      <Link to="/">Attachment</Link>
     </div>
   </div>
   <div class="news_card">
@@ -21,7 +22,7 @@ function News() {
     <div class="news_content">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum voluptates ea officia totam magni
         natus recusandae.</p>
-      <a href="/">Read More</a>
+      <Link to="/">Read More</Link>
     </div>
   </div>
   <div class="news_card">
@@ -31,7 +32,7 @@ function News() {
     <div class="news_content">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum voluptates ea officia totam magni
         natus recusandae.</p>
-      <a href="/">Read More</a>
+      <Link to="/">Read More</Link>
     </div>
   </div>
 </div>
