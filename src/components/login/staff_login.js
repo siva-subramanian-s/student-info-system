@@ -33,12 +33,22 @@ function StaffLogin() {
       <div className="login_user">
         <div className="login_container">
           <div className="login_wrapper">
-            <div className="title"><span>Staff Login</span></div>
+            <div className="title"><span>Faculty Login</span></div>
             <form onSubmit={handleSubmit} className="login_form">
             {error && <h2>{error}</h2>}
               <div className="row">
                 <i className="fas fa-user"></i>
-                <input type="text" ref={regno} placeholder="Staff Name" minLength={7} required />
+                {/* <input type="text" ref={regno} placeholder="Staff Name" minLength={7} required /> */}
+                <select  id="faculty-user" ref={regno} >
+                <option disabled selected>Faculty name</option>
+                  <option >Mrs.P.Tharani</option>
+                  <option >Mrs.K.Manimala </option>
+                  <option >Mrs.P.Nithya</option>
+                  <option >Mrs.S.Ruba</option>
+                  <option >Mrs.K.Saraswathi</option>
+                  <option >Dr.C.Rani</option>
+                  <option value={"Dr.R.GoldaBrunet"}>Dr.R.Golda Brunet</option>
+                </select>
               </div>
               <div className="row">
                 <i className="fas fa-lock"></i>

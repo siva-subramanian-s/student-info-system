@@ -14,7 +14,7 @@ function Home() {
           <li className="nav-li"><Link to="/login_card">Sign In</Link></li>
           <li className="nav-li"><Link to="/about">About</Link></li>
         </ul>
-        <button className="mobile-toggle" aria-controls="ul-navigation" aria-expanded="false">
+        <button className="mobile-toggle" aria-controls="ul-navigation" aria-expanded="false" >
           <span className="sr-only">Menu</span>
         </button>
       </nav>
