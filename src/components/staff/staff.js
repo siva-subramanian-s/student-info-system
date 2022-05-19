@@ -8,6 +8,7 @@ function createCard(props) {
       <Class
         key = {props.key}
         sub={props.sub}
+        code={props.code}
         desc = {props.desc}
         pfp = {props.pfp}
         year = {props.year}

@@ -1,0 +1,23 @@
+.report{
+    font-family: 'Times New Roman', Times, serif;
+    max-width: 100%;   
+    max-height: 100%;
+}
+.report header{
+   position: absolute;
+    top: 3%;
+    left: 3%;
+    width: 190vh;
+}
+.faculty{
+    position: absolute;
+    right: 0px;    
+    width: 20vh;
+    top: 0px;
+} 
+.report .subject{
+   
+}
+section{
+    margin: 10% 10%;
+}

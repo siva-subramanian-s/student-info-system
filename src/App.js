@@ -21,6 +21,7 @@ import Biodoc from "./components/studentdashboard/Biodoc";
 import ChangePWDstudent from "./components/studentdashboard/changePWD/changepwdstudent";
 // import { useState, useEffect } from 'react';
 import Studentbio_data from "./components/studentdashboard/studentbio_data";
+import Report from "./components/Report/report";
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
             <Route path="/Admin-student-edit" element={<Studentedit />} />
             <Route path="/student-dashboard/documents" element={<Biodoc/>}/>
             <Route path="/student-dashboard/change-password" element={<ChangePWDstudent/>}/>
+            <Route path="/report" element={<Report/>}/>
           </Route>
         </Routes>
       </AuthProvider>
