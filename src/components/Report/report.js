@@ -10,8 +10,10 @@ export default function Report() {
     return (
         <div className={rcss.report}>
             <header>
-                <h1 className={rcss.subject}>Subject Name</h1>
-                <h3 className={rcss.faculty}>Faculty</h3>
+                <nav>
+                    <h1 className={rcss.subject}>IOT</h1>
+                    <h3 className={rcss.faculty}>Faculty</h3>
+                </nav>
             </header>
             <section>
                 <h4>Attendance Percantage</h4>
@@ -20,7 +22,7 @@ export default function Report() {
                 <h4>Absentees</h4>
                 <form name="form">
                     <input type="date" id={rcss.input} className="auto-submit" ref={Dateref}
-                        onChange={()=>{
+                        onChange={() => {
                             this.submit();
                         }}
                     />
