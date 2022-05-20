@@ -37,7 +37,7 @@ function Subjectedit() {
                     </ul>
                 </nav>
             </div>
-        
+        {console.log("here")}
            <div className="listOfSubjects">
             <>
                 <Navbar bg="dark" variant="dark" className="header">
