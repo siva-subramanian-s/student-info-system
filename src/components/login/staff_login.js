@@ -1,13 +1,17 @@
 import React, { useRef, useState } from "react"
 import { useAuth } from "../contexts/AuthContext"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import "./loginstyle.css";
+// import Class from "../staff/class";
+import Staff from "../staff/staff";
+// import facultytosubServices from "../adminmodule/services/facultytosub.services";
 
 function StaffLogin() {
   const regno = useRef();
   const password = useRef();
   const { login } = useAuth()
   const [error, setError] = useState("")
+  const [staffid,setStaffid] = useState("")
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
   async function handleSubmit(e) {
@@ -16,7 +20,6 @@ function StaffLogin() {
     try {
       setError("");
       if (isNaN(regno.current.value)) {
-      console.log("error");
       setLoading(true)
       await login(regno.current.value+"@gmail.com", password.current.value);
       navigate("/classes");
@@ -27,8 +30,7 @@ function StaffLogin() {
     setLoading(false)
     
   }
-  return (
-   
+  return ( 
     <div className="Login">
       <div className="login_user">
         <div className="login_container">
@@ -38,8 +40,7 @@ function StaffLogin() {
             {error && <h2>{error}</h2>}
               <div className="row">
                 <i className="fas fa-user"></i>
-                {/* <input type="text" ref={regno} placeholder="Staff Name" minLength={7} required /> */}
-                <select  id="faculty-user" ref={regno} >
+                <select  id="faculty-user" ref={regno} onChange={(e)=>setStaffid(e.target.value)}>
                 <option disabled selected>Faculty name</option>
                   <option >Mrs.P.Tharani</option>
                   <option >Mrs.K.Manimala </option>

@@ -3,6 +3,8 @@ import "./staffstyle.css";
 import Class from "./class";
 import classCard from "./classCard";
 
+
+
 function createCard(props) {
     return(
       <Class

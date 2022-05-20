@@ -21,7 +21,7 @@ const AddSubject = ({ id, setSubjectId }) => {
       code,
       year,
     };
-    console.log(newSubject);
+
 
     try {
       if (id !== undefined && id !== "") {
@@ -44,7 +44,7 @@ const AddSubject = ({ id, setSubjectId }) => {
     setMessage("");
     try {
       const docSnap = await subjectDataService.getSubject(id);
-      console.log("the record is :", docSnap.data());
+      // console.log("the record is :", docSnap.data());
       setName(docSnap.data().name);
       setCode(docSnap.data().code);
       setYear(docSnap.data().year);
@@ -54,7 +54,6 @@ const AddSubject = ({ id, setSubjectId }) => {
   };
 
   useEffect(() => {
-    console.log("The id here is : ", id);
     if (id !== undefined && id !== "") {
       editHandler();
     }
@@ -75,7 +74,7 @@ const AddSubject = ({ id, setSubjectId }) => {
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formSubjectTitle">
             <InputGroup>
-              <InputGroup.Text id="formSubjectTitle">B</InputGroup.Text>
+              <InputGroup.Text id="formSubjectTitle">Name</InputGroup.Text>
               <Form.Control
                 type="text"
                 placeholder="Subject Name"
@@ -87,7 +86,7 @@ const AddSubject = ({ id, setSubjectId }) => {
 
           <Form.Group className="mb-3" controlId="formSubjectAuthor">
             <InputGroup>
-              <InputGroup.Text id="formSubjectAuthor">A</InputGroup.Text>
+              <InputGroup.Text id="formSubjectAuthor">Code</InputGroup.Text>
               <Form.Control
                 type="text"
                 placeholder="Subject code"
