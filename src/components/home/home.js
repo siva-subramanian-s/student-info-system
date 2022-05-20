@@ -25,7 +25,7 @@ function Home() {
         <p className="hero-text">Centralized</p>
         <h1 className="hero-header">Database System<br /> to Manage<br /> Student Information</h1>
           <button className="hero-button">
-            <span>logon dashboard</span>
+            <span><Link to="/login_card">logon dashboard</Link></span>
           </button>
         </div>
       </div>
