@@ -5,7 +5,7 @@
   }
   .hero-background {
     height: 120vh;
-    background:url("https://wallpaperaccess.com/download/information-5752882");
+    background-image: url("./bck.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
