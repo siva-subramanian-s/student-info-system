@@ -18,21 +18,23 @@ a {
 .admin-container {
   width: 80%;
   margin: 0 auto;
+  height: auto;
 }
 
 /* simple cards */
 .admin-simple-cards {
   margin-top: 0rem;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  height: auto;
 }
 .admin-items {
-  width: calc(33% - 1rem);
+  width: calc(100%);
   border-radius: 5px;
 }
 .admin-items h4 {
   border-bottom: 1px solid var(--grey-color);
-  padding: 15px;
+  padding-bottom: 15px;
   background-color: #f7f7f7;
   color: #000;
   border-radius: 5px;
@@ -41,14 +43,7 @@ a {
   color: var(--blue-color);
   border: 2px solid var(--blue-color);
 }
-.admin-items:nth-child(2) {
-  color: #6e6e6e;
-  border: 2px solid var(--red-color);
-}
-.admin-items:nth-child(3) {
-  color: var(--red-color);
-  border: 2px solid var(--grey-color);
-}
+
 .admin-cards-content {
   padding: 15px;
 }

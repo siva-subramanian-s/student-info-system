@@ -1,7 +1,19 @@
+import { Container, Navbar, Row, Col } from "react-bootstrap";
+import { useState } from "react";
+import "../admin/admin.css";
+import AddSubject from "./LinkSubject";
+import SubjectList from "./StaffSubjectList";
+
 import { Link } from 'react-router-dom';
 import React from "react";
 import "./staff.css";
 function Staffedit() {
+  const [subjectId, setSubjectId] = useState("");
+
+  const getSubjectIdHandler = (id) => {
+  console.log("The ID of document to be edited: ", id);
+  setSubjectId(id);
+  };
     return (
         <div className="staffedit">
             <div id="admin_header"><h1>ADMIN DASHBOARD</h1></div>
@@ -28,45 +40,30 @@ function Staffedit() {
        </nav>
     </div>
     
-    <div className="admin-wrapper1">
-        <div className="admin-container">
-            <div className="admin-simple-cards">
-              <div className="admin-items">
-                <h4>ADD STAFF</h4>
-                <div className="admin-cards-content">
-                  <form>
-                    <select id="input_reg" name="staff_name">
-                      <option value="">name1</option>
-                     </select> 
-                    <input id="input_sub_add" type="submit" value="ADD"/>
-                </form>
-                </div>
-              </div>
-              <div className="admin-items">
-                <h4>DELETE STAFF</h4>
-                <div className="admin-cards-content">
-                  <form>
-                    <select id="input_reg" name="staff_name">
-                      <option value="">name1</option>
-                     </select>
-                      <input id="input_sub_del" type="submit" value="DELETE" />
-                  </form>
-                </div>
-              </div>
-              <div className="admin-items">
-                <h4>CHANGE STAFF PASSWORD</h4>
-                <div className="admin-cards-content">
-                    <form>
-                      <select id="input_reg" name="staff_name">
-                        <option value="">name1</option>
-                       </select>
-                        <input id="input_sub_alter" type="submit" value="CHANGE PASSWORD"/>
-                    </form>
-                </div>
-              </div>
-            </div>
-          </div>
-   </div>
+    <div className="listOfSubjects">
+            <>
+                <Navbar bg="dark" variant="dark" className="header">
+                <Container>
+                    <Navbar.Brand href="#home">FACULTY EDIT PANEL</Navbar.Brand>
+                </Container>
+                </Navbar>
+
+                <Container style={{ width: "400px" }}>
+                <Row>
+                    <Col>
+                    <AddSubject id={subjectId} setSubjectId={setSubjectId} />
+                    </Col>
+                </Row>
+                </Container>
+                <Container>
+                <Row>   
+                    <Col>
+                    <SubjectList getSubjectId={getSubjectIdHandler} />
+                    </Col>
+                </Row>
+                </Container>
+            </>
+            </div> 
         </div>
     );
 }
