@@ -1,13 +1,42 @@
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
-.attenform_class{
+table{           
+  width: 60%;
+  margin-left:auto;margin-right: auto;
+  font-family: poppins;
+  font-weight: bold;
+  border-radius: 10px;
+
+  background-image: linear-gradient(rgb(255, 255, 255),rgba(216, 220, 225, 0.539));
+  padding: 20px;
+}
+
+ th{
+  text-align: center;
+  padding: 10px;
+  
+  height: 2em;
+  border-radius: 10px;
+  font-family: poppins;
+}
+ td{
+  padding: 1em 1em;
+}
+.inputBox{
+  width: 120px;
+  height: 30px;
+  border-radius: 5px;
+  border:3px solid white;
+}
+.form_class{
   width: 100%;
   top:35%;
   z-index: 2;
   position: absolute;
   overflow-x: auto;
   font-family: poppins;
+
 }
-.attenheading{
+.heading{
   width:100%;
   top: 10%;
   z-index: 2;
@@ -18,34 +47,9 @@
   color: beige;
   margin: 0 auto;
 }
-.attenuser .attentable{         
-  width: 60%;
-  margin-left:auto;margin-right: auto;
-  font-family: poppins;
-  font-weight: bold;
-  border-radius: 10px;
-  background-image: linear-gradient(rgb(255, 255, 255),rgba(216, 220, 225, 0.539));
-  padding: 20px;
+body {
+  margin:0;
 }
-.attentable tr th{
-  border: 2px solid beige;
-  height: 2em;
-  border-radius: 10px;
-  font-family: poppins;
-  color: beige;
-  
-}
-.attentable td{
-  padding: 1em 1em;
-}
-#atteninputBox{
-  width: 120px;
-  height: 20px;
-  border-radius: 5px;
-  border:3px solid white;
-}
-
-
 
 h1 {
   font-family: poppins;
@@ -60,7 +64,7 @@ p {
   color: #333333;
 }
 
-.attenheader {
+.header {
   position:relative;
   text-align:center;
   background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
@@ -74,21 +78,20 @@ p {
   vertical-align: middle;
 }
 
-.attenheader .innerheader {
+.innerheader {
   height:65vh;
   width:100%;
   margin: 0;
   padding: 0;
-}
-
-.attenheader .flex { /*Flexbox for containers*/
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.atten_waves {
+
+
+.waves {
   position:relative;
   width: 100%;
   height:15vh;
@@ -130,14 +133,14 @@ p {
 }
 /*Shrinking for mobile*/
 @media (max-width: 768px) {
-  .atten_waves {
+  .waves {
     height:40px;
     min-height:40px;
   }
-  /* .content {
+  .content {
     height:30vh;
   }
   h1 {
     font-size:24px;
-  } */
+  }
 }
