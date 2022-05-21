@@ -33,6 +33,7 @@ function StaffLogin() {
   return ( 
     <div className="Login">
       <div className="login_user">
+      <div id="particles-js">
         <div className="login_container">
           <div className="login_wrapper">
             <div className="title"><span>Faculty Login</span></div>
@@ -60,6 +61,7 @@ function StaffLogin() {
               </div>
             </form>
           </div>
+        </div>
         </div>
       </div>
     </div>

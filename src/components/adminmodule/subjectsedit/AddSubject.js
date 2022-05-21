@@ -6,19 +6,21 @@ const AddSubject = ({ id, setSubjectId }) => {
   const [name, setName] = useState("");
   const [code, setCode] = useState("");
   const [year, setYear] = useState("III");
+  const [abb, setAbb] = useState("");
   const [flag, setFlag] = useState(true);
   const [message, setMessage] = useState({ error: false, msg: "" });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
-    if (name === "" || code === "") {
+    if (name === "" || code === "" || abb==="" ) {
       setMessage({ error: true, msg: "All fields are mandatory!" });
       return;
     }
     const newSubject = {
       name,
       code,
+      abb,
       year,
     };
 
@@ -38,6 +40,7 @@ const AddSubject = ({ id, setSubjectId }) => {
 
     setName("");
     setCode("");
+    setAbb("");
   };
 
   const editHandler = async () => {
@@ -48,6 +51,7 @@ const AddSubject = ({ id, setSubjectId }) => {
       setName(docSnap.data().name);
       setCode(docSnap.data().code);
       setYear(docSnap.data().year);
+      setAbb(docSnap.data().abb);
     } catch (err) {
       setMessage({ error: true, msg: err.message });
     }
@@ -95,6 +99,19 @@ const AddSubject = ({ id, setSubjectId }) => {
               />
             </InputGroup>
           </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formSubjectAuthor">
+            <InputGroup>
+              <InputGroup.Text id="formSubjectAuthor">ABB</InputGroup.Text>
+              <Form.Control
+                type="text"
+                placeholder="Subject ABBREVIATION"
+                value={abb}
+                onChange={(e) => setAbb(e.target.value)}
+              />
+            </InputGroup>
+          </Form.Group>
+
           <ButtonGroup aria-label="Basic example" className="mb-3">
             <Button
               disabled={!flag}

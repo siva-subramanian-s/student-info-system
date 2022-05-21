@@ -24,7 +24,6 @@ import Studentbio_data from "./components/studentdashboard/studentbio_data";
 import Report from "./components/Report/report";
 
 
-
 function App() {
   return (
     <Router>
