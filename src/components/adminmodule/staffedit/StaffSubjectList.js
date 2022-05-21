@@ -20,35 +20,39 @@ const SubjectsList = ({ getSubjectId }) => {
   };
   return (
     <>
-      <div className="mb-2">
+      <div className="mb-2">  
         <Button variant="dark edit" onClick={getSubjects}>
           Refresh List
         </Button>
       </div>
 
-      {/* <pre>{JSON.stringify(Subjects, undefined, 2)}</pre>} */}
       <Table striped bordered hover size="sm">
         <thead>
           <tr>
             <th>#</th>
             <th>Faculty Name</th>
             <th>Subject Code</th>
+            <th>Subject Code</th>
+            <th>Subject Code</th>
             <th>Class Advisor</th>
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody >
           {subject.map((doc, index) => {
             return (
-              <tr key={doc.id}>
+              <tr key={doc.id} style={{textAlign:"center"}}>
                 <td>{index + 1}</td>
                 <td>{doc.name}</td>
-                <td>{doc.subs}</td>
+                <td>{doc.subs_a}</td>
+                <td>{doc.subs_b}</td>
+                <td>{doc.subs_c}</td>
                 <td>{doc.clad}</td>
-                <td>
+                <td >
                   <Button
                     variant="secondary"
                     className="edit"
+                    style={{width:"100%"}}
                     onClick={(e) => getSubjectId(doc.id)}
                   >
                     Edit
@@ -56,6 +60,7 @@ const SubjectsList = ({ getSubjectId }) => {
                   <Button
                     variant="danger"
                     className="delete"
+                    style={{width:"100%"}}
                     onClick={(e) => deleteHandler(doc.id)}
                   >
                     Delete
