@@ -116,7 +116,7 @@ export default function Report() {
                 </nav>
             </header>
             <div className={rcss.btn}>
-                <button className={percentageform ? rcss.toggle_btn1 : rcss.toggle_btn2} onClick={showpercantageForm}><h4>Attendance Percantage</h4></button>
+                <button className={percentageform ? rcss.toggle_btn1 : rcss.toggle_btn2} onClick={showpercantageForm}><h4>Attendance Percentage</h4></button>
                 <button className={Absentform ? rcss.toggle_btn1 : rcss.toggle_btn2} onClick={showabsentform}><h4>Absentees</h4></button>
             </div>
             <div className={rcss.reportcontent}>
@@ -128,7 +128,7 @@ export default function Report() {
                                     <th>#</th>
                                     <th>Regno</th>
                                     <th>Name</th>
-                                    <th>Percantage</th>
+                                    <th>Percentage</th>
                                 </tr>
                             </thead>
                             <tbody>

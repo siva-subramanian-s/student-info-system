@@ -41,10 +41,11 @@ function Staff(props) {
   };
 
   var faculties =location.state.faculty;
-  console.log(location)
+  console.log(faculties)
   for(let i=0;i<faculties.length;i++){
     //console.log("i loop");
-    if(faculties[i].id===currentUser.uid){
+
+    if(faculties[i].name.toUpperCase()===name){
       for (let j = 0; j < faculties[i].Subject.length; j++) {
         subject.map((doc)=>{
           // console.log(doc.code)

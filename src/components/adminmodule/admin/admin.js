@@ -1,14 +1,31 @@
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import "./admin.css"
 import {useAuth} from "../../contexts/AuthContext"
+import SubjectDataService from '../services/subject.services';
+import staffSubjectServices from '../services/staffSubject.services';
 
 function Admin() {
       const [error, setError] = useState("")
       const Navigate = useNavigate()
       const { logout } = useAuth()
+      const [Student, setStudent] = useState([]);
+      const [Subject, setSubject] = useState([]);
+      const [Faculty, setFaculty] = useState([]);
 
+      useEffect(() => {
+         getStudent();
+     }, []);
+     const getStudent = async () => {
+      const stddata = await SubjectDataService.getStudent();
+      const facdata =await staffSubjectServices.getAllSubjects();
+      const subdata =await SubjectDataService.getAllSubjects();
+      setStudent(stddata.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setSubject(subdata.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setFaculty(facdata.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+
+  };
 
       async function handleLogout() {         
       setError("")
@@ -56,7 +73,7 @@ function Admin() {
                   <span>STUDENTS COUNT</span>
                </div>
                <div className="admin-back-face">
-                  <span>Total no of count:</span>
+                  <span>Total no of count: <br />{Student.length}</span>
                </div>
             </div>
 
@@ -68,7 +85,7 @@ function Admin() {
                   <span>STAFFS COUNT</span>
                </div>
                <div className="admin-back-face">
-                  <span>Total no of count:</span>
+                  <span>Total no of count: <br />{Faculty.length}</span>
 
                </div>
             </div>
@@ -80,7 +97,7 @@ function Admin() {
                   <span>SUBJECTS COUNT</span>
                </div>
                <div className="admin-back-face">
-                  <span>Total no of count:</span>
+                  <span>Total no of count: <br />{Subject.length}</span>
 
                </div>
             </div>
