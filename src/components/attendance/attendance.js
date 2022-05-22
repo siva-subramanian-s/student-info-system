@@ -131,7 +131,7 @@ function Attendance() {
             </div>
             <div className={acss.form_class}>
                 <form name="atten-User" onSubmit={handleSubmit}>
-                    <table /*className={acss.attentable}*/ center>
+                    <table className={acss.attentable}>
                         
                             <tr >
                                 <th>Date</th>
