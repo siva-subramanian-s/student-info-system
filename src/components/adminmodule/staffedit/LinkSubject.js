@@ -54,7 +54,6 @@ const AddSubject = ({ id, setSubjectId }) => {
     }
 
     setName("");
-    // setSubjectList("");
   };
 
   const editHandler = async () => {
