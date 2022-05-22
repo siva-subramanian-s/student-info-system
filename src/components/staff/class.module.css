@@ -58,6 +58,7 @@ a {
   font-family: 'Open Sans';
   margin-top: 0.5em;
   line-height: 2em;
+  color: #ffffff;
 }
 
 .card .tags {
@@ -78,7 +79,9 @@ a {
   background: var(--color);
   color: white;
 }
-
+.card:hover p{
+  color: #3c3163;
+}
 .card .date {
   position: absolute;
   top: 0;

@@ -10,12 +10,17 @@ import {
   doc,
 } from "firebase/firestore";
 
-const subjectCollectionRef = collection(db, "staff");
-class facultytosubServices {
+const faculties = collection(db,"staff");
 
-  getAllclasses = () => {
-    return getDocs(subjectCollectionRef);
-  };
+// const facsub =facultyCollectionRef.orderBy("Subject", "asc")
+class facultytosubServices {
+//  getfacsubs=()=>{
+//    return getDocs(facsub);
+//  }
+
+  // getAllclasses = () => {
+  //   return getDocs(facultyCollectionRef);
+  // };
 
   getSubject = (id) => {
     const subjectDoc = doc(db, "subject", id);
