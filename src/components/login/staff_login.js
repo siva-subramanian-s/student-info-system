@@ -44,6 +44,7 @@ function StaffLogin() {
     setLoading(false)
 
   }
+<<<<<<< HEAD
   
 
   return (
@@ -76,7 +77,40 @@ function StaffLogin() {
                 </div>
               </form>
             </div>
+=======
+  return ( 
+    <div className="Login">
+      <div className="login_user">
+      <div id="particles-js">
+        <div className="login_container">
+          <div className="login_wrapper">
+            <div className="title"><span>Faculty Login</span></div>
+            <form onSubmit={handleSubmit} className="login_form">
+            {error && <h2>{error}</h2>}
+              <div className="row">
+                <i className="fas fa-user"></i>
+                <select  id="faculty-user" ref={regno} onChange={(e)=>setStaffid(e.target.value)}>
+                <option disabled selected>Faculty name</option>
+                  <option >Mrs.P.Tharani</option>
+                  <option >Mrs.K.Manimala </option>
+                  <option >Mrs.P.Nithya</option>
+                  <option >Mrs.S.Ruba</option>
+                  <option >Mrs.K.Saraswathi</option>
+                  <option >Dr.C.Rani</option>
+                  <option value={"Dr.R.GoldaBrunet"}>Dr.R.Golda Brunet</option>
+                </select>
+              </div>
+              <div className="row">
+                <i className="fas fa-lock"></i>
+                <input type="password" ref={password} placeholder="Password" minLength={8} required />
+              </div>
+              <div className="row button">
+                <input type="submit" value="Login" />
+              </div>
+            </form>
+>>>>>>> 5023e74fe634ae5cc2b2f5da0b92654ab1da4f3d
           </div>
+        </div>
         </div>
       </div>
 

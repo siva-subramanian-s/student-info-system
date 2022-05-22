@@ -32,6 +32,7 @@ const SubjectsList = ({ getSubjectId }) => {
           <tr>
             <th>#</th>
             <th>Subject Name</th>
+            <th>ABB</th>
             <th>Subject Code</th>
             <th>Year</th>
             <th>Action</th>
@@ -43,6 +44,7 @@ const SubjectsList = ({ getSubjectId }) => {
               <tr key={doc.id}>
                 <td>{index + 1}</td>
                 <td>{doc.name}</td>
+                <td>{doc.abb}</td>
                 <td>{doc.code}</td>
                 <td>{doc.year}</td>
                 <td>
