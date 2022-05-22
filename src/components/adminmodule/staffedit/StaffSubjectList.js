@@ -18,6 +18,7 @@ const SubjectsList = ({ getSubjectId }) => {
     await FacultyDataService.deleteSubject(id);
     getSubjects();
   };
+  
   return (
     <>
       <div className="mb-2">  
@@ -45,9 +46,9 @@ const SubjectsList = ({ getSubjectId }) => {
               <tr key={doc.id} style={{textAlign:"center"}}>
                 <td>{index + 1}</td>
                 <td>{doc.name}</td>
-                <td>{doc.Subject[0]}</td>
+                {/* <td>{doc.Subject[0]}</td>
                 <td>{doc.Subject[1]}</td>
-                <td>{doc.Subject[2]}</td>
+                <td>{doc.Subject[2]}</td> */}
                 {/* <td>{doc.Subject[2]}</td> */}
                 <td>{doc.clad}</td>
                 <td >

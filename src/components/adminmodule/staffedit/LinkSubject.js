@@ -52,7 +52,6 @@ const AddSubject = ({ id, setSubjectId }) => {
     } catch (err) {
       setMessage({ error: true, msg: err.message });
     }
-
     setName("");
   };
 
@@ -75,6 +74,9 @@ const AddSubject = ({ id, setSubjectId }) => {
     }
   }, [id]);
 
+  Subject.map((item)=> {
+    console.log(item);
+  })
 
   return (
     <>
