@@ -54,7 +54,7 @@ const AddSubject = ({ id, setSubjectId }) => {
     }
 
     setName("");
-    setSubjectList("");
+    // setSubjectList("");
   };
 
   const editHandler = async () => {
@@ -75,6 +75,10 @@ const AddSubject = ({ id, setSubjectId }) => {
       editHandler();
     }
   }, [id]);
+
+  Subject.map((item)=> {
+    console.log(item);
+  })
   return (
     <>
       <div className="p-4 box">
