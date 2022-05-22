@@ -1,10 +1,8 @@
 import React, { useState,useEffect } from "react";
 import "./staffstyle.css";
 import Class from "./class";
-import classCard from "./classCard";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import items from "../logincard/Card_items";
 import SubjectDataService from "../adminmodule/services/subject.services";
 function createCard(props) {
   return (
