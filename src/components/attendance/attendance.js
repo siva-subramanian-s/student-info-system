@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react";
 import {  Alert } from "react-bootstrap";
 import acss from "./style_atten.module.css"
 import { useLocation } from "react-router-dom";
-import facultyDataService from "../adminmodule/services/absentees.services";
+import absenteesDataService from "../adminmodule/services/absentees.services";
 function Attendance() {
     const [id, setAttendId] = useState("");
 
@@ -33,9 +33,7 @@ function Attendance() {
     const [date, setDate] = useState("");
   const [noAbs, setnoAbs] = useState(""); 
   const [period, setPeriod] = useState(""); 
-  const [subject, setSubject] = useState(""); 
   const [regno, setRegno] = useState("1921045"); 
-  const [years, setYear] = useState("");
   const [message, setMessage] = useState({ error: false, msg: "" });
 
   const handleSubmit = async (e) => {
@@ -45,7 +43,7 @@ function Attendance() {
       setMessage({ error: true, msg: "All fields are mandatory!" });
       return;
     }
-    const newSubject = {
+    const newAbsentees = {
       date,
       noAbs,
       period,
@@ -53,16 +51,16 @@ function Attendance() {
       year,
       regno,
     };
-    console.log(newSubject);
+    console.log(newAbsentees);
 
     try {
       if (id !== undefined && id !== "") {
-        await facultyDataService.updateSubject(id, newSubject);
+        await absenteesDataService.updateSubject(id, newAbsentees);
         setAttendId("");
         setMessage({ error: false, msg: "Updated successfully!" });
       } else {
-        await facultyDataService.addSubjects(newSubject);
-        setMessage({ error: false, msg: "Subject assigned successfully!" });
+        await absenteesDataService.addSubjects(newAbsentees);
+        setMessage({ error: false, msg: "Absentees registered successfully!" });
       }
     } catch (err) {
       setMessage({ error: true, msg: err.message });
@@ -76,7 +74,7 @@ function Attendance() {
   const editHandler = async () => {
     setMessage("");
     try {
-      const docSnap = await facultyDataService.getSubject(id);
+      const docSnap = await absenteesDataService.getSubject(id);
       console.log("the record is :", docSnap.data());
       setDate(docSnap.data().date);
       setnoAbs(docSnap.data().noAbs);
@@ -96,7 +94,6 @@ function Attendance() {
   }, [id]);
     //   NEW-------------------
     return (
-        // <div className="p-4 box">
         <>
         {message?.msg && (
           <Alert
@@ -130,13 +127,13 @@ function Attendance() {
                                 onChange={(e) => setDate(e.target.value)}/></td>
                                 <td><input className={acss.inputBox} type="text" name="subject" placeholder="Subject name" 
                                 value={sub}
-                                onChange={(e) => setSubject(sub)}/></td>
+                               /></td>
                                 <td><input className={acss.inputBox} type="number" name="period" placeholder="Class No." min="1" max="7"
                                 value={period}
                                 onChange={(e) => setPeriod(e.target.value)}/></td>
                                 <td><input className={acss.inputBox} type="text" name="year" placeholder="Study Year" min="1" max="4"
                                 value={year}
-                                onChange={(e) => setYear(year)}/></td>
+                                /></td>
                                 <td><input className={acss.inputBox} type="number" name="absentees" min="0" max="60"
                                 value={noAbs}
                                 onChange={(e) => setnoAbs(e.target.value)}/> </td>
