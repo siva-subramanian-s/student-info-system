@@ -5,25 +5,37 @@ import facultyDataService from "../services/staffSubject.services.js";
 
 const AddSubject = ({ id, setSubjectId }) => {
   const [name, setName] = useState("");
-  const [subs_a, setSubs_a] = useState(); 
-  const [subs_b, setSubs_b] = useState(); 
-  const [subs_c, setSubs_c] = useState(); 
   const [clad, setclad] = useState("false");
   const [flag, setFlag] = useState(true);
   const [message, setMessage] = useState({ error: false, msg: "" });
 
+  const [Subject,setSubjectList]=useState([{}]);
+
+  const handleRegnoChange=(e,index)=>{
+    const {value}=e.target;
+    const list=[...Subject];
+    list[index]=value;
+    setSubjectList(list);
+  };
+  const handleRegnoAdd=()=>{
+    setSubjectList([...Subject,{}])
+  };
+  const handleRegnoRemove=(index)=>{
+    const list=[...Subject];
+    list.splice(index,1);
+    setSubjectList(list);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
-    if (name === "" || subs_a === "") {
+    if (name === "") {
       setMessage({ error: true, msg: "All fields are mandatory!" });
       return;
     }
     const newSubject = {
       name,
-      subs_a,
-      subs_b,
-      subs_c,
+      Subject,
       clad,
     };
     console.log(newSubject);
@@ -42,9 +54,7 @@ const AddSubject = ({ id, setSubjectId }) => {
     }
 
     setName("");
-    setSubs_a("");
-    setSubs_b("");
-    setSubs_c("");
+    setSubjectList("");
   };
 
   const editHandler = async () => {
@@ -53,9 +63,6 @@ const AddSubject = ({ id, setSubjectId }) => {
       const docSnap = await facultyDataService.getSubject(id);
       console.log("the record is :", docSnap.data());
       setName(docSnap.data().name);
-      setSubs_a(docSnap.data().subs_a);
-      setSubs_b(docSnap.data().subs_b);
-      setSubs_c(docSnap.data().subs_c);
       setclad(docSnap.data().clad);
     } catch (err) {
       setMessage({ error: true, msg: err.message });
@@ -93,40 +100,31 @@ const AddSubject = ({ id, setSubjectId }) => {
               />
             </InputGroup>
           </Form.Group>
-
           
-          <Form.Group className="mb-3" controlId="formSubjectAuthor">
-            <InputGroup>
-              <InputGroup.Text id="formSubjectAuthor">1 SUBs</InputGroup.Text>
-              <Form.Control
-                type="text"
-                // placeholder="Number of Subjects"
-                placeholder="Subject code"
-                value={subs_a}
-                onChange={(e) => setSubs_a(e.target.value)}
-              />
-            </InputGroup>
-            <InputGroup>
-              <InputGroup.Text id="formSubjectAuthor">2 SUBs</InputGroup.Text>
-              <Form.Control
-                type="text"
-                // placeholder="Number of Subjects"
-                placeholder="Subject code"
-                value={subs_b}
-                onChange={(e) => setSubs_b(e.target.value)}
-              />
-            </InputGroup>
-            <InputGroup>
-              <InputGroup.Text id="formSubjectAuthor">3 SUBs</InputGroup.Text>
-              <Form.Control
-                type="text"
-                // placeholder="Number of Subjects"
-                placeholder="Subject code"
-                value={subs_c}
-                onChange={(e) => setSubs_c(e.target.value)}
-              />
-            </InputGroup>
-          </Form.Group>
+          {Subject.map((singleSub,index)=> (
+                 
+                <Form.Group className="mb-3" controlId="formSubjectAuthor" key={index}><InputGroup>
+                <InputGroup.Text id="formSubjectAuthor">{index+1} SUB</InputGroup.Text>
+                <Form.Control
+                  type="text"
+                  // placeholder="Number of Subjects"
+                  name="subs"
+                  placeholder="Subject code"
+                  value={singleSub.subs}
+                  onChange={(e)=> handleRegnoChange(e,index)}
+                />
+                {Subject.length-1==index && Subject.length<10 && 
+                (<input type="button" className="btnBtn" value="+" onClick={handleRegnoAdd}/>)}
+                {Subject.length>1 &&  <input type="button" className="btnBtn" value="-" onClick={()=>handleRegnoRemove(index)}/>}
+                
+              </InputGroup>
+              </Form.Group>
+                
+            ))}
+          
+          
+            
+        
           {/* {
             this.subs.map((subjectField,index) =>{
               return(

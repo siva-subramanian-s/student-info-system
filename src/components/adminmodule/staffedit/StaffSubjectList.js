@@ -26,27 +26,29 @@ const SubjectsList = ({ getSubjectId }) => {
         </Button>
       </div>
 
-      <Table striped bordered hover size="sm">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Faculty Name</th>
-            <th>Subject Code</th>
-            <th>Subject Code</th>
-            <th>Subject Code</th>
-            <th>Class Advisor</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody >
+ 
           {subject.map((doc, index) => {
-            return (
+            return (     <>
+          <Table striped bordered hover size="sm">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Faculty Name</th>
+                <th>Subject Code</th>
+                <th>Subject Code</th>
+                <th>Subject Code</th>
+                <th>Class Advisor</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody >
               <tr key={doc.id} style={{textAlign:"center"}}>
                 <td>{index + 1}</td>
                 <td>{doc.name}</td>
-                <td>{doc.subs_a}</td>
-                <td>{doc.subs_b}</td>
-                <td>{doc.subs_c}</td>
+                <td>{doc.Subject[0]}</td>
+                <td>{doc.Subject[1]}</td>
+                <td>{doc.Subject[2]}</td>
+                {/* <td>{doc.Subject[2]}</td> */}
                 <td>{doc.clad}</td>
                 <td >
                   <Button
@@ -67,10 +69,11 @@ const SubjectsList = ({ getSubjectId }) => {
                   </Button>
                 </td>
               </tr>
-            );
+           </tbody>
+        </Table>
+      </>);
           })}
-        </tbody>
-      </Table>
+      
     </>
   );
 };
