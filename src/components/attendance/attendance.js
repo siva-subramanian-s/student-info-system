@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import {  Alert } from "react-bootstrap";
 import acss from "./style_atten.module.css"
 import { useLocation } from "react-router-dom";
-function Attendance(props) {
+import facultyDataService from "../adminmodule/services/absentees.services";
+function Attendance() {
+    const [id, setAttendId] = useState("");
 
     const location =useLocation();
     // console.log(loctaion.state.sub)
@@ -11,27 +14,105 @@ function Attendance(props) {
     d.getFullYear();
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
-    async function handlesubmit(e) {
+    // async function handlesubmit(e) {
 
-        e.preventDefault();
-        try {
+    //     e.preventDefault();
+    //     try {
             
-            setError("");
-            setLoading(true)
-        } catch {
-          setError("Failed to log in");
-        }
-        setLoading(false)
+    //         setError("");
+    //         setLoading(true)
+    //     } catch {
+    //       setError("Failed to log in");
+    //     }
+    //     setLoading(false)
     
-      }
+    //   }
 
+
+    //   NEW-------------------
+    const [date, setDate] = useState("");
+  const [noAbs, setnoAbs] = useState(""); 
+  const [period, setPeriod] = useState(""); 
+  const [subject, setSubject] = useState(""); 
+  const [regno, setRegno] = useState("1921045"); 
+  const [years, setYear] = useState("");
+  const [message, setMessage] = useState({ error: false, msg: "" });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMessage("");
+    if (date === "" || noAbs === "" || period=== "" || regno==="") {
+      setMessage({ error: true, msg: "All fields are mandatory!" });
+      return;
+    }
+    const newSubject = {
+      date,
+      noAbs,
+      period,
+      sub,
+      year,
+      regno,
+    };
+    console.log(newSubject);
+
+    try {
+      if (id !== undefined && id !== "") {
+        await facultyDataService.updateSubject(id, newSubject);
+        setAttendId("");
+        setMessage({ error: false, msg: "Updated successfully!" });
+      } else {
+        await facultyDataService.addSubjects(newSubject);
+        setMessage({ error: false, msg: "Subject assigned successfully!" });
+      }
+    } catch (err) {
+      setMessage({ error: true, msg: err.message });
+    }
+
+    setRegno("");
+    setPeriod("");
+    setnoAbs("");
+  };
+
+  const editHandler = async () => {
+    setMessage("");
+    try {
+      const docSnap = await facultyDataService.getSubject(id);
+      console.log("the record is :", docSnap.data());
+      setDate(docSnap.data().date);
+      setnoAbs(docSnap.data().noAbs);
+      setPeriod(docSnap.data().period);
+    //   setSubject(docSnap.data().subject);
+    //   set(docSnap.data().clad);
+    } catch (err) {
+      setMessage({ error: true, msg: err.message });
+    }
+  };
+
+  useEffect(() => {
+    console.log("The id here is : ", id);
+    if (id !== undefined && id !== "") {
+      editHandler();
+    }
+  }, [id]);
+    //   NEW-------------------
     return (
+        // <div className="p-4 box">
+        <>
+        {message?.msg && (
+          <Alert
+            variant={message?.error ? "danger" : "success"}
+            dismissible
+            onClose={() => setMessage("")}
+          >
+            {message?.msg}
+          </Alert>
+        )}
         <div className="Attendance">
             <div className={acss.heading}>
                 <center>Attendance Register</center>
             </div>
             <div className={acss.form_class}>
-                <form name="atten-User" onSubmit={handlesubmit}>
+                <form name="atten-User" onSubmit={handleSubmit}>
                     <table /*className={acss.attentable}*/ center>
                         
                             <tr >
@@ -44,11 +125,21 @@ function Attendance(props) {
                         
                         
                             <tr>
-                                <td><input className={acss.inputBox} type="date" name="date" hint="dd-mm-yy" /></td>
-                                <td><input className={acss.inputBox} type="text" name="subject" placeholder="Subject name" value={sub}/></td>
-                                <td><input className={acss.inputBox} type="number" name="period" placeholder="Class No." min="1" max="7"/></td>
-                                <td><input className={acss.inputBox} type="text" name="year" placeholder="Study Year" min="1" max="4" value={year}/></td>
-                                <td><input className={acss.inputBox} type="number" name="absentees" min="0" max="60"/> </td>
+                                <td><input className={acss.inputBox} type="date" name="date" hint="dd-mm-yy" 
+                                value={date}
+                                onChange={(e) => setDate(e.target.value)}/></td>
+                                <td><input className={acss.inputBox} type="text" name="subject" placeholder="Subject name" 
+                                value={sub}
+                                onChange={(e) => setSubject(sub)}/></td>
+                                <td><input className={acss.inputBox} type="number" name="period" placeholder="Class No." min="1" max="7"
+                                value={period}
+                                onChange={(e) => setPeriod(e.target.value)}/></td>
+                                <td><input className={acss.inputBox} type="text" name="year" placeholder="Study Year" min="1" max="4"
+                                value={year}
+                                onChange={(e) => setYear(year)}/></td>
+                                <td><input className={acss.inputBox} type="number" name="absentees" min="0" max="60"
+                                value={noAbs}
+                                onChange={(e) => setnoAbs(e.target.value)}/> </td>
                             </tr>
                         
                     </table><br /><br />
@@ -74,7 +165,8 @@ function Attendance(props) {
                         </div>
                     </div>
             </div>
+            </>
             );
-}
+    }
 
 export default Attendance;

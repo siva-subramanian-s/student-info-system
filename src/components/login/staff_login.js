@@ -74,12 +74,6 @@ function StaffLogin() {
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> aef51dabd9b63b0e0ec00fbc6e5f72100d014d8f
   );
 }
 export default StaffLogin;
