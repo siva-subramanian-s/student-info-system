@@ -53,6 +53,10 @@ const AddSubject = ({ id, setSubjectId }) => {
       setMessage({ error: true, msg: err.message });
     }
     setName("");
+<<<<<<< HEAD
+=======
+    // setSubjectList("");
+>>>>>>> 6e050eb200f85419d2456f1990a1e2fe29e14cc5
   };
 
   const editHandler = async () => {
@@ -74,6 +78,12 @@ const AddSubject = ({ id, setSubjectId }) => {
     }
   }, [id]);
 
+<<<<<<< HEAD
+=======
+  Subject.map((item)=> {
+    console.log(item);
+  })
+>>>>>>> 6e050eb200f85419d2456f1990a1e2fe29e14cc5
   return (
     <>
       <div className="p-4 box">
