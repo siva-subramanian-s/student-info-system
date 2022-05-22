@@ -23,7 +23,10 @@ function Class(props) {
                                         year:props.year
                                     }}><div className={styles.tag}>Attendance
                                     </div></Link>
-                                    <Link to="/report"><div className={styles.tag}>Report
+                                    <Link to="/report"state={{
+                                        sub:props.abb,
+                                        facname:props.facname
+                                    }}><div className={styles.tag}>Report
                                     </div></Link>
                                 </div>
                             </div>

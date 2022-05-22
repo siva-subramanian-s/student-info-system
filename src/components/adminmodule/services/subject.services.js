@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 
 const subjectCollectionRef = collection(db, "subject");
+const AbsenteesCollectionRef = collection(db, "absentees");
 class subjectDataService {
   addSubjects = (newSubject) => {
     return addDoc(subjectCollectionRef, newSubject);
@@ -34,6 +35,9 @@ class subjectDataService {
     const subjectDoc = doc(db, "subject", id);
     return getDoc(subjectDoc);
   };
+  getReport=()=>{
+    return getDocs(AbsenteesCollectionRef);
+  }
 }
 
 export default new subjectDataService();

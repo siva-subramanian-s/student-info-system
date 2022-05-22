@@ -11,7 +11,7 @@ function Staffedit() {
   const [subjectId, setSubjectId] = useState("");
 
   const getSubjectIdHandler = (id) => {
-  console.log("The ID of document to be edited: ", id);
+//   console.log("The ID of document to be edited: ", id);
   setSubjectId(id);
   };
     return (

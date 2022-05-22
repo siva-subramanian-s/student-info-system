@@ -13,7 +13,8 @@ function createCard(props) {
       abb={props.abb}
       code={props.code}
       name={props.name}
-      year={props.year} />
+      year={props.year}
+      facname={props.facname} />
   );
 }
 
@@ -57,7 +58,8 @@ function Staff(props) {
                 name:doc.name,
                 year:doc.year,
                 code:doc.code,
-                abb:doc.abb
+                abb:doc.abb,
+                facname: name
               }]
             )
           }
