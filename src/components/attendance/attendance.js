@@ -1,14 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import acss from "./style_atten.module.css"
+import { useLocation } from "react-router-dom";
+function Attendance(props) {
 
-function Attendance() {
+    const location =useLocation();
+    // console.log(loctaion.state.sub)
+    let sub = location.state.sub;
+    let year =location.state.year;
+    let d = new Date();
+    d.getFullYear();
+    const [error, setError] = useState("")
+    const [loading, setLoading] = useState(false)
+    async function handlesubmit(e) {
+
+        e.preventDefault();
+        try {
+            
+            setError("");
+            setLoading(true)
+        } catch {
+          setError("Failed to log in");
+        }
+        setLoading(false)
+    
+      }
+
     return (
         <div className="Attendance">
             <div className={acss.heading}>
                 <center>Attendance Register</center>
             </div>
             <div className={acss.form_class}>
-                <form name="atten-User">
+                <form name="atten-User" onSubmit={handlesubmit}>
                     <table /*className={acss.attentable}*/ center>
                         
                             <tr >
@@ -22,14 +45,14 @@ function Attendance() {
                         
                             <tr>
                                 <td><input className={acss.inputBox} type="date" name="date" hint="dd-mm-yy" /></td>
-                                <td><input className={acss.inputBox} type="text" name="subject" placeholder="Subject name"/></td>
+                                <td><input className={acss.inputBox} type="text" name="subject" placeholder="Subject name" value={sub}/></td>
                                 <td><input className={acss.inputBox} type="number" name="period" placeholder="Class No." min="1" max="7"/></td>
-                                <td><input className={acss.inputBox} type="number" name="year" placeholder="Study Year" min="1" max="4"/></td>
+                                <td><input className={acss.inputBox} type="text" name="year" placeholder="Study Year" min="1" max="4" value={year}/></td>
                                 <td><input className={acss.inputBox} type="number" name="absentees" min="0" max="60"/> </td>
                             </tr>
                         
                     </table><br /><br />
-                        <center><input className={acss.inputBox} type="submit"/></center>
+                        <center><input disabled={loading} className={acss.inputBox} type="submit"/></center>
                     </form>
                     </div>
                     <div className={acss.header}>
