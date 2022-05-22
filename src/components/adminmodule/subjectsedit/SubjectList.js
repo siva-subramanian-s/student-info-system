@@ -10,7 +10,6 @@ const SubjectsList = ({ getSubjectId }) => {
 
   const getSubjects = async () => {
     const data = await SubjectDataService.getAllSubjects();
-    console.log(data.docs);
     setSubjects(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
@@ -25,8 +24,6 @@ const SubjectsList = ({ getSubjectId }) => {
           Refresh List
         </Button>
       </div>
-
-      {/* <pre>{JSON.stringify(Subjects, undefined, 2)}</pre>} */}
       <Table striped bordered hover size="sm">
         <thead>
           <tr>
