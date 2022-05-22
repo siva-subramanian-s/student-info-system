@@ -38,7 +38,7 @@ const AddSubject = ({ id, setSubjectId }) => {
       Subject,
       ClassAdvisor,
     };
-    console.log(newSubject);
+    
 
     try {
       if (id !== undefined && id !== "") {
@@ -61,7 +61,7 @@ const AddSubject = ({ id, setSubjectId }) => {
     setMessage("");
     try {
       const docSnap = await facultyDataService.getSubject(id);
-      console.log("the record is :", docSnap.data());
+      
       setName(docSnap.data().name);
       setclad(docSnap.data().ClassAdvisor);
     } catch (err) {
@@ -70,15 +70,13 @@ const AddSubject = ({ id, setSubjectId }) => {
   };
 
   useEffect(() => {
-    console.log("The id here is : ", id);
+    
     if (id !== undefined && id !== "") {
       editHandler();
     }
   }, [id]);
 
-  Subject.map((item)=> {
-    console.log(item);
-  })
+
   return (
     <>
       <div className="p-4 box">
