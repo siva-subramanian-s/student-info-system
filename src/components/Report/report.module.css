@@ -65,3 +65,6 @@
     color: white;
     background-color: rgb(56, 53, 53);
 }
+.tot__period,.details{
+    color: #303f9f;
+}

@@ -159,21 +159,25 @@ function Attendance() {
                                 value={noAbs}
                                 onChange={(e) => setnoAbs(e.target.value)}/> </td>
                             </tr>
-                            <tr> 
-                              {regnoList.map((singleReg,index)=> (
-                                  <td key={index}><input className={acss.inputBox} type="text" placeholder="Reg no" name="regNo"
-                                  value={singleReg.regNo}
-                                  onChange={(e)=> handleRegnoChange(e,index)}/><br/>
-                                  {regnoList.length-1==index && regnoList.length<10 && 
-                                  (<input type="button" className={acss.btn} value="+" onClick={handleRegnoAdd}/>)}
-                                  {regnoList.length>1 &&  <input type="button" className={acss.btn} value="-" onClick={()=>handleRegnoRemove(index)}/>}
-                                 </td>
-                              ))}
-                                
-                            </tr>
+                            
                         
-                    </table><br /><br />
-                        <center><input disabled={loading} className={acss.inputBox} type="submit"/></center>
+                    </table>
+                    <table>
+                              <tr className={acss.atten__grid}>
+                                {regnoList.map((singleReg,index)=> (
+                                    <td key={index}><input className={acss.inputBox} type="text" placeholder="Reg no" name="regNo"
+                                    value={singleReg.regNo}
+                                    onChange={(e)=> handleRegnoChange(e,index)}/><br/>
+                                    {regnoList.length-1===index && regnoList.length<noAbs &&
+                                    (<input type="button" className={acss.btn} value="+" onClick={handleRegnoAdd}/>)}
+                                    {regnoList.length>1 &&  <input type="button" className={acss.btn} value="-" onClick={()=>handleRegnoRemove(index)}/>}
+                                   </td>
+                                ))}
+                              
+                              </tr>
+                            </table>
+                    <br /><br />
+                        <center><input disabled={loading} className={acss.submit__Btn} type="submit"/></center>
                     </form>
                     </div>
                     <div className={acss.header}>

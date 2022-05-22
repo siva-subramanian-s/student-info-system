@@ -8,25 +8,27 @@ export default function Report() {
     const Dateref = useRef();
     const [Report, setReport] = useState([]);
     const [Student, setStudent] = useState([]);
+
     const location = useLocation();
     const [percentageform, setPercantageform] = useState(true);
     const [Absentform, setAbsenteesform] = useState(false);
+    const [Loading, setLoading] = useState(false);
+    const [Dates, setDates] = useState("0000-00-00")
+
     useEffect(() => {
         getReport();
         getStudent();
     }, []);
     const getReport = async () => {
         const data = await SubjectDataService.getReport();
-        // console.log(data.docs);
+
         setReport(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     const getStudent = async () => {
         const data = await SubjectDataService.getStudent();
-        // console.log(data.docs);
+
         setStudent(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
-   
-   
     const showabsentform = () => {
         setAbsenteesform(true)
         setPercantageform(false)
@@ -36,12 +38,73 @@ export default function Report() {
         setAbsenteesform(false)
         setPercantageform(true)
     }
-    var tot_percentage=0;
-    Report.map((item)=>{
-        console.log(item)
+    var result = [];
+
+    var totsub = 0, periods = 0;
+    let p = 1;
+    Report.map((item) => {
+        if (item.subject === location.state.sub) {
+            totsub++;
+        if (Dates === item.date) {
+            periods++;
+            result = [
+                ...result,
+                {
+                    id: p++,
+                    noabs: item.NoAbs,
+                    regno: item.regno,
+                    period:item.period,
+                    name: [],
+                    whole:[]
+                }
+            ]
+        }
+    }
     })
 
-
+    var wholeStudent = []
+    let i = 1;
+    Student.map((item) => {
+        wholeStudent = [
+            ...wholeStudent,
+            {
+                id: i++,
+                name: item.name,
+                regno: item.regno,
+                percentage: totsub
+            }
+        ]
+    })
+    wholeStudent.map((item) => {
+        Report.map((absentees) => {
+            if (absentees.subject === location.state.sub) {
+                for (let i = 0; i < absentees.NoAbs; i++) {
+                    if (item.regno === absentees.regno[i]) {
+                        item.percentage--;
+                    }
+                }
+            }
+        })
+    })
+    var result2 = []
+    result.map((item) => {
+        for (let y = 0; y < item.regno.length; y++) {
+            Student.map((items) => {
+                if (item.regno[y] === items.regno) {
+                    // item.name[y]=items.name
+                    item.whole=[...item.whole,items]
+                }
+            })
+        }
+    }
+    )
+    totsub = 100 / totsub;
+    
+    const dateModification = () => {
+        setLoading(true)
+        setDates(Dateref.current.value)
+    }
+    
 
 
     return (
@@ -68,27 +131,63 @@ export default function Report() {
                                     <th>Percantage</th>
                                 </tr>
                             </thead>
-                            {/* <tbody>
-                                {Report.map((doc, index) => {
+                            <tbody>
+                                {wholeStudent.map((doc, index) => {
                                     return (
                                         <tr key={doc.id}>
                                             <td>{index + 1}</td>
+                                            <td>{doc.regno}</td>
                                             <td>{doc.name}</td>
-                                            <td>{doc.abb}</td>
-                                            <td>{doc.code}</td>
+                                            <td>{doc.percentage * totsub} <span>%</span></td>
                                         </tr>
                                     );
                                 })}
-                            </tbody> */}
+                            </tbody>
                         </Table>
                     </div>
                 </section>}
                 <section>
-                    <div className={rcss.absent}>
-                        {Absentform && <form name="form">
-                            <input type="date" id={rcss.input} className="auto-submit" ref={Dateref} />
-                        </form>}
-                    </div>
+                    {Absentform&&
+                        <div >
+                        <div className={rcss.absent}>
+                            <form name="form">
+                                <input type="date" id={rcss.input} className="auto-submit" ref={Dateref} onChange={dateModification} />
+                            </form>
+                        </div>
+                        <h2 className={rcss.tot__period}>Total Period <span>{periods}</span></h2>
+                        {result.map((docs) => {
+                            return (
+                                <div>
+                                    <div className={rcss.details}>
+                                        <h4>Period <span>{docs.period}</span></h4>
+                                        <h5>No of Absentees <span>{docs.noabs}</span></h5>
+                                    </div>
+                                    <div className={rcss.result}>
+                                        <Table striped bordered hover size="sm" >
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Regno</th>
+                                                    <th>Name</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {docs.whole.map((doc, index) => {
+                                            return (
+                                                <tr key={doc.id}>
+                                                    <td>{index + 1}</td>
+                                                    <td>{doc.regno}</td>
+                                                    <td>{doc.name}</td>
+                                                </tr>
+                                            );
+                                        })}
+                                            </tbody>
+                                        </Table>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>}
                 </section>
             </div>
         </div>
