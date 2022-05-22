@@ -52,9 +52,7 @@ const AddSubject = ({ id, setSubjectId }) => {
     } catch (err) {
       setMessage({ error: true, msg: err.message });
     }
-
     setName("");
-    setSubjectList("");
   };
 
   const editHandler = async () => {
@@ -75,6 +73,7 @@ const AddSubject = ({ id, setSubjectId }) => {
       editHandler();
     }
   }, [id]);
+
   return (
     <>
       <div className="p-4 box">
