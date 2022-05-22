@@ -18,7 +18,10 @@ function Class(props) {
                                 <p>{props.year} <span>YEAR</span></p>
                                 <div className={styles.date}>{props.abb}</div>
                                 <div className={styles.tags}>
-                                    <Link to="/Attendance"><div className={styles.tag}>Attendance
+                                    <Link to="/Attendance" state={{
+                                        sub:props.abb,
+                                        year:props.year
+                                    }}><div className={styles.tag}>Attendance
                                     </div></Link>
                                     <Link to="/report"><div className={styles.tag}>Report
                                     </div></Link>
