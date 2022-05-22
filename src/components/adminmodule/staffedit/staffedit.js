@@ -7,6 +7,7 @@ import SubjectList from "./StaffSubjectList";
 import { Link } from 'react-router-dom';
 import React from "react";
 import "./staff.css";
+
 function Staffedit() {
   const [subjectId, setSubjectId] = useState("");
 
