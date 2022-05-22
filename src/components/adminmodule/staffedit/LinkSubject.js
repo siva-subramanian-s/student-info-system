@@ -5,7 +5,7 @@ import facultyDataService from "../services/staffSubject.services.js";
 
 const AddSubject = ({ id, setSubjectId }) => {
   const [name, setName] = useState("");
-  const [clad, setclad] = useState("false");
+  const [ClassAdvisor, setclad] = useState("false");
   const [flag, setFlag] = useState(true);
   const [message, setMessage] = useState({ error: false, msg: "" });
 
@@ -36,7 +36,7 @@ const AddSubject = ({ id, setSubjectId }) => {
     const newSubject = {
       name,
       Subject,
-      clad,
+      ClassAdvisor,
     };
     console.log(newSubject);
 
@@ -63,7 +63,7 @@ const AddSubject = ({ id, setSubjectId }) => {
       const docSnap = await facultyDataService.getSubject(id);
       console.log("the record is :", docSnap.data());
       setName(docSnap.data().name);
-      setclad(docSnap.data().clad);
+      setclad(docSnap.data().ClassAdvisor);
     } catch (err) {
       setMessage({ error: true, msg: err.message });
     }
