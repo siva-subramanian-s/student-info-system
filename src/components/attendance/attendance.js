@@ -6,19 +6,19 @@ import absenteesDataService from "../adminmodule/services/absentees.services";
 
 function Attendance() {
     const [id, setAttendId] = useState("");
-    const [regnoList,setRegnoList]=useState([{}]);
+    const [regno,setRegnoList]=useState([{}]);
 
     const handleRegnoChange=(e,index)=>{
       const {value}=e.target;
-      const list=[...regnoList];
+      const list=[...regno];
       list[index]=value;
       setRegnoList(list);
     };
     const handleRegnoAdd=()=>{
-      setRegnoList([...regnoList,{}])
+      setRegnoList([...regno,{}])
     };
     const handleRegnoRemove=(index)=>{
-      const list=[...regnoList];
+      const list=[...regno];
       list.splice(index,1);
       setRegnoList(list);
     };
@@ -67,7 +67,7 @@ function Attendance() {
       sub,
       year,
       // regno,
-      regnoList,
+      regno,
     };
     console.log(newAbsentees);
 
@@ -164,13 +164,13 @@ function Attendance() {
                     </table>
                     <table>
                               <tr className={acss.atten__grid}>
-                                {regnoList.map((singleReg,index)=> (
+                                {regno.map((singleReg,index)=> (
                                     <td key={index}><input className={acss.inputBox} type="text" placeholder="Reg no" name="regNo"
                                     value={singleReg.regNo}
                                     onChange={(e)=> handleRegnoChange(e,index)}/><br/>
-                                    {regnoList.length-1===index && regnoList.length<noAbs &&
+                                    {regno.length-1===index && regno.length<noAbs &&
                                     (<input type="button" className={acss.btn} value="+" onClick={handleRegnoAdd}/>)}
-                                    {regnoList.length>1 &&  <input type="button" className={acss.btn} value="-" onClick={()=>handleRegnoRemove(index)}/>}
+                                    {regno.length>1 &&  <input type="button" className={acss.btn} value="-" onClick={()=>handleRegnoRemove(index)}/>}
                                    </td>
                                 ))}
                               
