@@ -3,8 +3,25 @@ import {  Alert } from "react-bootstrap";
 import acss from "./style_atten.module.css"
 import { useLocation } from "react-router-dom";
 import absenteesDataService from "../adminmodule/services/absentees.services";
+
 function Attendance() {
     const [id, setAttendId] = useState("");
+    const [regnoList,setRegnoList]=useState([{}]);
+
+    const handleRegnoChange=(e,index)=>{
+      const {value}=e.target;
+      const list=[...regnoList];
+      list[index]=value;
+      setRegnoList(list);
+    };
+    const handleRegnoAdd=()=>{
+      setRegnoList([...regnoList,{}])
+    };
+    const handleRegnoRemove=(index)=>{
+      const list=[...regnoList];
+      list.splice(index,1);
+      setRegnoList(list);
+    };
 
     const location =useLocation();
     // console.log(loctaion.state.sub)
@@ -30,16 +47,16 @@ function Attendance() {
 
 
     //   NEW-------------------
-    const [date, setDate] = useState("");
+  const [date, setDate] = useState("");
   const [noAbs, setnoAbs] = useState(""); 
   const [period, setPeriod] = useState(""); 
-  const [regno, setRegno] = useState("1921045"); 
+  // const [regno, setRegno] = useState("1921045"); 
   const [message, setMessage] = useState({ error: false, msg: "" });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
-    if (date === "" || noAbs === "" || period=== "" || regno==="") {
+    if (date === "" || noAbs === "" || period=== "") {
       setMessage({ error: true, msg: "All fields are mandatory!" });
       return;
     }
@@ -49,7 +66,8 @@ function Attendance() {
       period,
       sub,
       year,
-      regno,
+      // regno,
+      regnoList,
     };
     console.log(newAbsentees);
 
@@ -66,7 +84,7 @@ function Attendance() {
       setMessage({ error: true, msg: err.message });
     }
 
-    setRegno("");
+    // setRegno("");
     setPeriod("");
     setnoAbs("");
   };
@@ -93,6 +111,9 @@ function Attendance() {
     }
   }, [id]);
     //   NEW-------------------
+
+
+
     return (
         <>
         {message?.msg && (
@@ -137,6 +158,18 @@ function Attendance() {
                                 <td><input className={acss.inputBox} type="number" name="absentees" min="0" max="60"
                                 value={noAbs}
                                 onChange={(e) => setnoAbs(e.target.value)}/> </td>
+                            </tr>
+                            <tr> 
+                              {regnoList.map((singleReg,index)=> (
+                                  <td key={index}><input className={acss.inputBox} type="text" placeholder="Reg no" name="regNo"
+                                  value={singleReg.regNo}
+                                  onChange={(e)=> handleRegnoChange(e,index)}/><br/>
+                                  {regnoList.length-1==index && regnoList.length<10 && 
+                                  (<input type="button" className={acss.btn} value="+" onClick={handleRegnoAdd}/>)}
+                                  {regnoList.length>1 &&  <input type="button" className={acss.btn} value="-" onClick={()=>handleRegnoRemove(index)}/>}
+                                 </td>
+                              ))}
+                                
                             </tr>
                         
                     </table><br /><br />

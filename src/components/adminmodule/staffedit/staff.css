@@ -8,6 +8,19 @@
   --grey-color: #d6d6d6;
   --red-color: #dd4b46;
 }
+.btnBtn{
+  width: 60px;
+  height: 30px;
+  margin: 4px 0px; 
+  border-radius: 15px;
+  border:3px solid rgba(69, 90, 255, 0.918);
+  color: black;
+}
+.btnBtn:hover{
+  transform: scale(1.1);
+  transition:cubic-bezier(1, 0, 0, 1);
+  font-weight: bold;
+}
 
 a {
   text-decoration: none;
