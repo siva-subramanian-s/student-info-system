@@ -1,5 +1,5 @@
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
-table{           
+.heading table{           
   width: 60%;
   margin-left:auto;margin-right: auto;
   font-family: poppins;
@@ -10,7 +10,7 @@ table{
   padding: 20px;
 }
 
- th{
+.heading th{
   text-align: center;
   padding: 10px;
   
@@ -18,7 +18,7 @@ table{
   border-radius: 10px;
   font-family: poppins;
 }
- td{
+.heading td{
   padding: 1em 1em;
 }
 .inputBox{
@@ -57,7 +57,7 @@ h1 {
   letter-spacing: 2px;
   font-size:48px;
 }
-p {
+.heading p {
   font-family: poppins;
   letter-spacing: 1px;
   font-size:14px;
