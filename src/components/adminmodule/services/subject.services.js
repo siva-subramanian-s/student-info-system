@@ -17,6 +17,9 @@ class subjectDataService {
   addSubjects = (newSubject) => {
     return addDoc(subjectCollectionRef, newSubject);
   };
+  addStudent = (newSubject) => {
+    return addDoc(studentCollectionRef, newSubject);
+  };
 
   updateSubject = (id, updatedSubject) => {
     const subjectDoc = doc(db, "subject", id);
