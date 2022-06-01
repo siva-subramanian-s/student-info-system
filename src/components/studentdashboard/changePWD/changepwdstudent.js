@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import "./chagePwd.css"
@@ -8,8 +8,11 @@ function ChangePWDstudent() {
 
   const Navigate = useNavigate();
    const [error, setError] = useState("")
-   const { logout } = useAuth()
-
+   const { logout,updatePassword } = useAuth()
+   const password1 = useRef();
+   const password2 = useRef();
+   const [ok, setOk] = useState(false)
+   const [loading, setLoading] = useState(false)
    async function handleLogout() {
       setError("")
       try {
@@ -18,6 +21,29 @@ function ChangePWDstudent() {
       } catch {
          setError("Failed to log out")
       }
+   }
+   async function changingPassword(e) {
+      e.preventDefault();
+      // setError("")
+      try {
+         setLoading(true)
+         console.log(password1.current.value)
+         console.log(password2.current.value)
+         const pwd = password1.current.value;
+         if (password1.current.value === password2.current.value) {
+            console.log("inside if");
+            await updatePassword(pwd)
+            setOk(true)
+            password1.current.value = ""
+            password2.current.value = ""
+            setError("Password Changed Successfully")
+         } else {
+            setError("Different Password")
+         }
+      } catch {
+         setError("Failed to change password or try Login again")
+      }
+      setLoading(false)
    }
     return(
     <div className="changepassword">
@@ -41,20 +67,22 @@ function ChangePWDstudent() {
                   <li><button onClick={handleLogout}><i class="fas fa-user"></i>Log out</button></li>
                </ul>
        </nav>
-       {error && <h2>{error}</h2>}
 
     </div>
     
 <div className="admin-wrapper1">
         <div className="admin-container">
             <div className="admin-simple-cards">
-             
+            {error && <div>
+                     <h2>{error}</h2>
+                     {ok && <button id="input_sub_add" onClick={e => { Navigate("/student-dashboard") }}>ok</button>}
+                  </div>}
               <div className="admin-items">
                 <h4>NEW PASSWORD</h4>
                 <div className="admin-cards-content">
-                  <form>
-                    <input id="input_reg" type="text" placeholder="Enter Password"/>
-                    <input id="input_reg" type="text" placeholder="Re-Enter Password" style={{marginTop: "2.5em"}} />
+                  <form onSubmit={changingPassword}>
+                    <input id="input_reg" type="text" placeholder="Enter Password" ref={password1} required onFocus={e=>{setError('')}} />
+                    <input id="input_reg" type="text" placeholder="Re-Enter Password" ref={password2} required onFocus={e=>{setError('')}} style={{marginTop: "2.5em"}} />
                     <input id="input_sub_add" type="submit" value="CHANGE" />
                 </form>
                 </div>

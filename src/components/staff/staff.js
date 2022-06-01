@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import "./staffstyle.css";
 import Class from "./class";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import SubjectDataService from "../adminmodule/services/subject.services";
 function createCard(props) {
@@ -17,11 +17,12 @@ function createCard(props) {
 }
 
 function Staff(props) {
-  const { currentUser } = useAuth()
+  const { currentUser ,logout} = useAuth()
   const location = useLocation();
   const [subject, setSubjects] = useState([]);
   var Array = [];
-
+  const [error,setError] = useState("");
+  const Navigate = useNavigate()
   var name = currentUser.email;
   var slice = 0;
   for (let i = 0; i < name.length; i++) {
@@ -36,19 +37,14 @@ function Staff(props) {
   }, []);
   const getSubjects = async () => {
     const data = await SubjectDataService.getAllSubjects();
-    // console.log(data.docs);
     setSubjects(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
-
   var faculties =location.state.faculty;
-  console.log(faculties)
   for(let i=0;i<faculties.length;i++){
-    //console.log("i loop");
-
     if(faculties[i].name.toUpperCase()===name){
       for (let j = 0; j < faculties[i].Subject.length; j++) {
         subject.map((doc)=>{
-          // console.log(doc.code)
+        
           if(doc.code===faculties[i].Subject[j]){
             (
               Array =[...Array,
@@ -66,7 +62,16 @@ function Staff(props) {
       }
     }
   }
-  console.log(Array);
+  async function handleLogout() {         
+    setError("")
+    try {
+       await logout()
+       Navigate("/");
+    } catch {
+
+       setError("Failed to log out")
+    }
+ }
   return (
     <>
       <div className="Faculty__header">
@@ -75,9 +80,9 @@ function Staff(props) {
         </div>
         <div>
           <ul className="staff_nav_ul" data-visible="false">
-            <li className="nav_li"><Link to="/">Home</Link></li>
-            <li className="nav_li"><Link to="/changepassword">Password change</Link></li>
-            <li className="nav_li"><Link to="/">Sign out</Link></li>
+            <li className="nav_li"><button><Link to="/">Home</Link></button></li>
+            <li className="nav_li"><button><Link to="/changepassword">Password change</Link></button></li>
+            <li className="nav_li"><button onClick={handleLogout}><Link to="/">Sign out</Link></button></li>
           </ul>
         </div>
       </div>

@@ -8,7 +8,14 @@ export default function Studentdash() {
 
    const Navigate = useNavigate();
    const [error, setError] = useState("")
-   const { logout } = useAuth()
+   const { logout,currentUser } = useAuth()
+  var name = currentUser.email;
+  var slice = 0;
+  for (let i = 0; i < name.length; i++) {
+    if (name[i] == '@') slice = i;
+  }
+  name=name.toUpperCase();
+  name = name.slice(0, slice);
 
    async function handleLogout() {
       setError("")
@@ -23,12 +30,16 @@ export default function Studentdash() {
 
    return (
       <div><div id="stud_header"><h1>STUDENT DASHBOARD</h1></div>
+      <div className="student__dash__regno">
+               <h2>{name}</h2>
+         </div>
          <div class="wrapper_stud">
             <input type="checkbox" id="btn" hidden />
             <label for="btn" class="menu-btn_stud">
                <i class="fas fa-bars"></i>
                <i class="fas fa-times"></i>
             </label>
+            
             <nav id="sidebar">
                <div class="title_stud">
                   Side Menu

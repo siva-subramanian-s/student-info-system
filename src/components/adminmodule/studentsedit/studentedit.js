@@ -7,53 +7,46 @@ import "./studentedit.css";
 function Studentedit() {
 
   const regno = useRef()
+  const regno2 = useRef()
   const passwordRef = "gcecse123"
-  const { signup ,resetPassword,logout} = useAuth()
+  const { signup,logout} = useAuth()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
+  const [update, setUpdate] = useState(true)
   const history = useNavigate()
 
-  // async function adminsignup(e) {
-  //   e.preventDefault()
+  async function adminsignup(e) {
+    e.preventDefault()
 
 
-  //   try {
-  //     setError("")
-  //     setLoading(true)
-  //     await signup(regno.current.value+"@gmail.com", passwordRef)
-      
-  //   } catch {
-  //     setError("Failed to add student")
-  //   }
+    try {
+      setError("")
+      setLoading(true)
+      await signup(regno.current.value+"@gmail.com", passwordRef)
+      setError("Student "+regno.current.value +" added Successfully")
+      regno.current.value=""
+    } catch {
+      setError("Failed to add student")
+    }
 
-  //   setLoading(false)
-  // }
-  // async function admindel(e) {
-  //   e.preventDefault()
-  //   try {
-  //     setError("")
-  //     setLoading(true)
-  //     await signup(regno.current.value+"@gmail.com", passwordRef)
-      
-  //   } catch {
-  //     setError("Failed to add student")
-  //   }
+    setLoading(false)
+  }
+  async function admindel(e) {
+    e.preventDefault()
+    setUpdate(false)
+    try {
+      setError("")
+      setLoading(true)
+      await signup(regno2.current.value+"@gmail.com","student")
+      setError("Student "+regno2.current.value +" deleted Successfully") 
+      regno.current.value=""
+    } catch {
+      setError("Failed to delete student")
+    }
 
-  //   setLoading(false)
-  // }
-  // async function adminchgpwd(e) {
-  //   e.preventDefault()
-  //   try {
-  //     setError("")
-  //     setLoading(true)
-  //     await resetPassword(regno.current.value+"@gmail.com")
-      
-  //   } catch {
-  //     setError("Failed to add student")
-  //   }
-
-  //   setLoading(false)
-  // }
+    setLoading(false)
+  }
+  
   async function handleLogout() {
     setError("")
 
@@ -87,41 +80,36 @@ function Studentedit() {
              <li><button onClick={handleLogout}><i class="fas fa-user"></i>Log out</button></li>
           </ul>
        </nav>
-       {error && <h2>{error}</h2>}
     </div>
-    
+    {error&& <h3 style={{position:"absolute" ,
+            top: "150px",
+            left:update?"10%":"63%",
+            textAlign:"center",
+            color:update?"blue":"red"
+    }}>{error}</h3>}
     <div className="admin-wrapper1">
         <div className="admin-container">            
             <div className="admin-simple-cards">              
-
+              
               <div className="admin-items">
                 <h4>ADD STUDENT</h4>
                 <div className="admin-cards-content">
-
-                  <form >
-                    <input id="input_reg" type="text" placeholder="Registered No." ref={regno} />
+                
+                  <form onSubmit={adminsignup}>
+                    <input id="input_reg" type="text" placeholder="Registered No." ref={regno} onFocus={e=>{setError('')}}/>
                     <input id="input_sub_add" type="submit" value="ADD" />
                 </form>
                 </div>
               </div>
 
               <div className="admin-items">
+              
                 <h4>DELETE STUDENT</h4>
                 <div className="admin-cards-content">
-                  <form  >
-                      <input id="input_reg" type="text" placeholder="Registered No." />
+                  <form  onSubmit={admindel}>
+                      <input id="input_reg" type="text" placeholder="Registered No." ref={regno2} onFocus={e=>{setError('')}}/>
                       <input id="input_sub_del" type="submit" value="DELETE" />
                   </form>
-                </div>
-              </div>
-
-              <div className="admin-items">
-                <h4>CHANGE STUDENT PASSWORD</h4>
-                <div className="admin-cards-content">
-                    <form >
-                        <input id="input_reg" type="text" placeholder="Registered No." />
-                        <input id="input_sub_alter" type="submit" value="CHANGE PASSWORD" />
-                    </form>
                 </div>
               </div>
             </div>
