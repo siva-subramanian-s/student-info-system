@@ -1,9 +1,31 @@
 import {  Alert } from "react-bootstrap";
 import React, { useState,useEffect} from 'react'
+import {getStorage,ref,uploadBytes,getDownloadURL} from "firebase/storage";
 import { useNavigate } from 'react-router-dom';
 import "./stud_bio.css"
 import subjectServices from '../adminmodule/services/subject.services';
+import { useAuth } from "../contexts/AuthContext";
 export default function Studentbio_data() {
+
+
+
+
+
+    const [imageAsFile, setImageAsFile] = useState('');
+    const [imageAsUrl, setImageAsUrl] = useState('');
+    
+  
+
+    const handleImageFile = (e)=>{
+        const image = e.target.files[0];
+        setImageAsFile(() => (image));
+    }
+    
+    
+
+   
+ 
+
     
     const [id, setAttendId] = useState("");
     const navigate = useNavigate()
@@ -13,7 +35,9 @@ export default function Studentbio_data() {
 
     
   const [name, setName] = useState(""); //here
-  const [phno, setPhno] = useState(""); 
+  const [phno, setPhno] = useState("");
+  const [pphno, setPphno] = useState(""); 
+
   const [dob, setDob] = useState(""); 
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("");
@@ -49,31 +73,71 @@ export default function Studentbio_data() {
   const [mothernam, setMothernam] = useState("");
   const [mothereduc, setMothereduc] = useState("");
   const [annualinc, setAnnualInc] = useState("");
-
+  const {currentUser } = useAuth();
   const handleHstday=e=>{
       setHstday(e.target.value)
   }
   const handleGender=e=>{
     setGender(e.target.value)
 }
+    var rollNoImg = currentUser.email;
+    var slice = 0;
+    for (let i = 0; i < rollNoImg.length; i++) {
+    if (rollNoImg[i] == '@') slice = i;
+    }
+    rollNoImg=rollNoImg.toUpperCase();
+    rollNoImg = rollNoImg.slice(0, slice);
 
   const handleSubmit = async (e) => {
+    e.preventDefault()
+    console.log('Uploading...')
+    // async magic goes here...
+    if(imageAsFile === '' ) {
+        console.error(`not an image, the image file is a ${typeof(imageAsFile)}`)
+      }
+     
+     
+    const storage = getStorage();
+    const storageRef = ref(storage, `${"Profile"}/${rollNoImg}`);
+    const metadata = {
+        contentType: `${imageAsFile.type}`,
+      };
+
+    uploadBytes(storageRef, imageAsFile, metadata);
+
+    window.setTimeout(()=>{
+        getDownloadURL(ref(storage, `${"Profile"/imageAsFile.name}`,
+       ))
+        .then((url) => {
+            // `url` is the download URL
+            alert("Image uploaded!!!");
+            setImageAsUrl(url);
+        })
+        .catch((error) => {
+            // Handle any errors
+        });
+    },2000)
+
     e.preventDefault();
     setMessage("");
     if (name === "" || phno === "") {
       setMessage({ error: true, msg: "All fields are mandatory!" });
       return;
+
+      
     }
     const newStudent = {
       name,//here
       phno,
+      pphno,
       dob,
+      email,
       gender,
       phno,
       regno,
       nationality,
       com,
-      profimg,
+      profimg:imageAsUrl,
       caste,
       hstday,    
       mothertong,
@@ -98,14 +162,13 @@ export default function Studentbio_data() {
       annualinc
 
     };
-    
 
     try {
       if (id !== undefined && id !== "") {
         await subjectServices.updateSubject(id, newStudent);
         setMessage({ error: false, msg: "Updated successfully!" });
       } else {
-        await subjectServices.addStudent(newStudent);
+        await subjectServices.addStudent(rollNoImg,newStudent);
         setMessage({ error: false, msg: "Student registered successfully!" });
       }
     } catch (err) {
@@ -113,37 +176,45 @@ export default function Studentbio_data() {
     }
 
     
-    setName("");//here
-    setPhno("");
-    setDob("");
-    setEmail("");
-    setGender("");
-    setRollno("");
-    setNationality("");
-    setCom("");
-    setProfimg("");
-    setCaste("");
-    setHstday("");
-    setMothertong("");
-    setLang("");
-    setMedium("");
-    setSubject1("");
-    setSubject2("");
-    setSubject3("");
-    setTnpceeno("");
-    setCutoffmrk("");
-    setModesel("");
-    setOverallrank("");
-    setCoact("");
-    setExtract("");
-    setPrize("");
-    setAddresstyp("");
-    setAddress("");
-    setFathernam("");
-    setFathereduc("");
-    setMothernam("");
-    setMothereduc("");
-    setAnnualInc("");
+    window.setTimeout(()=>{
+        console.log(imageAsUrl)
+        subjectServices.updateStudent(rollNoImg,{
+            profimg:imageAsUrl
+        })
+    },5000)
+
+
+    // setName("");//here
+    // setPhno("");
+    // setDob("");
+    // setEmail("");
+    // setGender("");
+    // setRollno("");
+    // setNationality("");
+    // setCom("");
+    // setProfimg("");
+    // setCaste("");
+    // setHstday("");
+    // setMothertong("");
+    // setLang("");
+    // setMedium("");
+    // setSubject1("");
+    // setSubject2("");
+    // setSubject3("");
+    // setTnpceeno("");
+    // setCutoffmrk("");
+    // setModesel("");
+    // setOverallrank("");
+    // setCoact("");
+    // setExtract("");
+    // setPrize("");
+    // setAddresstyp("");
+    // setAddress("");
+    // setFathernam("");
+    // setFathereduc("");
+    // setMothernam("");
+    // setMothereduc("");
+    // setAnnualInc("");
 
   };
 
@@ -231,7 +302,7 @@ export default function Studentbio_data() {
                 <div className="biodata-container">
                     <div className="stud_bio_header"><header>STUDENT - BIO DATA REGISTRATION</header></div>
 
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} >
                         <div className="form first">
                             <div className="details personal">
                                 <span className="title">Personal Details</span>
@@ -246,7 +317,7 @@ export default function Studentbio_data() {
 
                                     <div className="input-field">
                                         <label>Date of Birth <span style={{color:"red"}}>*</span></label>
-                                        <input type="date" placeholder="Enter birth date" name="dob_cls" required 
+                                        <input type="date" placeholder="Enter birth date" name="dob_cls"  required
                                          value={dob}//here
                                          onChange={(e) => setDob(e.target.value)}/>
                                     </div>
@@ -260,7 +331,7 @@ export default function Studentbio_data() {
 
                                     <div className="input-field">
                                         <label>Mobile phno <span style={{color:"red"}}>*</span></label>
-                                        <input type="phno" placeholder="Enter mobile phno" name="stu_mobcls" required 
+                                        <input type="phno" placeholder="Enter mobile phno" name="stu_mobcls"  required
                                         value={phno}
                                         onChange={(e) => setPhno(e.target.value)}/>
                                     </div>
@@ -269,15 +340,15 @@ export default function Studentbio_data() {
                                         <div>
                                             <label>Gender <span style={{color:"red"}}>*</span></label> <br />
 
-                                            <input type="radio" required name="gender"
+                                            <input type="radio"  name="gender"
                                             value="Male"
                                             onChange={handleGender}/><label>Male</label>
 
-                                            <input type="radio" required name="gender" 
+                                            <input type="radio"  name="gender" 
                                             value="Female"
                                             onChange={handleGender}/><label >Female</label>
 
-                                               <input type="radio" required name="gender"
+                                               <input type="radio"  name="gender"
                                             value="Other"
                                             onChange={handleGender}/><label>Others</label>
                                         </div>
@@ -285,9 +356,9 @@ export default function Studentbio_data() {
 
                                     <div className="input-field">
                                         <label>Parent phone no. <span style={{color:"red"}}>*</span></label>
-                                        <input type="number" placeholder="Enter parent ph.no" name="phno_class" required 
-                                         value={phno}
-                                         onChange={(e) => setPhno(e.target.value)}/>
+                                        <input type="number" placeholder="Enter parent ph.no" name="phno_class"  required
+                                         value={pphno}
+                                         onChange={(e) => setPphno(e.target.value)}/>
                                     </div>                                  
 
                                     
@@ -347,18 +418,17 @@ export default function Studentbio_data() {
 
                                     <div className="input-field">
                                         <label>Profile Image <span style={{color:"red"}}>*</span></label>
-                                        <input type="file" style={{ padding: "10px" }} name="prof_img" 
-                                        value={profimg}
-                                        onChange={(e) => setProfimg(e.target.value)} />
+                                        <input type="file" style={{ padding: "10px" }} name="prof_img" required
+                                        onChange={handleImageFile}   />
                                     </div>
 
                                     <div className="input-field">
-                                        <label htmlFor="nameofcaste" id="nameofcaste" required>
+                                        <label htmlFor="nameofcaste" id="nameofcaste" >
                                             Name of the Caste <span style={{color:"red"}}>*</span>
                                         </label>
-                                        <input type="text" name="nameofcaste" required 
+                                        <input type="text" name="nameofcaste" required
                                         value={caste}
-                                        onChange={(e) => setCaste(e.target.value)}/>
+                                        onChange={(e) => setCaste(e.target.value)}/>    
 
                                     </div>
 
@@ -366,11 +436,11 @@ export default function Studentbio_data() {
                                         <div>
                                             <label>Hosteller/Dayscholar <span style={{color:"red"}}>*</span></label> <br />
 
-                                            <input type="radio" required name="hstday_radio"
+                                            <input type="radio"  name="hstday_radio"
                                             value="Hosteller"
                                             onChange={handleHstday}/><label>Hosteller</label>
 
-                                            <input type="radio" required name="hstday_radio" 
+                                            <input type="radio"  name="hstday_radio" 
                                             value="Dayscholar"
                                             onChange={handleHstday}/><label >Dayscholar</label>
                                         </div>
@@ -386,7 +456,7 @@ export default function Studentbio_data() {
                                     <div className="input-field">
                                         <div>
                                             <label >Languages known <span style={{color:"red"}}>*</span></label><br />
-                                            <input type="text" name="lang_cls" 
+                                            <input type="text" name="lang_cls" required
                                             value={lang}
                                             onChange={(e) => setLang(e.target.value)} />
                                         </div>
@@ -394,7 +464,7 @@ export default function Studentbio_data() {
                                     </div>
                                     <div className="input-field">
                                         <label htmlFor="medium" id="medium">Medium of Instructions/Upto 12th <span style={{color:"red"}}>*</span></label>
-                                        <input type="text" name="medium" required 
+                                        <input type="text" name="medium"  required
                                         value={medium}
                                         onChange={(e) => setMedium(e.target.value)}/>
                                     </div> <br />
@@ -403,7 +473,7 @@ export default function Studentbio_data() {
                                         <label htmlFor="marks" id="marks">Marks obtained in +2 <span style={{color:"red"}}>*</span></label><br />
 
                                         <label htmlFor="maths" id="Mathematics">Mathematics <span style={{color:"red"}}>*</span></label>
-                                        <input type="number" name="1" required 
+                                        <input type="number" name="1"  required
                                         value={subject1}
                                         onChange={(e) => setSubject1(e.target.value)}
                                         />
@@ -422,7 +492,7 @@ export default function Studentbio_data() {
 
                                     <div className="input-field">
                                         <label htmlFor="tnpcee" id="tnpcee">TNPCEE REG.NO and Cutoff Marks <span style={{color:"red"}}>*</span></label>
-                                        <input type="number" id="tnpcee" placeholder="TNPCEE REG.NO" name="tn_reg" required 
+                                        <input type="number" id="tnpcee" placeholder="TNPCEE REG.NO" name="tn_reg"  required
                                         value={tnpceeno}
                                         onChange={(e) => setTnpceeno(e.target.value)}/>
                                         <input type="number" id="tnpcee" placeholder="Cutoff Marks" maxLength="100" name="cutoff_marks" required
@@ -471,18 +541,18 @@ export default function Studentbio_data() {
                                         onChange={(e) => setCoact(e.target.value)} />
 
                                         <label htmlFor="extraacct" id="extra_activity">Extra curricular Activities <span style={{color:"red"}}>*</span></label>
-                                        <input type="text" name="extra_activity" required 
+                                        <input type="text" name="extra_activity"  required
                                         value={extract}
                                         onChange={(e) => setExtract(e.target.value)}/>
                                     </div>
                                     <div className="input-field">
                                         <div>
                                             <label >Any prize or awards received? <span style={{color:"red"}}>*</span></label><br />
-                                            <input type="radio" required name="prize_radio"
+                                            <input type="radio"  name="prize_radio" required
                                             value="Yes"
                                             onChange={(e) => setPrize(e.target.value)} /><label >Yes</label >
 
-                                            <input type="radio" required name="prize_radio"
+                                            <input type="radio"  name="prize_radio"
                                             value="No"
                                             onChange={(e) => setPrize(e.target.value)} /><label >No</label >
                                         </div>
@@ -502,7 +572,7 @@ export default function Studentbio_data() {
 
                                     <div className="input-field">
                                         <label>Address <span style={{color:"red"}}>*</span></label>
-                                        <textarea name="adress_stud" style={{ resize: "none" }} cols="15" rows="10"
+                                        <textarea name="adress_stud" style={{ resize: "none" }} cols="15" rows="10" required
                                         value={address}
                                         onChange={(e) => setAddress(e.target.value)}></textarea>
                                     </div>
@@ -542,7 +612,7 @@ export default function Studentbio_data() {
 
                                     <div className="input-field">
                                         <label>Annual Income <span style={{color:"red"}}>*</span></label>
-                                        <input type="number" placeholder="Annual income" name="annual_income" required 
+                                        <input type="number" placeholder="Annual income" name="annual_income" required
                                         value={annualinc}
                                             onChange={(e) => setAnnualInc(e.target.value)}/>
                                     </div>
@@ -560,6 +630,10 @@ export default function Studentbio_data() {
 
 
                     </form>
+                    {/* {imageAsUrl && <div className="download_url">
+                <h2>URL</h2>
+                <a href={imageAsUrl} target="_blank" rel="noreferrer">{imageAsUrl}</a>
+            </div>} */}
                 </div>
 
                 {/* <script>

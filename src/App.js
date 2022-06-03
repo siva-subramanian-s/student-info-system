@@ -18,6 +18,7 @@ import { AuthProvider } from "./components/contexts/AuthContext";
 import PrivateRoute from "./components/contexts/privateroutes";
 import Studentdash from "./components/studentdashboard/studentdash";
 import Biodoc from "./components/studentdashboard/Biodoc";
+import Mydetailsdisplay from "./components/studentdashboard/mydetailsdisplay";
 import ChangePWDstudent from "./components/studentdashboard/changePWD/changepwdstudent";
 // import { useState, useEffect } from 'react';
 import Studentbio_data from "./components/studentdashboard/studentbio_data";
@@ -47,7 +48,7 @@ function App() {
             <Route path="/Admin-dashboard" element={<Admin />} />
             <Route path="/Attendance" element={<Attendance />} />
             <Route path="/Admin-student-edit" element={<Studentedit />} />
-            <Route path="/student-dashboard/documents" element={<Biodoc/>}/>
+            <Route path="/student-dashboard/details" element={<Mydetailsdisplay/>}/>
             <Route path="/student-dashboard/change-password" element={<ChangePWDstudent/>}/>
             <Route path="/report" element={<Report/>}/>
           </Route>

@@ -1,5 +1,5 @@
 import { db } from "../../../firebaseConfig";
-
+import { setDoc } from "firebase/firestore";
 import {
   collection,
   getDocs,
@@ -17,8 +17,14 @@ class subjectDataService {
   addSubjects = (newSubject) => {
     return addDoc(subjectCollectionRef, newSubject);
   };
-  addStudent = (newSubject) => {
-    return addDoc(studentCollectionRef, newSubject);
+  addStudent = (rollNoImg,newSubject) => {
+    console.log(newSubject);
+    return setDoc(doc(studentCollectionRef,rollNoImg),newSubject);
+  };
+
+  updateStudent = (rollNoImg, updatedSubject) => {
+    const subjectDoc = doc(studentCollectionRef, rollNoImg);
+    return updateDoc(subjectDoc, updatedSubject);
   };
 
   updateSubject = (id, updatedSubject) => {
@@ -45,6 +51,11 @@ class subjectDataService {
   getStudent=()=>{
     return getDocs(studentCollectionRef)
   }
+  getstudoc = (id) => {
+    console.log(id)
+    const studoc = doc(db, "student", id);
+    return getDoc(studoc);
+  };
 }
 
 export default new subjectDataService();

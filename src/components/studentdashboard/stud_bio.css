@@ -94,6 +94,12 @@ form .fields .input-field{
     font-weight: 500;
     color: #2e2e2e;
 }
+.profile_image{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid blue;
+}
 .input-field input, select{
     outline: none;
     font-size: 14px;
