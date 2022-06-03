@@ -8,9 +8,7 @@
   margin-left: 0px; 
 }
 .student__dash__regno{
-  /* width: 100%; */
-  /* width: 200px;
-   */
+ 
   padding: 7px;
   padding-left: 40px;
   position: fixed;
@@ -68,6 +66,7 @@
   overflow: hidden;
   left: -270px;
   transition: all 0.3s ease;
+  z-index: 2;
 }
 #btn:checked ~ #sidebar{
   left: 0;
@@ -91,12 +90,10 @@
 #sidebar .list-items_stud li{
   padding-left: 20px;
   line-height: 50px;
-  border-top: 1px solid rgba(8, 115, 186, 0.701);
   border-bottom: 2px solid rgb(0, 217, 255);
   transition: all 0.3s ease;
 }
 #sidebar .list-items_stud li:hover{
-  border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
   box-shadow: 0 0px 10px 3px rgb(24, 65, 153);
 }

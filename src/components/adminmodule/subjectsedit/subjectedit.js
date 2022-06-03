@@ -30,7 +30,7 @@ function Subjectedit() {
                     <ul className="admin-list-items">
                         <li><a href="/admin-dashboard"><i className="fas fa-home"></i>Home</a></li>
                         <li><a href="/admin-student-edit"><i className="fas fa-sliders-h"></i>Students edit</a></li>
-                        <li><a href="/admin-staff-edit"><i className="fas fa-address-Subject"></i>Staffs edit </a></li>
+                        <li><a href="/admin-staff-edit"><i className="fas fa-address-book"></i>Staffs edit </a></li>
                         <li><a href="/admin-subjects-edit"><i className="fas fa-cog"></i>Subjects edit</a></li>
                         <li><a href="/change-password"><i className="fas fa-stream"></i>Change Password</a></li>
                         <li><a href="/"><i className="fas fa-user"></i>Log out</a></li>

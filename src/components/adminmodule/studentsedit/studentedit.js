@@ -1,6 +1,7 @@
 
 import React, { useRef, useState } from "react"
 import { useAuth } from "../../contexts/AuthContext"
+
 import { Link, useNavigate } from "react-router-dom"
 import "./studentedit.css";
 
@@ -77,7 +78,8 @@ function Studentedit() {
                <li><Link to="/admin-staff-edit"><i className="fas fa-address-book"></i>Staffs edit </Link></li>
                <li><Link to="/admin-subjects-edit"><i className="fas fa-cog"></i>Subjects edit</Link></li>
                <li><Link to="/change-password"><i className="fas fa-stream"></i>Change Password</Link></li>
-             <li><button onClick={handleLogout}><i class="fas fa-user"></i>Log out</button></li>
+               <li><button className="logout-btn" onClick={handleLogout}><i className="fas fa-user"></i>&emsp;&ensp;Log out</button></li>
+
           </ul>
        </nav>
     </div>
