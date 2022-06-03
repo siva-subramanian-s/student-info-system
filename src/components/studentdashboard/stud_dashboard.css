@@ -79,7 +79,7 @@
   font-size: 25px;
   font-weight: 600;
   color: #f2f2f2;
-  border-bottom: 1px solid #222;
+  border-bottom: 2px solid rgb(255, 255, 255);
 }
 #sidebar .list-items_stud{
   position: relative;
@@ -89,10 +89,10 @@
   list-style: none;
 }
 #sidebar .list-items_stud li{
-  padding-left: 40px;
+  padding-left: 20px;
   line-height: 50px;
   border-top: 1px solid rgba(8, 115, 186, 0.701);
-  border-bottom: 1px solid #333;
+  border-bottom: 2px solid rgb(0, 217, 255);
   transition: all 0.3s ease;
 }
 #sidebar .list-items_stud li:hover{
@@ -208,4 +208,10 @@ position: relative;
   left: 0%;
   -ms-transform: translate(50%, -50%);
   transform: translate(50%, -50%);
+ }
+ .logout-btn{
+   background-color:#1e90ff;
+   border: none;
+   color: white;
+   height: auto;
  }

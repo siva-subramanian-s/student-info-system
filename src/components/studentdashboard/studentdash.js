@@ -51,24 +51,23 @@ export default function Studentdash() {
       <div className="student__dash__regno">
                <h2>{rollNoImg}</h2>
          </div>
-         <div class="wrapper_stud">
+         <div className="wrapper_stud">
             <input type="checkbox" id="btn" hidden />
-            <label for="btn" class="menu-btn_stud">
-               <i class="fas fa-bars"></i>
-               <i class="fas fa-times"></i>
+            <label for="btn" className="menu-btn_stud">
+               <i className="fas fa-bars"></i>
+               <i className="fas fa-times"></i>
             </label>
             
             <nav id="sidebar">
-               <div class="title_stud">
+               <div className="title_stud">
                   Side Menu
                </div>
-               <ul class="list-items_stud">
-                  <li><Link to="/student-dashboard"><i class="fas fa-home"></i>Home</Link></li>
-                  <li><Link to="/bio-data"><i class="fas fa-sliders-h"></i>Bio Details</Link></li>
-                  <li><Link to="/student-dashboard/details"><i class="fas fa-address-book"></i>My Details </Link></li>
-                  <li><Link to="/"><i class="fas fa-cog"></i>Scholarship details</Link></li>
-                  <li><Link to="/student-dashboard/change-password"><i class="fas fa-stream"></i>Change Password</Link></li>
-                  <li><button onClick={handleLogout}><i class="fas fa-user"></i>Log out</button></li>
+               <ul className="list-items_stud">
+                  <li><Link to="/student-dashboard"><i className="fas fa-home"></i>Home</Link></li>
+                  <li><Link to="/bio-data"><i className="fas fa-sliders-h"></i>Update Details</Link></li>
+                  <li><Link to="/student-dashboard/details"><i className="fas fa-address-book"></i>Review Details </Link></li>
+                  <li><Link to="/student-dashboard/change-password"><i className="fas fa-stream"></i>Change Password</Link></li>
+                  <li><button className="logout-btn" onClick={handleLogout}><i className="fas fa-user"></i>&emsp;&ensp;Log out</button></li>
                </ul>
             </nav>
             {error && <h2>{error}</h2>}
