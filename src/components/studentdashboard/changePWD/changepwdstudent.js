@@ -6,7 +6,7 @@ import "./chagePwd.css"
 
 function ChangePWDstudent() {
 
-  const Navigate = useNavigate();
+  const Navigate = useNavigate(); 
    const [error, setError] = useState("")
    const { logout,updatePassword } = useAuth()
    const password1 = useRef();

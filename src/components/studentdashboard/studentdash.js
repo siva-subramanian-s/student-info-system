@@ -72,7 +72,7 @@ export default function Studentdash() {
             </nav>
             {error && <h2>{error}</h2>}
 
-
+            
             {docSnap && <div className='detailBox'>
             
                   <div className="input-field-img">
@@ -110,7 +110,9 @@ export default function Studentdash() {
                             <input type="text"  name="phno_class"  value={docSnap.data().pphno} disabled/>
                         </div>
                     </div>   
-      </div>}
+      </div>}|| {
+         <label className='logout-btn'>Your personal details will show up here</label>
+      }
 
          </div>
 

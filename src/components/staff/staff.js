@@ -81,7 +81,7 @@ function Staff(props) {
         <div>
           <ul className="staff_nav_ul" data-visible="false">
             <li className="nav_li"><button><Link to="/">Home</Link></button></li>
-            <li className="nav_li"><button><Link to="/changepassword">Password change</Link></button></li>
+            <li className="nav_li"><button><Link to="/change-fac-password">Password change</Link></button></li>
             <li className="nav_li"><button onClick={handleLogout}><Link to="/">Sign out</Link></button></li>
           </ul>
         </div>
