@@ -22,6 +22,7 @@ import Mydetailsdisplay from "./components/studentdashboard/mydetailsdisplay";
 import ChangePWDstudent from "./components/studentdashboard/changePWD/changepwdstudent";
 // import { useState, useEffect } from 'react';
 import Studentbio_data from "./components/studentdashboard/studentbio_data";
+import SearchStudent from "./components/staff/searchstud_info";
 import Report from "./components/Report/report";
 
 
@@ -51,6 +52,7 @@ function App() {
             <Route path="/student-dashboard/details" element={<Mydetailsdisplay/>}/>
             <Route path="/student-dashboard/change-password" element={<ChangePWDstudent/>}/>
             <Route path="/report" element={<Report/>}/>
+            <Route path="/search-student" element={<SearchStudent/>}/>
           </Route>
         </Routes>
       </AuthProvider>

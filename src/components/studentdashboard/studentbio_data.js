@@ -181,7 +181,7 @@ export default function Studentbio_data() {
         subjectServices.updateStudent(rollNoImg,{
             profimg:imageAsUrl
         })
-    },5000)
+    },3000)
 
 
     // setName("");//here

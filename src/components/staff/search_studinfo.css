@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+.search_stud{
+    background-color: rgb(52, 111, 223);
+}
+.input_searchstud{
+    margin-top: 20px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+.header-info{
+    height: 35px;
+    font-size: 25px;
+    text-align: center;
+}
+.button-search{
+    background-color: rgb(52, 111, 223);;
+    color: white;
+    border: none;
+    padding: 3px;
+    border-radius: 4px;
+}

@@ -48,7 +48,6 @@ export default function Studentdash() {
                   <li><Link to="/student-dashboard"><i class="fas fa-home"></i>Home</Link></li>
                   <li><Link to="/bio-data"><i class="fas fa-sliders-h"></i>Bio Details</Link></li>
                   <li><Link to="/student-dashboard/details"><i class="fas fa-address-book"></i>My Details </Link></li>
-                  <li><Link to="/"><i class="fas fa-cog"></i>Scholarship details</Link></li>
                   <li><Link to="/student-dashboard/change-password"><i class="fas fa-stream"></i>Change Password</Link></li>
                   <li><button onClick={handleLogout}><i class="fas fa-user"></i>Log out</button></li>
                </ul>
