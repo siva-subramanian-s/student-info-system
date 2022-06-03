@@ -101,7 +101,7 @@ export default function Studentdash() {
                         </div>
 
                         <div className="input-field">
-                            <label>Gender</label>&emsp;&emsp;&emsp;
+                            <label>Gender</label>&emsp;&emsp;&emsp;&ensp;
                                 <input type="text" name="gend_cls" value={docSnap.data().gender} disabled/>
                             
                         </div>
