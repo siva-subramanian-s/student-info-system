@@ -1,6 +1,8 @@
 import { Container, Navbar, Row, Col } from "react-bootstrap";
 import { useState } from "react";
 import "../admin/admin.css";
+import {useAuth} from "../../contexts/AuthContext"
+import { useNavigate } from 'react-router-dom'
 import AddSubject from "./LinkSubject";
 import SubjectList from "./StaffSubjectList";
 
@@ -9,12 +11,28 @@ import React from "react";
 import "./staff.css";
 
 function Staffedit() {
+
+    const [error, setError] = useState("")
+    const Navigate = useNavigate()
+    const { logout } = useAuth()
   const [subjectId, setSubjectId] = useState("");
 
   const getSubjectIdHandler = (id) => {
 //   console.log("The ID of document to be edited: ", id);
   setSubjectId(id);
   };
+
+  async function handleLogout() {         
+    setError("")
+    try {
+       console.log("inside ");
+       await logout()
+       Navigate("/");
+    } catch {
+       console.log("logged out successfully catch");
+       setError("Failed to log out")
+    }
+ }
     return (
         <div className="staffedit">
             <div id="admin_header"><h1>ADMIN DASHBOARD</h1></div>
@@ -34,7 +52,8 @@ function Staffedit() {
                <li><Link to="/admin-staff-edit"><i className="fas fa-address-book"></i>Staffs edit </Link></li>
                <li><Link to="/admin-subjects-edit"><i className="fas fa-cog"></i>Subjects edit</Link></li>
                <li><Link to="/change-password"><i className="fas fa-stream"></i>Change Password</Link></li>
-               <li><Link to="/"><i className="fas fa-user"></i>Log out</Link></li>
+               <li><button className="logout-btn" onClick={handleLogout}><i className="fas fa-user"></i>&emsp;&ensp;Log out</button></li>
+
              
              
           </ul>

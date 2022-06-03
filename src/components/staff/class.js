@@ -34,6 +34,7 @@ function Class(props) {
                     </div>
                 </section>
             </div>
+            
         </div>
     )
 }

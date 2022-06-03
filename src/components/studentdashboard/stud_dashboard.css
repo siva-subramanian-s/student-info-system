@@ -8,9 +8,7 @@
   margin-left: 0px; 
 }
 .student__dash__regno{
-  /* width: 100%; */
-  /* width: 200px;
-   */
+ 
   padding: 7px;
   padding-left: 40px;
   position: fixed;
@@ -68,6 +66,7 @@
   overflow: hidden;
   left: -270px;
   transition: all 0.3s ease;
+  z-index: 2;
 }
 #btn:checked ~ #sidebar{
   left: 0;
@@ -79,7 +78,7 @@
   font-size: 25px;
   font-weight: 600;
   color: #f2f2f2;
-  border-bottom: 1px solid #222;
+  border-bottom: 2px solid rgb(255, 255, 255);
 }
 #sidebar .list-items_stud{
   position: relative;
@@ -89,14 +88,12 @@
   list-style: none;
 }
 #sidebar .list-items_stud li{
-  padding-left: 40px;
+  padding-left: 20px;
   line-height: 50px;
-  border-top: 1px solid rgba(8, 115, 186, 0.701);
-  border-bottom: 1px solid #333;
+  border-bottom: 2px solid rgb(0, 217, 255);
   transition: all 0.3s ease;
 }
 #sidebar .list-items_stud li:hover{
-  border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
   box-shadow: 0 0px 10px 3px rgb(24, 65, 153);
 }
@@ -166,6 +163,52 @@
 #stud_header{
 background-color:#1e90ff;
 text-align: center;
+}
 
+.small-info{
+position: relative;
+  /* border: 4px solid red; */
+  width: 55%;
+  float: right;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.input-field-img{
+  position: relative;
+  /* border: 4px solid blue; */
+  width: 40%;
+  float: left;
+  left: 4%;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 
 }
+.profile_image_details{
+ width: 250;
+ height: 250;
+ border: 4px solid #1e90ff;
+ border-radius: 50%;
+}
+
+ .detailBox{
+
+   position: absolute;
+   border: 2px solid #1e90ff;
+   border-radius: 5em;
+   width: 700px;
+   height: 420px;
+   left: auto;
+   right: auto;
+  top: 50%;
+  left: 0%;
+  -ms-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+ }
+ .logout-btn{
+   background-color:#1e90ff;
+   border: none;
+   color: white;
+   height: auto;
+ }

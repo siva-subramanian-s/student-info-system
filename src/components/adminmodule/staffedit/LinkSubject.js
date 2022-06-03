@@ -95,12 +95,16 @@ const AddSubject = ({ id, setSubjectId }) => {
           <Form.Group className="mb-3" controlId="formSubjectTitle">
             <InputGroup>
               <InputGroup.Text id="formSubjectTitle">Name</InputGroup.Text>
-              <Form.Control
-                type="text"
-                placeholder="Faculty Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
+                <select value={name} onChange={(e)=> setName(e.target.value)}>
+                  <option disabled defaultValue={"faculty name"}>Faculty name</option>
+                  <option >Mrs.P.Tharani</option>
+                  <option >Mrs.K.Manimala </option>
+                  <option >Mrs.P.Nithya</option>
+                  <option >Mrs.S.Ruba</option>
+                  <option >Mrs.K.Saraswathi</option>
+                  <option >Dr.C.Rani</option>
+                  <option value={"Dr.R.GoldaBrunet"}>Dr.R.Golda Brunet</option>
+                </select>
             </InputGroup>
           </Form.Group>
           
