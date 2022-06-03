@@ -22,7 +22,11 @@ import Mydetailsdisplay from "./components/studentdashboard/mydetailsdisplay";
 import ChangePWDstudent from "./components/studentdashboard/changePWD/changepwdstudent";
 // import { useState, useEffect } from 'react';
 import Studentbio_data from "./components/studentdashboard/studentbio_data";
+<<<<<<< HEAD
 import ChangeStaffPWD from "./components/staff/changeStaffPwd";
+=======
+import SearchStudent from "./components/staff/searchstud_info";
+>>>>>>> 0b862029f4c0ba3791aa184914b71ba03654928e
 import Report from "./components/Report/report";
 
 
@@ -53,6 +57,7 @@ function App() {
             <Route path="/student-dashboard/change-password" element={<ChangePWDstudent/>}/>
             <Route path="/change-fac-password" element={<ChangeStaffPWD />} />
             <Route path="/report" element={<Report/>}/>
+            <Route path="/search-student" element={<SearchStudent/>}/>
           </Route>
         </Routes>
       </AuthProvider>
