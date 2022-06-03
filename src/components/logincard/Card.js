@@ -8,6 +8,8 @@ import pfp from "../../src-images/images/pfp.png";
 
 function Card(props) {
   return (
+
+    
     <div className="inside-login-card">
 
       <ul className="cards">
@@ -36,8 +38,8 @@ function Card(props) {
                 <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
                 <img class="card__thumb" src={pfp} alt="" />
                 <div class="card__header-text">
-                  <h3 class="card__title">STAFF</h3>
-                  <span class="card__status">StaffName & password</span>
+                  <h3 class="card__title">FACULTY</h3>
+                  <span class="card__status">Faculty Name & password</span>
 
                 </div>
               </div>

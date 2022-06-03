@@ -166,6 +166,46 @@
 #stud_header{
 background-color:#1e90ff;
 text-align: center;
+}
 
+.small-info{
+position: relative;
+  /* border: 4px solid red; */
+  width: 55%;
+  float: right;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.input-field-img{
+  position: relative;
+  /* border: 4px solid blue; */
+  width: 40%;
+  float: left;
+  left: 4%;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 
 }
+.profile_image_details{
+ width: 250;
+ height: 250;
+ border: 4px solid #1e90ff;
+ border-radius: 50%;
+}
+
+ .detailBox{
+
+   position: absolute;
+   border: 2px solid #1e90ff;
+   border-radius: 5em;
+   width: 700px;
+   height: 420px;
+   left: auto;
+   right: auto;
+  top: 50%;
+  left: 0%;
+  -ms-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+ }
