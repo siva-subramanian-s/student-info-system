@@ -23,6 +23,7 @@ class subjectDataService {
   };
 
   updateStudent = (rollNoImg, updatedSubject) => {
+    console.log(updatedSubject);
     const subjectDoc = doc(studentCollectionRef, rollNoImg);
     return updateDoc(subjectDoc, updatedSubject);
   };
