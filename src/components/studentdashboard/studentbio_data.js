@@ -106,11 +106,15 @@ export default function Studentbio_data() {
     uploadBytes(storageRef, imageAsFile, metadata);
 
     window.setTimeout(()=>{
-        getDownloadURL(ref(storage, `${"Profile"/imageAsFile.name}`,
+        getDownloadURL(ref(storage,  `${"Profile"}/${rollNoImg}`
        ))
         .then((url) => {
             // `url` is the download URL
             alert("Image uploaded!!!");
+            console.log(url);
+            subjectServices.updateStudent(rollNoImg,{
+                profimg:url
+            })
             setImageAsUrl(url);
         })
         .catch((error) => {
@@ -176,12 +180,12 @@ export default function Studentbio_data() {
     }
 
     
-    window.setTimeout(()=>{
-        console.log(imageAsUrl)
-        subjectServices.updateStudent(rollNoImg,{
-            profimg:imageAsUrl
-        })
-    },3000)
+    // window.setTimeout(()=>{
+    //     console.log(imageAsUrl)
+    //     subjectServices.updateStudent(rollNoImg,{
+    //         profimg:imageAsUrl
+    //     })
+    // },3000)
 
 
     // setName("");//here

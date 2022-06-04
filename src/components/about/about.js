@@ -42,8 +42,9 @@ function About() {
 
                     <div id="col-3">
                         <div id="about_card_4" className="about_card">
-                            <h2 className="heading-2">Calculator</h2>
-                            <p className="description-text">Uses data from past projects to provide better delivery estimates</p>
+                            <h2 className="heading-2">GOVERNMENT COLLEGE OF ENGINEERING- SALEM 11</h2>
+                            <p className="description-text"> DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING 
+                            </p>
                             <img src="https://www.dropbox.com/s/oieegpnnmynmrbm/icon-calculator.svg?raw=1" alt="calculator icon" />
                         </div>
                     </div>
