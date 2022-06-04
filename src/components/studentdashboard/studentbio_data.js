@@ -83,7 +83,7 @@ export default function Studentbio_data() {
     var rollNoImg = currentUser.email;
     var slice = 0;
     for (let i = 0; i < rollNoImg.length; i++) {
-    if (rollNoImg[i] == '@') slice = i;
+    if (rollNoImg[i] === '@') slice = i;
     }
     rollNoImg=rollNoImg.toUpperCase();
     rollNoImg = rollNoImg.slice(0, slice);

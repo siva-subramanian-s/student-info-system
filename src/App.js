@@ -20,13 +20,10 @@ import Studentdash from "./components/studentdashboard/studentdash";
 import Biodoc from "./components/studentdashboard/Biodoc";
 import Mydetailsdisplay from "./components/studentdashboard/mydetailsdisplay";
 import ChangePWDstudent from "./components/studentdashboard/changePWD/changepwdstudent";
+import ChangeStaffPWD from "./components/staff/changeStaffPwd"
 // import { useState, useEffect } from 'react';
 import Studentbio_data from "./components/studentdashboard/studentbio_data";
-<<<<<<< HEAD
-import ChangeStaffPWD from "./components/staff/changeStaffPwd";
-=======
 import SearchStudent from "./components/staff/searchstud_info";
->>>>>>> 0b862029f4c0ba3791aa184914b71ba03654928e
 import Report from "./components/Report/report";
 
 
