@@ -78,7 +78,7 @@ function Staff(props) {
         <div className="faculty__name">
           <h1>{name}</h1>
         </div>
-        <div>
+        <div className="faculty__nav">
           <ul className="staff_nav_ul" data-visible="false">
             <li className="nav_li"><button><Link to="/">Home</Link></button></li>
             <li className="nav_li"><button><Link to="/search-student">Search Student details</Link></button></li>
