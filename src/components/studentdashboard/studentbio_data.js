@@ -287,6 +287,7 @@ export default function Studentbio_data() {
           editHandler();
         }
       }, [id]);
+      
     return (
 
         <>

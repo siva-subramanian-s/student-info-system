@@ -14,7 +14,9 @@ export default function Studentdash() {
    const [error, setError] = useState("")
    const { logout,currentUser } = useAuth()
    const [docSnap,setDocSnap] = useState();
-
+   const [value,setValue] = useState(false);
+   const [name,setName]=useState();
+   
   var rollNoImg = currentUser.email;
   var slice = 0;
   for (let i = 0; i < rollNoImg.length; i++) {
@@ -34,21 +36,23 @@ export default function Studentdash() {
          setError("Failed to log out")
       }
    }
+   
    const getData=async()=>{
       const studocref = doc(db, "student", rollNoImg);
       const snap = await getDoc(studocref);
       setDocSnap(snap)
+      console.log(snap.data());
+      name=snap.data()
   }  
-
-  if(docSnap){
-      console.log(docSnap.data());
+  
+  if(name !== undefined){
+     setValue(true)
+     console.log("hi");
   }
-
-
    return (
       <div>
          <div id="stud_header"><h1>STUDENT DASHBOARD</h1></div>
-      <div className="student__dash__regno">
+         <div className="student__dash__regno">
                <h2>{rollNoImg}</h2>
          </div>
          <div className="wrapper_stud">
@@ -72,9 +76,9 @@ export default function Studentdash() {
             </nav>
             {error && <h2>{error}</h2>}
 
-            
-            {docSnap && <div className='detailBox'>
-            
+            {console.log({value})}
+            {value ? <div className='detailBox'>
+                  {console.log(docSnap)}
                   <div className="input-field-img">
                             <img className="profile_image_details" src={docSnap.data().profimg}/>
                         </div>
@@ -110,11 +114,12 @@ export default function Studentdash() {
                             <input type="text"  name="phno_class"  value={docSnap.data().pphno} disabled/>
                         </div>
                     </div>   
-      </div>}|| {
-         <label className='logout-btn'>Your personal details will show up here</label>
+      </div>
+         : <label className='details-empty'>Your personal details will show up here<span style={{color:"red"}}>!!!</span><br/>
+         Please <span style={{color:"red"}}>fill up your details </span>by heading over to Update Details section in the dasboard.</label>
       }
 
-         </div>
+      </div>
 
 
      
