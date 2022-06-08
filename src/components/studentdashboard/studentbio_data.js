@@ -122,9 +122,9 @@ export default function Studentbio_data() {
         getDownloadURL(ref(storage,  `${"Profile"}/${rollNoImg}`
        ))
         .then((url) => {
-            // `url` is the download URL
-            alert("Image uploaded!!!");
-            console.log(url);
+            // // `url` is the download URL
+            // alert("Image uploaded!!!");
+            // console.log(url);
             subjectServices.updateStudent(rollNoImg,{
                 profimg:url
             })
