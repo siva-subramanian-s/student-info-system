@@ -26,7 +26,7 @@ export default function Studentdash() {
   rollNoImg = rollNoImg.slice(0, slice);
   useEffect(()=>{
    getData();
-},[]);
+   },[]);
    async function handleLogout() {
       setError("")
       try {
@@ -40,15 +40,10 @@ export default function Studentdash() {
    const getData=async()=>{
       const studocref = doc(db, "student", rollNoImg);
       const snap = await getDoc(studocref);
-      setDocSnap(snap)
-      console.log(snap.data());
-      name=snap.data()
+      setDocSnap(snap.data());
   }  
-  
-  if(name !== undefined){
-     setValue(true)
-     console.log("hi");
-  }
+ 
+
    return (
       <div>
          <div id="stud_header"><h1>STUDENT DASHBOARD</h1></div>
@@ -76,42 +71,41 @@ export default function Studentdash() {
             </nav>
             {error && <h2>{error}</h2>}
 
-            {console.log({value})}
-            {value ? <div className='detailBox'>
-                  {console.log(docSnap)}
+            {docSnap ? <div className='detailBox'>
+               
                   <div className="input-field-img">
-                            <img className="profile_image_details" src={docSnap.data().profimg}/>
+                            <img className="profile_image_details" src={docSnap.profimg}/>
                         </div>
                   <div className='small-info'>
                         <div className="input-field">
                             <label>Full Name </label>&emsp;&nbsp;
-                            <input type="text"id="fullname_cls" value={docSnap.data().name}  name="fullname_cls"  disabled/>
+                            <input type="text"id="fullname_cls" value={docSnap.name}  name="fullname_cls"  disabled/>
                         </div>
 
                         <div className="input-field">
                             <label>DOB</label>&emsp;&emsp;&emsp;&nbsp;
-                            <input type="text"  name="dob_cls"  value={docSnap.data().dob} disabled/>
+                            <input type="text"  name="dob_cls"  value={docSnap.dob} disabled/>
                         </div>  
 
                         <div className="input-field">
                             <label>Email  </label>&emsp;&emsp;&emsp;
-                            <input type="text"  name="email_cls"  value={docSnap.data().email} disabled/>
+                            <input type="text"  name="email_cls"  value={docSnap.email} disabled/>
                         </div>
 
                         <div className="input-field">
                             <label>Mobile Number</label>&nbsp;
-                            <input type="text"  name="stu_mobcls"  value={docSnap.data().phno} disabled/>
+                            <input type="text"  name="stu_mobcls"  value={docSnap.phno} disabled/>
                         </div>
 
                         <div className="input-field">
                             <label>Gender</label>&emsp;&emsp;&emsp;&ensp;
-                                <input type="text" name="gend_cls" value={docSnap.data().gender} disabled/>
+                                <input type="text" name="gend_cls" value={docSnap.gender} disabled/>
                             
                         </div>
 
                         <div className="input-field">
                             <label>Parent Number</label>&nbsp;
-                            <input type="text"  name="phno_class"  value={docSnap.data().pphno} disabled/>
+                            <input type="text"  name="phno_class"  value={docSnap.pphno} disabled/>
                         </div>
                     </div>   
       </div>

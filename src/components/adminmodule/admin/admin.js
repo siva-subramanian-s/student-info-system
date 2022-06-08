@@ -56,7 +56,7 @@ function Admin() {
                <ul className="admin-list-items">
                   <li><Link to="/admin-dashboard"><i className="fas fa-home"></i>Home</Link></li>
                   <li><Link to="/admin-student-edit"><i className="fas fa-sliders-h"></i>Students edit</Link></li>
-                  <li><Link to="/admin-staff-edit"><i className="fas fa-address-book"></i>Staffs edit </Link></li>
+                  <li><Link to="/admin-staff-edit"><i className="fas fa-address-book"></i>Faculty edit </Link></li>
                   <li><Link to="/admin-subjects-edit"><i className="fas fa-cog"></i>Subjects edit</Link></li>
                   <li><Link to="/change-password"><i className="fas fa-stream"></i>Change Password</Link></li>
                   <li><button className="logout-btn" onClick={handleLogout}><i className="fas fa-user"></i>&emsp;&ensp;Log out</button></li>
@@ -83,7 +83,7 @@ function Admin() {
                   <div className="admin-icon">
                      <i className="fas fa-chart-line"></i>
                   </div>
-                  <span>STAFFS COUNT</span>
+                  <span>FACULTY COUNT</span>
                </div>
                <div className="admin-back-face">
                   <span>Total no of count: <br />{Faculty.length}</span>

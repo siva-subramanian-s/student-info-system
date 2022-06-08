@@ -3,13 +3,11 @@ import React, { useState,useEffect} from 'react'
 import {getStorage,ref,uploadBytes,getDownloadURL} from "firebase/storage";
 import { useNavigate } from 'react-router-dom';
 import "./stud_bio.css"
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
 import subjectServices from '../adminmodule/services/subject.services';
 import { useAuth } from "../contexts/AuthContext";
 export default function Studentbio_data() {
-
-
-
-
 
     const [imageAsFile, setImageAsFile] = useState('');
     const [imageAsUrl, setImageAsUrl] = useState('');
@@ -22,18 +20,14 @@ export default function Studentbio_data() {
     }
     
     
+    const [docSnap,setDocSnap] = useState();
 
-   
- 
-
-    
-    const [id, setAttendId] = useState("");
-    const navigate = useNavigate()
-    const [error, setError] = useState("")
-    const [loading, setLoading] = useState(false)
+  const [id, setAttendId] = useState("");
+  const navigate = useNavigate()
+  const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState({ error: false, msg: "" });
-
-    
+  
   const [name, setName] = useState(""); //here
   const [phno, setPhno] = useState("");
   const [pphno, setPphno] = useState(""); 
@@ -74,20 +68,39 @@ export default function Studentbio_data() {
   const [mothereduc, setMothereduc] = useState("");
   const [annualinc, setAnnualInc] = useState("");
   const {currentUser } = useAuth();
+
   const handleHstday=e=>{
       setHstday(e.target.value)
   }
   const handleGender=e=>{
     setGender(e.target.value)
-}
+    }
     var rollNoImg = currentUser.email;
     var slice = 0;
     for (let i = 0; i < rollNoImg.length; i++) {
     if (rollNoImg[i] === '@') slice = i;
     }
+
     rollNoImg=rollNoImg.toUpperCase();
     rollNoImg = rollNoImg.slice(0, slice);
+    
+    useEffect(()=>{
+        getData();
+        },[]);
+        
+    const getData=async()=>{
+        const studocref = doc(db, "student", rollNoImg);
+        const snap = await getDoc(studocref);
+        setDocSnap(snap.data());
+    }  
+    {console.log(docSnap);}
 
+    useEffect(() => {
+        if (docSnap) {
+            {console.log(docSnap);}
+          editHandler();
+        }
+      }, [rollNoImg]);
   const handleSubmit = async (e) => {
     e.preventDefault()
     console.log('Uploading...')
@@ -137,7 +150,7 @@ export default function Studentbio_data() {
       dob,
       email,
       gender,
-      phno,
+    //   phno,
       regno,
       nationality,
       com,
@@ -168,8 +181,8 @@ export default function Studentbio_data() {
     };
 
     try {
-      if (id !== undefined && id !== "") {
-        await subjectServices.updateSubject(id, newStudent);
+      if (docSnap) {
+        await subjectServices.updateStudent(rollNoImg, newStudent);
         setMessage({ error: false, msg: "Updated successfully!" });
       } else {
         await subjectServices.addStudent(rollNoImg,newStudent);
@@ -180,113 +193,58 @@ export default function Studentbio_data() {
     }
 
     
-    // window.setTimeout(()=>{
-    //     console.log(imageAsUrl)
-    //     subjectServices.updateStudent(rollNoImg,{
-    //         profimg:imageAsUrl
-    //     })
-    // },3000)
-
-
-    // setName("");//here
-    // setPhno("");
-    // setDob("");
-    // setEmail("");
-    // setGender("");
-    // setRollno("");
-    // setNationality("");
-    // setCom("");
-    // setProfimg("");
-    // setCaste("");
-    // setHstday("");
-    // setMothertong("");
-    // setLang("");
-    // setMedium("");
-    // setSubject1("");
-    // setSubject2("");
-    // setSubject3("");
-    // setTnpceeno("");
-    // setCutoffmrk("");
-    // setModesel("");
-    // setOverallrank("");
-    // setCoact("");
-    // setExtract("");
-    // setPrize("");
-    // setAddresstyp("");
-    // setAddress("");
-    // setFathernam("");
-    // setFathereduc("");
-    // setMothernam("");
-    // setMothereduc("");
-    // setAnnualInc("");
 
   };
-
+// {console.log(docSnap);}
   const editHandler = async () => {
     setMessage("");
     try {
-      const docSnap = await subjectServices.getSubject(id);
+    //   const docSnap = await subjectServices.getStudent(rollNoImg);
+      console.log("the data is",docSnap);
       
-      setName(docSnap.data().name);
-      setPhno(docSnap.data().phno);//here
-      setDob(docSnap.data().dob);
-      setEmail(docSnap.data().email);
-      setGender(docSnap.data().gender);
-      setRollno(docSnap.data().regno);
-      setNationality(docSnap.data().nationality);
-      setCom(docSnap.data().com);
-      setProfimg(docSnap.data().profimg);
-      setCaste(docSnap.data().caste);
-      setHstday(docSnap.data().hstday);
-      setMothertong(docSnap.data().mothertong);
-      setLang(docSnap.data().lang);
-      setMedium(docSnap.data().medium);
-      setSubject1(docSnap.data().subject1);
-      setSubject2(docSnap.data().subject2);
-      setSubject3(docSnap.data().subject3);
-      setTnpceeno(docSnap.data().tnpceeno);
-      setCutoffmrk(docSnap.data().cutoffmrk);
-      setModesel(docSnap.data().modesel);
-      setOverallrank(docSnap.data().overallrank);
-      setCoact(docSnap.data().coact);
-      setExtract(docSnap.data().extract);
-      setPrize(docSnap.data().prize);
-      setAddresstyp(docSnap.data().setAddresstyp);
-      setAddress(docSnap.data().address);
-      setFathernam(docSnap.data().fathernam);
-      setFathereduc(docSnap.data().fathereduc);
-      setMothernam(docSnap.data().mothernam);
-      setMothereduc(docSnap.data().mothereduc);
-      setAnnualInc(docSnap.data().annualinc);
+      setName(docSnap.name);
+      setPhno(docSnap.phno);
+      setPhno(docSnap.pphno);
+      setDob(docSnap.dob);
+      setEmail(docSnap.email);
+      setGender(docSnap.gender);
+      setRollno(docSnap.regno);
+      setNationality(docSnap.nationality);
+      setCom(docSnap.com);
+      setProfimg(docSnap.profimg);
+      setCaste(docSnap.caste);
+      setHstday(docSnap.hstday);
+      setMothertong(docSnap.mothertong);
+      setLang(docSnap.lang);
+      setMedium(docSnap.medium);
+      setSubject1(docSnap.subject1);
+      setSubject2(docSnap.subject2);
+      setSubject3(docSnap.subject3);
+      setTnpceeno(docSnap.tnpceeno);
+      setCutoffmrk(docSnap.cutoffmrk);
+      setModesel(docSnap.modesel);
+      setOverallrank(docSnap.overallrank);
+      setCoact(docSnap.coact);
+      setExtract(docSnap.extract);
+      setPrize(docSnap.prize);
+      setAddresstyp(docSnap.setAddresstyp);
+      setAddress(docSnap.address);
+      setFathernam(docSnap.fathernam);
+      setFathereduc(docSnap.fathereduc);
+      setMothernam(docSnap.mothernam);
+      setMothereduc(docSnap.mothereduc);
+      setAnnualInc(docSnap.annualinc);
      
 
 
 
-
-    //   setSubject(docSnap.data().subject);
-    //   set(docSnap.data().clad);
     } catch (err) {
       setMessage({ error: true, msg: err.message });
     }
   };
-    // async function handleSubmit(e) {
 
-    //     e.preventDefault();
-    //     try {
-    //         setError("");
-    //             setLoading(true)
-    //             navigate("/student-dashboard");
-    //     } catch {
-    //         setError("Failed to log in");
-    //     }
-    //     setLoading(false)
 
-    // }
-    useEffect(() => {
-        if (id !== undefined && id !== "") {
-          editHandler();
-        }
-      }, [id]);
+
       
     return (
 

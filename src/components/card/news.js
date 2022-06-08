@@ -11,7 +11,7 @@ function News() {
       <h2>01</h2>
     </div>
     <div class="news_content">
-      <p>Series Test III for 2nd Year is Scheduled from 01.02.22</p>
+      <p>Exam fees circular-UG 2018, 2019, 2020 Batches and ME 2020 Batch Apr-May 2022</p>
       <Link to="/">Attachment</Link>
     </div>
   </div>
@@ -20,8 +20,7 @@ function News() {
       <h2>02</h2>
     </div>
     <div class="news_content">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum voluptates ea officia totam magni
-        natus recusandae.</p>
+      <p>End Semester Examination Schedule - ME 1st Sem - Jan 2022</p>
       <Link to="/">Read More</Link>
     </div>
   </div>
@@ -30,8 +29,7 @@ function News() {
       <h2>03</h2>
     </div>
     <div class="news_content">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum voluptates ea officia totam magni
-        natus recusandae.</p>
+      <p>Ph.D Course Work Examination Schedule - Jan 2022</p>
       <Link to="/">Read More</Link>
     </div>
   </div>
