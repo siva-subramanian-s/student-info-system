@@ -10,7 +10,7 @@ const SubjectsList = ({ getSubjectId }) => {
 
   const getSubjects = async () => {
     const data = await FacultyDataService.getAllSubjects();
-    console.log(data.docs);
+    // console.log(data.docs);
     setSubjects(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
@@ -26,7 +26,7 @@ const SubjectsList = ({ getSubjectId }) => {
           Refresh List
         </Button>
       </div>
-
+        {/* {console.log(subject)} */}
  
           {subject.map((doc, index) => {
             return (     <>
@@ -35,27 +35,28 @@ const SubjectsList = ({ getSubjectId }) => {
               <tr>
                 <th>#</th>
                 <th>Faculty Name</th>
-                <th>Subject Code</th>
-                <th>Subject Code</th>
-                <th>Subject Code</th>
+                {doc.Subject.map((element) => (  
+                <th>Sub Code</th>
+                  
+                ))}
+                <th colSpan={num}>Subject Code</th>
                 <th>Class Advisor</th>
-                <th>Action</th>
+                <th width="200px">Action</th>
               </tr>
             </thead>
             <tbody >
               <tr key={doc.id} style={{textAlign:"center"}}>
                 <td>{index + 1}</td>
                 <td>{doc.name}</td>
-                {/* <td>{doc.Subject[0]}</td>
-                <td>{doc.Subject[1]}</td>
-                <td>{doc.Subject[2]}</td> */}
-                {/* <td>{doc.Subject[2]}</td> */}
+                {doc.Subject.map((element) => (                
+                <td>{element}</td>
+                ))}
                 <td>{doc.clad}</td>
                 <td >
                   <Button
                     variant="secondary"
                     className="edit"
-                    style={{width:"100%"}}
+                    style={{width:"50%"}}
                     onClick={(e) => getSubjectId(doc.id)}
                   >
                     Edit
@@ -63,7 +64,7 @@ const SubjectsList = ({ getSubjectId }) => {
                   <Button
                     variant="danger"
                     className="delete"
-                    style={{width:"100%"}}
+                    style={{width:"50%"}}
                     onClick={(e) => deleteHandler(doc.id)}
                   >
                     Delete
