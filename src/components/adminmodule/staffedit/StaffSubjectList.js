@@ -39,7 +39,6 @@ const SubjectsList = ({ getSubjectId }) => {
                 <th>Sub Code</th>
                   
                 ))}
-                <th colSpan={num}>Subject Code</th>
                 <th>Class Advisor</th>
                 <th width="200px">Action</th>
               </tr>
