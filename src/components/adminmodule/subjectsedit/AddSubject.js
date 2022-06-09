@@ -62,6 +62,7 @@ const AddSubject = ({ id, setSubjectId }) => {
       editHandler();
     }
   }, [id]);
+  
   return (
     <>
       <div className="p-4 box">

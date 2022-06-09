@@ -212,7 +212,7 @@ position: relative;
    position: absolute;
    border: none;
    color: white;
-   width: 400px;
+   width: 500px;
    height: auto;
    text-align: center;
    border: 4px #1e90ff;
@@ -222,8 +222,15 @@ position: relative;
    filter: drop-shadow(10px 10px 4px #bebed3);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-
  }
+ .info-not-avail{
+   width: 100px;
+   height: 100px;
+   float: left;
+   margin-top: 0.8em;
+ }
+
+
  .logout-btn{
   background-color:#1e90ff;
   border: none;

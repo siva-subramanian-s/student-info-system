@@ -231,8 +231,9 @@ const Mydetailsdisplay=()=>{
             
     
     
-    : <label className='details-empty'>Your personal details will show up here<span style={{color:"red"}}>!!!</span><br/>
-    Please <span style={{color:"red"}}>fill up your details </span>by heading over to Update Details section in the dasboard.</label>
+    : <div className='details-empty'><img src={require('./infoLogo.png')} alt='hello' width="100px" height="100px" className="info-not-avail"/>
+    <br/> Your personal details will show up here<span style={{color:"red"}}>!!!</span><br/>
+     Please <span style={{color:"red"}}>fill up your details </span>by heading over to Update Details section in the dasboard.<br/>&nbsp;</div>
     }
     </>
     );
