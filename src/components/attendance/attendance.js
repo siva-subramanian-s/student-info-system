@@ -24,8 +24,8 @@ function Attendance() {
     };
 
     const location =useLocation();
-    // console.log(loctaion.state.sub)
-    let sub = location.state.sub;
+    // console.log(loctaion.state.subject)
+    let subject = location.state.sub;
     let year =location.state.year;
     let d = new Date();
     d.getFullYear();
@@ -48,7 +48,7 @@ function Attendance() {
 
     //   NEW-------------------
   const [date, setDate] = useState("");
-  const [noAbs, setnoAbs] = useState(""); 
+  const [NoAbs, setnoAbs] = useState(""); 
   const [period, setPeriod] = useState(""); 
   // const [regno, setRegno] = useState("1921045"); 
   const [message, setMessage] = useState({ error: false, msg: "" });
@@ -56,15 +56,15 @@ function Attendance() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
-    if (date === "" || noAbs === "" || period=== "") {
+    if (date === "" || NoAbs === "" || period=== "") {
       setMessage({ error: true, msg: "All fields are mandatory!" });
       return;
     }
     const newAbsentees = {
       date,
-      noAbs,
+      NoAbs,
       period,
-      sub,
+      subject,
       year,
       // regno,
       regno,
@@ -95,7 +95,7 @@ function Attendance() {
       const docSnap = await absenteesDataService.getSubject(id);
       console.log("the record is :", docSnap.data());
       setDate(docSnap.data().date);
-      setnoAbs(docSnap.data().noAbs);
+      setnoAbs(docSnap.data().NoAbs);
       setPeriod(docSnap.data().period);
     //   setSubject(docSnap.data().subject);
     //   set(docSnap.data().clad);
@@ -147,7 +147,7 @@ function Attendance() {
                                 value={date}
                                 onChange={(e) => setDate(e.target.value)}/></td>
                                 <td><input className={acss.inputBox} type="text" name="subject" placeholder="Subject name" 
-                                value={sub}
+                                value={subject}
                                /></td>
                                 <td><input className={acss.inputBox} type="number" name="period" placeholder="Class No." min="1" max="7"
                                 value={period}
@@ -156,7 +156,7 @@ function Attendance() {
                                 value={year}
                                 /></td>
                                 <td><input className={acss.inputBox} type="number" name="absentees" min="0" max="60"
-                                value={noAbs}
+                                value={NoAbs}
                                 onChange={(e) => setnoAbs(e.target.value)}/> </td>
                             </tr>
                             
@@ -168,7 +168,7 @@ function Attendance() {
                                     <td key={index}><input className={acss.inputBox} type="text" placeholder="Reg no" name="regNo"
                                     value={singleReg.regNo}
                                     onChange={(e)=> handleRegnoChange(e,index)}/><br/>
-                                    {regno.length-1===index && regno.length<noAbs &&
+                                    {regno.length-1===index && regno.length<NoAbs &&
                                     (<input type="button" className={acss.btn} value="+" onClick={handleRegnoAdd}/>)}
                                     {regno.length>1 &&  <input type="button" className={acss.btn} value="-" onClick={()=>handleRegnoRemove(index)}/>}
                                    </td>

@@ -98,7 +98,7 @@ export default function Report() {
         }
     }
     )
-    totsub = 100 / totsub;
+    const totsubper = 100 / totsub;
     
     const dateModification = () => {
         setLoading(true)
@@ -111,7 +111,7 @@ export default function Report() {
         <div className={rcss.report}>
             <header>
                 <nav>
-                    <h1 className={rcss.subject}>{location.state.sub}</h1>
+                    <h3 className={rcss.subject}>{location.state.sub}</h3>
                     <h3 className={rcss.faculty}>{location.state.facname}</h3>
                 </nav>
             </header>
@@ -122,6 +122,7 @@ export default function Report() {
             <div className={rcss.reportcontent}>
                 {percentageform && <section>
                     <div className={rcss.percentage}>
+                        <h3 id={rcss.totsub}>Total No Of Classes : {totsub}</h3>
                         <Table striped bordered hover size="sm" >
                             <thead>
                                 <tr>
@@ -138,7 +139,7 @@ export default function Report() {
                                             <td>{index + 1}</td>
                                             <td>{doc.regno}</td>
                                             <td>{doc.name}</td>
-                                            <td>{doc.percentage * totsub} <span>%</span></td>
+                                            <td>{doc.percentage * totsubper} <span>%</span></td>
                                         </tr>
                                     );
                                 })}
@@ -153,13 +154,15 @@ export default function Report() {
                             <form name="form">
                                 <input type="date" id={rcss.input} className="auto-submit" ref={Dateref} onChange={dateModification} />
                             </form>
+                            <h2 className={rcss.tot__period}>Total Classes <span>{periods}</span></h2>
+
                         </div>
-                        <h2 className={rcss.tot__period}>Total Period <span>{periods}</span></h2>
+                        
                         {result.map((docs) => {
                             return (
                                 <div>
                                     <div className={rcss.details}>
-                                        <h4>Period <span>{docs.period}</span></h4>
+                                        <h5>Period No. <span>{docs.period}</span></h5>
                                         <h5>No of Absentees <span>{docs.noabs}</span></h5>
                                     </div>
                                     <div className={rcss.result}>
