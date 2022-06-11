@@ -1,0 +1,69 @@
+.people__head{
+    padding: 10px;
+    margin-left: 10px;
+}
+.people__head h3{
+    position: absolute;
+    top: 22;
+    border-left: 2px solid rgb(102, 99, 99);
+    padding-left: 20px;
+    left: 230;
+}
+.people{
+    display: flex;
+    gap: 85%;
+    color: #3c3163;
+    border-bottom: 2px solid #3c3163;
+    /* margin: 8% 5%; */
+    margin-top: 8%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 0;
+
+    padding-bottom: 4px;
+}
+.people button{
+    letter-spacing: 3px;
+    color: white;
+    background-color: gray;
+    border: 2px solid white;
+    border-radius: 20px;
+    width: 100px;
+    text-align: center;
+    font-weight: 600;
+}
+.people button:hover{
+    color: grey;
+    background-color: white;
+    border: 2px solid grey;
+
+}
+.inputBoxPeople{
+    width: 150px;
+    height: auto;
+    border: 2px solid gray;
+    border-radius: 10px;
+    text-align: center;
+}
+.insideBox{
+    margin-left: 68px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #3c3163;
+    width: 90%;
+
+}
+.submit__btn{
+    padding: 8px;
+    border-radius: 20px;
+    background-color: gray;
+    color: white;
+    border:2px solid gray;
+  }
+.submit__btn:hover{
+    background-color:white;
+    color: gray;
+    border:2px solid gray;
+    transform: scale(1.1);
+    height:auto;
+    width: auto;
+  }

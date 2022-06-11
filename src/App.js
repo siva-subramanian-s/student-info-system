@@ -24,7 +24,7 @@ import ChangeStaffPWD from "./components/staff/changeStaffPwd"
 import Studentbio_data from "./components/studentdashboard/studentbio_data";
 import SearchStudent from "./components/staff/searchstud_info";
 import Report from "./components/Report/report";
-
+import People from "./components/staff/people/people";
 
 function App() {
   return (
@@ -54,6 +54,7 @@ function App() {
             <Route path="/change-fac-password" element={<ChangeStaffPWD />} />
             <Route path="/report" element={<Report/>}/>
             <Route path="/search-student" element={<SearchStudent/>}/>
+            <Route path ="people" element={<People/>}/>
           </Route>
         </Routes>
       </AuthProvider>

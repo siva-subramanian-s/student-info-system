@@ -1,0 +1,26 @@
+.person__data{
+    /* width: auto; */
+    display: flex;
+    gap: 120px;
+    /* grid-template-columns: auto auto auto; */
+    border-bottom: 2px solid gray;
+    margin:  9px 20%;
+    padding-left: 100px;
+    padding-right: 30px;
+    padding-bottom: 9px;
+    text-align: center;
+}
+.person__Name{
+    text-align: right;
+    padding-top: 9px;
+}
+
+.person__pfp img{
+    
+    border-radius: 50%;
+    /* border: 2px solid black; */
+}
+.person__rollno{
+    padding-top: 9px;
+    text-align: center;
+}

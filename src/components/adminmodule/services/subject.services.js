@@ -12,6 +12,7 @@ import {
 
 const subjectCollectionRef = collection(db, "subject");
 const studentCollectionRef = collection(db, "student");
+const peopleCollectionRef = collection(db, "subStud");
 const AbsenteesCollectionRef = collection(db, "absentees");
 class subjectDataService {
   addSubjects = (newSubject) => {
@@ -20,6 +21,15 @@ class subjectDataService {
   addStudent = (rollNoImg,newSubject) => {
     console.log(newSubject);
     return setDoc(doc(studentCollectionRef,rollNoImg),newSubject);
+  };
+  addPeople = (subjctID,newPeople) => {
+    console.log(newPeople);
+    return setDoc(doc(peopleCollectionRef,subjctID),newPeople);
+  };
+  updatePeople = (code, updatepeople) => {
+    console.log(updatepeople);
+    const peopleDoc = doc(peopleCollectionRef, code);
+    return updateDoc(peopleDoc, updatepeople);
   };
 
   updateStudent = (rollNoImg, updatedSubject) => {
@@ -52,9 +62,17 @@ class subjectDataService {
   getStudent=()=>{
     return getDocs(studentCollectionRef)
   }
+  getPeople=()=>{
+    return getDocs(peopleCollectionRef)
+  }
   getstudoc = (id) => {
     console.log(id)
     const studoc = doc(db, "student", id);
+    return getDoc(studoc);
+  };
+  getpeopleid = (id) => {
+    console.log(id)
+    const studoc = doc(db, "subStud", id);
     return getDoc(studoc);
   };
 }

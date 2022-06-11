@@ -12,7 +12,9 @@ function createCard(props) {
       code={props.code}
       name={props.name}
       year={props.year}
-      facname={props.facname} />
+      facname={props.facname} 
+      link={require("./people/dr_people.png")}
+      enrollStu={props.enroll}/>
   );
 }
 

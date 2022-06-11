@@ -8,6 +8,7 @@ export default function Report() {
     const Dateref = useRef();
     const [Report, setReport] = useState([]);
     const [Student, setStudent] = useState([]);
+    const [docSnap, setdocSnap] = useState();
 
     const location = useLocation();
     const [percentageform, setPercantageform] = useState(true);
@@ -21,13 +22,13 @@ export default function Report() {
     }, []);
     const getReport = async () => {
         const data = await SubjectDataService.getReport();
-
         setReport(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     const getStudent = async () => {
         const data = await SubjectDataService.getStudent();
-
         setStudent(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        const people = await SubjectDataService.getpeopleid(location.state.code)
+        setdocSnap(people.data())
     };
     const showabsentform = () => {
         setAbsenteesform(true)
@@ -63,18 +64,45 @@ export default function Report() {
     })
 
     var wholeStudent = []
-    let i = 1;
-    Student.map((item) => {
-        wholeStudent = [
-            ...wholeStudent,
-            {
-                id: i++,
-                name: item.name,
-                regno: item.regno,
-                percentage: totsub
-            }
-        ]
-    })
+    let j=1;
+    if(docSnap){
+        // console.log(docSnap.rollno.length);
+        // console.log(docSnap.rollno);
+    for (let i = 0; i < docSnap.rollno.length; i++) 
+    {
+        // console.log(docSnap.rollno.length);
+        Student.map((item) => {
+            // console.log(item.regno);
+            // console.log(docSnap.rollno);
+            console.log(i);
+
+            if (docSnap.rollno[i] === item.regno) {
+                console.log(item.regno);
+            wholeStudent = [
+                ...wholeStudent,
+                {
+                    id: j++,
+                    name: item.name,
+                    regno: item.regno,
+                    percentage: totsub
+                }
+            ]
+        }
+        })
+                
+    }
+}
+    // Student.map((item) => {
+    //     wholeStudent = [
+    //         ...wholeStudent,
+    //         {
+    //             id: i++,
+    //             name: item.name,
+    //             regno: item.regno,
+    //             percentage: totsub
+    //         }
+    //     ]
+    // })
     wholeStudent.map((item) => {
         Report.map((absentees) => {
             if (absentees.subject === location.state.sub) {
