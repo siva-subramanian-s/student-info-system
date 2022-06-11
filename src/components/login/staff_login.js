@@ -52,7 +52,7 @@ function StaffLogin() {
               <div className="row">
                 <i className="fas fa-user"></i>
                 <select id="faculty-user" ref={regno} >
-                  <option disabled defaultValue={"faculty name"}>Faculty name</option>
+                  <option disabled selected>Faculty name</option>
                   <option >Mrs.P.Tharani</option>
                   <option >Mrs.K.Manimala </option>
                   <option >Mrs.P.Nithya</option>

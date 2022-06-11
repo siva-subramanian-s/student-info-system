@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation ,useNavigate} from "react-router-dom";
 import { Link } from "react-router-dom";
 import acss from "../../attendance/style_atten.module.css";
 import subjectServices from "../../adminmodule/services/subject.services";
@@ -7,22 +7,25 @@ import { db } from "../../../firebaseConfig";
 import Person from "./Person";
 import { doc, getDoc } from "firebase/firestore";
 import "./people.css";
+import { useAuth } from "../../contexts/AuthContext";
 
 export default function People() {
-  const [length, setLength] = useState("");
+  const [Error, setError] = useState("");
+  const{logout }= useAuth();
   const location = useLocation();
   const [add, setAdd] = useState(false);
   const [message, setMessage] = useState({ error: false, msg: "" });
   const code = location.state.code;
+  const Navigate = useNavigate()
 
   async function handleLogout() {
-    // setError("")
-    // try {
-    //    await logout()
-    //    Navigate("/");
-    // } catch {
-    //    setError("Failed to log out")
-    // }
+    setError("")
+    try {
+       await logout()
+       Navigate("/");
+    } catch {
+       setError("Failed to log out")
+    }
   }
 
   const [regno, setRegnoList] = useState([{}]);
