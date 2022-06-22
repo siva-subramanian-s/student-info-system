@@ -37,14 +37,15 @@ export default function People() {
   }, []);
 
   const getData = async () => {
-    console.log(code);
+    // console.log(code);
     const studocref = doc(db, "subStud", code);
     const stddata = await subjectServices.getStudent();
     setStudent(stddata.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     const snap = await getDoc(studocref);
     setDocSnap(snap.data());
   };
-
+console.log(docSnap)
+console.log(Student)
   var people=[{}]
 
   if(docSnap){
@@ -87,7 +88,7 @@ export default function People() {
     try {
       if (docSnap) {
         await subjectServices.updatePeople(code, newPeople);
-        console.log("hi");
+        // console.log("hi");
         setMessage({ error: false, msg: "Updated successfully!" });
       } else {
         await subjectServices.addPeople(code, newPeople);
